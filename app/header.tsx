@@ -1,11 +1,13 @@
 "use client";
 
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useMediaQuery } from "usehooks-ts";
 
-import { cn } from "@/try-stuff/lib/utils";
+import { cn, getMediaQueryFromBreakpoint } from "@/try-stuff/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +17,20 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/try-stuff/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/try-stuff/components/ui/sheet";
+import { Button } from "@/try-stuff/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionNavigationMenuStyleTrigger,
+} from "@/try-stuff/components/ui/accordion";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -86,8 +102,6 @@ const businessComponents: {
 ];
 
 export function Header() {
-  const pathname = usePathname();
-
   return (
     <header className="fixed top-0 inset-x-0 bg-transparent backdrop-blur-sm">
       <div className="flex justify-between items-center py-3 px-4">
@@ -101,117 +115,239 @@ export function Header() {
             priority
           />
         </Link>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    pathname === "/" && "bg-accent text-accent-foreground"
-                  )}
-                >
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Business</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="w-[400px] gap-3 p-4">
-                  {businessComponents.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}
-                    >
-                      {component.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>News</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="w-[400px] gap-3 p-4">
-                  {components.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}
-                    >
-                      {component.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Publications</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="w-[400px] gap-3 p-4">
-                  {components.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}
-                    >
-                      {component.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Cyto-Coplot
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    pathname === "/trial" && "bg-accent text-accent-foreground"
-                  )}
-                >
-                  Sign up Trial
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <div className="hidden md:block">
+          <PCList />
+        </div>
+        <div className="block md:hidden">
+          <MobileList />
+        </div>
       </div>
     </header>
   );
 }
 
-const ListItem = React.forwardRef<
+const PCList = () => {
+  const pathname = usePathname();
+
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/" && "bg-accent text-accent-foreground"
+              )}
+            >
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Business</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-[400px] gap-3 p-4">
+              {businessComponents.map((component) => (
+                <li key={component.title}>
+                  <NavigationMenuLink asChild>
+                    <ListAnchor title={component.title} href={component.href}>
+                      {component.description}
+                    </ListAnchor>
+                  </NavigationMenuLink>
+                </li>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>News</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-[400px] gap-3 p-4">
+              {components.map((component) => (
+                <li key={component.title}>
+                  <NavigationMenuLink asChild>
+                    <ListAnchor title={component.title} href={component.href}>
+                      {component.description}
+                    </ListAnchor>
+                  </NavigationMenuLink>
+                </li>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Publications</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-[400px] gap-3 p-4">
+              {components.map((component) => (
+                <li key={component.title}>
+                  <NavigationMenuLink asChild>
+                    <ListAnchor title={component.title} href={component.href}>
+                      {component.description}
+                    </ListAnchor>
+                  </NavigationMenuLink>
+                </li>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Cyto-Coplot
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/trial" && "bg-accent text-accent-foreground"
+              )}
+            >
+              Sign up Trial
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+};
+
+const ListAnchor = React.forwardRef<
   React.ComponentRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
   return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
+    <a
+      ref={ref}
+      className={cn(
+        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        className
+      )}
+      {...props}
+    >
+      <div className="text-sm font-medium leading-none">{title}</div>
+      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+        {children}
+      </p>
+    </a>
   );
 });
 
-ListItem.displayName = "ListItem";
+ListAnchor.displayName = "ListAnchor";
+
+const MobileList = () => {
+  const pathname = usePathname();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const mediaQuery = getMediaQueryFromBreakpoint("md");
+  const isMatched = useMediaQuery(mediaQuery);
+
+  useEffect(() => {
+    if (isMatched) {
+      setIsOpen(false);
+    }
+  }, [isMatched]);
+
+  return (
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </SheetTrigger>
+      <SheetContent
+        className="h-screen overflow-auto"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
+        <SheetHeader>
+          {/* Even show nothing on the screen, this component still need title for web accessibility */}
+          <SheetTitle>
+            <VisuallyHidden>Navigation</VisuallyHidden>
+          </SheetTitle>
+        </SheetHeader>
+        <div className="flex flex-col space-y-4">
+          <Link
+            href="/"
+            className={cn(
+              navigationMenuTriggerStyle(),
+              pathname === "/" && "bg-accent text-accent-foreground",
+              "w-full"
+            )}
+          >
+            Home
+          </Link>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full flex flex-col space-y-4"
+          >
+            <AccordionItem value="business" className={cn("border-b-0")}>
+              <AccordionNavigationMenuStyleTrigger>
+                Business
+              </AccordionNavigationMenuStyleTrigger>
+              <AccordionContent>
+                <ul className="gap-3 p-4">
+                  {businessComponents.map((component) => (
+                    <li key={component.title}>
+                      <ListAnchor title={component.title} href={component.href}>
+                        {component.description}
+                      </ListAnchor>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="news" className={cn("border-b-0")}>
+              <AccordionNavigationMenuStyleTrigger>
+                News
+              </AccordionNavigationMenuStyleTrigger>
+              <AccordionContent>
+                <ul className="gap-3 p-4">
+                  {components.map((component) => (
+                    <li key={component.title}>
+                      <ListAnchor title={component.title} href={component.href}>
+                        {component.description}
+                      </ListAnchor>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="publications" className={cn("border-b-0")}>
+              <AccordionNavigationMenuStyleTrigger>
+                Publications
+              </AccordionNavigationMenuStyleTrigger>
+              <AccordionContent>
+                <ul className="gap-3 p-4">
+                  {components.map((component) => (
+                    <li key={component.title}>
+                      <ListAnchor title={component.title} href={component.href}>
+                        {component.description}
+                      </ListAnchor>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+          <Link href="/" className={cn(navigationMenuTriggerStyle(), "w-full")}>
+            Cyto-Coplot
+          </Link>
+          <Link
+            href="/"
+            className={cn(
+              navigationMenuTriggerStyle(),
+              pathname === "/trial" && "bg-accent text-accent-foreground",
+              "w-full"
+            )}
+          >
+            Sign up Trial
+          </Link>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+};
