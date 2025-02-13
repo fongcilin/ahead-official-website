@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
@@ -24,13 +23,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/try-stuff/components/ui/sheet";
-import { Button } from "@/try-stuff/components/ui/button";
+import { Button, buttonVariants } from "@/try-stuff/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
 } from "@/try-stuff/components/ui/accordion";
+import { Icons } from "@/try-stuff/components/icons";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -103,17 +103,10 @@ const businessComponents: {
 
 export function Header() {
   return (
-    <header className="fixed top-0 inset-x-0 bg-transparent backdrop-blur-sm">
+    <header className="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md z-10">
       <div className="flex justify-between items-center py-3 px-4">
-        <Link href="/">
-          <Image
-            className="dark:invert"
-            src="/ahead_logo.svg"
-            alt="Ahead logo"
-            width={64}
-            height={52}
-            priority
-          />
+        <Link href="/" className="text-primary">
+          <Icons.Logo className="h-14 w-28" />
         </Link>
         <div className="hidden md:block">
           <PCList />
@@ -133,19 +126,9 @@ const PCList = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                pathname === "/" && "bg-accent text-accent-foreground"
-              )}
-            >
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Business</NavigationMenuTrigger>
+          <NavigationMenuTrigger className={cn("bg-transparent")}>
+            Business
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-[400px] gap-3 p-4">
               {businessComponents.map((component) => (
@@ -161,7 +144,9 @@ const PCList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>News</NavigationMenuTrigger>
+          <NavigationMenuTrigger className={cn("bg-transparent")}>
+            News
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-[400px] gap-3 p-4">
               {components.map((component) => (
@@ -177,7 +162,9 @@ const PCList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Publications</NavigationMenuTrigger>
+          <NavigationMenuTrigger className={cn("bg-transparent")}>
+            Publications
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-[400px] gap-3 p-4">
               {components.map((component) => (
@@ -194,7 +181,7 @@ const PCList = () => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className={cn(buttonVariants())}>
               Cyto-Coplot
             </NavigationMenuLink>
           </Link>
@@ -204,6 +191,7 @@ const PCList = () => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
+                "bg-transparent",
                 pathname === "/trial" && "bg-accent text-accent-foreground"
               )}
             >
@@ -269,16 +257,6 @@ const MobileList = () => {
           </SheetTitle>
         </SheetHeader>
         <div className="flex flex-col space-y-4">
-          <Link
-            href="/"
-            className={cn(
-              navigationMenuTriggerStyle(),
-              pathname === "/" && "bg-accent text-accent-foreground",
-              "w-full"
-            )}
-          >
-            Home
-          </Link>
           <Accordion
             type="single"
             collapsible
