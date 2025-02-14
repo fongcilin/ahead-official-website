@@ -49,7 +49,7 @@ const leaderships = [
     image: "/images/team/jeremy.lee.jpg",
     imageSize: {
       width: 256,
-      height: 270,
+      height: 272,
     },
   },
 ];
