@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "./header";
 import { Footer } from "./footer";
@@ -13,6 +13,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const geistPoppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `${geistSans.variable} ${geistMono.variable} antialiased`,
+          `${geistPoppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased`,
           "grid grid-rows-[1fr,auto] min-h-screen"
         )}
       >
