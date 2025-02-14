@@ -13,7 +13,7 @@ export const Footer = () => {
           src="/images/ahead_logo.png"
           alt="Ahead logo"
           width={128}
-          height={104}
+          height={105}
           priority
           className="self-start"
         />

@@ -39,3 +39,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 `app/**/*` only use `md:*`
 `/components/**/*` use screen breakpoints for UI UX
+
+## The width and height from Image (Nextjs)
+
+`Image with src "xxx/xxxxx/xx" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.`
+
+If see this warning, check the `Rendered size:` from `Elements` tab in browser's console, and use the width and height from it.
