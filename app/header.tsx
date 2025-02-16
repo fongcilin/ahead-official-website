@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { useMediaQuery } from "usehooks-ts";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { useMediaQuery } from 'usehooks-ts';
 
-import { Icons } from "@/try-stuff/components/icons";
+import { Icons } from '@/try-stuff/components/icons';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,7 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/try-stuff/components/ui/navigation-menu";
+} from '@/try-stuff/components/ui/navigation-menu';
 import {
   Sheet,
   SheetContent,
@@ -23,15 +23,15 @@ import {
   SheetTitle,
   SheetDescription,
   SheetTrigger,
-} from "@/try-stuff/components/ui/sheet";
-import { Button, buttonVariants } from "@/try-stuff/components/ui/button";
+} from '@/try-stuff/components/ui/sheet';
+import { Button, buttonVariants } from '@/try-stuff/components/ui/button';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
-} from "@/try-stuff/components/ui/accordion";
-import { cn, getMediaQueryFromBreakpoint } from "@/try-stuff/lib/utils";
+} from '@/try-stuff/components/ui/accordion';
+import { cn, getMediaQueryFromBreakpoint } from '@/try-stuff/lib/utils';
 
 type ListItem = {
   title: string;
@@ -41,50 +41,50 @@ type ListItem = {
 
 const resources: ListItem[] = [
   {
-    title: "News",
-    href: "/news",
+    title: 'News',
+    href: '/news',
     description:
-      "Stay up-to-date with the latest news and announcements from our team.",
+      'Stay up-to-date with the latest news and announcements from our team.',
   },
   {
-    title: "Publications",
-    href: "/publications",
+    title: 'Publications',
+    href: '/publications',
     description:
-      "Explore our collection of research papers, articles, and other publications.",
+      'Explore our collection of research papers, articles, and other publications.',
   },
 ];
 
 const companyInfos: ListItem[] = [
   {
-    title: "About",
-    href: "/about",
+    title: 'About',
+    href: '/about',
     description:
-      "Learn more about our company, our mission, and our commitment to innovation.",
+      'Learn more about our company, our mission, and our commitment to innovation.',
   },
   {
-    title: "Career",
-    href: "/career",
+    title: 'Career',
+    href: '/career',
     description:
       "Join our team! We're always looking for talented and passionate individuals to help us build the future of healthcare.",
   },
   {
-    title: "Contact",
-    href: "/contact",
+    title: 'Contact',
+    href: '/contact',
     description:
       "Have a question or need help? Get in touch with our team and we'll be happy to assist you.",
   },
   {
-    title: "Partnership",
-    href: "/partnership",
+    title: 'Partnership',
+    href: '/partnership',
     description:
-      "Interested in partnering with us? Learn more about our partnership opportunities and how we can work together.",
+      'Interested in partnering with us? Learn more about our partnership opportunities and how we can work together.',
   },
 ];
 
 export function Header() {
   return (
-    <header className="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md z-10">
-      <div className="flex justify-between items-center py-3 px-4">
+    <header className="fixed inset-x-0 top-0 z-10 bg-transparent backdrop-blur-md">
+      <div className="flex items-center justify-between px-4 py-3">
         <Link href="/" className="text-primary">
           <Icons.Logo className="h-14 w-28" />
         </Link>
@@ -110,8 +110,8 @@ const PCList = () => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "bg-transparent",
-                pathname === "/" && "bg-accent text-accent-foreground"
+                'bg-transparent',
+                pathname === '/' && 'bg-accent text-accent-foreground',
               )}
             >
               Home
@@ -119,7 +119,7 @@ const PCList = () => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn("bg-transparent")}>
+          <NavigationMenuTrigger className={cn('bg-transparent')}>
             Company
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -137,7 +137,7 @@ const PCList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn("bg-transparent")}>
+          <NavigationMenuTrigger className={cn('bg-transparent')}>
             Resources
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -166,8 +166,8 @@ const PCList = () => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "bg-transparent",
-                pathname === "/trial" && "bg-accent text-accent-foreground"
+                'bg-transparent',
+                pathname === '/trial' && 'bg-accent text-accent-foreground',
               )}
             >
               Sign up Trial
@@ -184,7 +184,7 @@ const MobileList = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const mediaQuery = getMediaQueryFromBreakpoint("md");
+  const mediaQuery = getMediaQueryFromBreakpoint('md');
   const isMatched = useMediaQuery(mediaQuery);
 
   useEffect(() => {
@@ -218,8 +218,8 @@ const MobileList = () => {
             href="/"
             className={cn(
               navigationMenuTriggerStyle(),
-              pathname === "/" && "bg-accent text-accent-foreground",
-              "w-full"
+              pathname === '/' && 'bg-accent text-accent-foreground',
+              'w-full',
             )}
           >
             Home
@@ -227,9 +227,9 @@ const MobileList = () => {
           <Accordion
             type="single"
             collapsible
-            className="w-full flex flex-col space-y-4"
+            className="flex w-full flex-col space-y-4"
           >
-            <AccordionItem value="company" className={cn("border-b-0")}>
+            <AccordionItem value="company" className={cn('border-b-0')}>
               <AccordionNavigationMenuStyleTrigger>
                 Company
               </AccordionNavigationMenuStyleTrigger>
@@ -245,7 +245,7 @@ const MobileList = () => {
                 </ul>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="resources" className={cn("border-b-0")}>
+            <AccordionItem value="resources" className={cn('border-b-0')}>
               <AccordionNavigationMenuStyleTrigger>
                 Resources
               </AccordionNavigationMenuStyleTrigger>
@@ -262,15 +262,15 @@ const MobileList = () => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Link href="/" className={cn(cn(buttonVariants()), "w-full")}>
+          <Link href="/" className={cn(cn(buttonVariants()), 'w-full')}>
             Cyto-Coplot
           </Link>
           <Link
             href="/"
             className={cn(
               navigationMenuTriggerStyle(),
-              pathname === "/trial" && "bg-accent text-accent-foreground",
-              "w-full"
+              pathname === '/trial' && 'bg-accent text-accent-foreground',
+              'w-full',
             )}
           >
             Sign up Trial
@@ -289,8 +289,8 @@ const ListLink = React.forwardRef<
     <Link
       ref={ref}
       className={cn(
-        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-        className
+        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+        className,
       )}
       {...props}
     >
@@ -302,4 +302,4 @@ const ListLink = React.forwardRef<
   );
 });
 
-ListLink.displayName = "ListLink";
+ListLink.displayName = 'ListLink';

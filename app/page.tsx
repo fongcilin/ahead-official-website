@@ -1,33 +1,33 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Typography } from "@/try-stuff/components/typography";
-import { AspectRatio } from "@/try-stuff/components/ui/aspect-ratio";
-import { RedTextBlock } from "@/try-stuff/components/custom/red-text-block";
-import { cn } from "@/try-stuff/lib/utils";
+import { Typography } from '@/try-stuff/components/typography';
+import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
+import { RedTextBlock } from '@/try-stuff/components/custom/red-text-block';
+import { cn } from '@/try-stuff/lib/utils';
 
 const feats = [
   {
     id: 1,
-    image: "/images/ahead_logo.png",
+    image: '/images/ahead_logo.png',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 2,
-    image: "/images/ahead_logo.png",
+    image: '/images/ahead_logo.png',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 3,
-    image: "/images/ahead_logo.png",
+    image: '/images/ahead_logo.png',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
 ];
 
 export default function Home() {
   return (
-    <main className="pt-[120px] flex flex-col items-center space-y-20">
-      <div className="px-4 flex flex-col space-x-0 space-y-10 max-w-[800px] mx-auto md:flex-row md:space-y-0 md:space-x-4">
-        <section className="flex-1 flex flex-col space-y-6">
+    <main className="flex flex-col items-center space-y-20 pt-[120px]">
+      <div className="mx-auto flex max-w-[800px] flex-col space-x-0 space-y-10 px-4 md:flex-row md:space-x-4 md:space-y-0">
+        <section className="flex flex-1 flex-col space-y-6">
           <div className="flex justify-center md:justify-start">
             <Image
               src="/images/ahead_logo.png"
@@ -37,11 +37,11 @@ export default function Home() {
               priority
             />
           </div>
-          <Typography.H2 className="text-zinc-500 text-center md:text-left">
+          <Typography.H2 className="text-center text-zinc-500 md:text-left">
             Your AI Co-pilot in Medicine
           </Typography.H2>
         </section>
-        <section className="flex-1 flex flex-col space-y-6">
+        <section className="flex flex-1 flex-col space-y-6">
           <div className="flex justify-center">
             <Image
               src="/images/ahead_logo.png"
@@ -67,22 +67,22 @@ export default function Home() {
               allow="autoplay; encrypted-media; fullscreen"
               width="100%"
               height="auto"
-              style={{ aspectRatio: "16/9" }}
+              style={{ aspectRatio: '16/9' }}
               title="intro video"
             />
           </AspectRatio>
         </div>
       </div>
-      <div className="flex flex-col space-y-16 mx-auto max-w-[600px] px-4">
+      <div className="mx-auto flex max-w-[600px] flex-col space-y-16 px-4">
         {feats.map(({ id, image, intro }, i) => (
           <section
             key={id}
             className={cn(
-              "flex flex-col space-y-6",
-              "md:justify-center",
+              'flex flex-col space-y-6',
+              'md:justify-center',
               i % 2 === 0
-                ? "md:flex-row md:space-x-6"
-                : "md:flex-row-reverse md:space-x-6 md:space-x-reverse"
+                ? 'md:flex-row md:space-x-6'
+                : 'md:flex-row-reverse md:space-x-6 md:space-x-reverse',
             )}
           >
             <Image

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { cn } from "@/try-stuff/lib/utils";
+import { cn } from '@/try-stuff/lib/utils';
 
 interface RedTextBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface RedTextBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const RedTextBlock = ({ children, className }: RedTextBlockProps) => {
   return (
-    <div className={cn("bg-red-800 text-white rounded-md p-3", className)}>
+    <div className={cn('rounded-md bg-red-800 p-3 text-white', className)}>
       {children}
     </div>
   );

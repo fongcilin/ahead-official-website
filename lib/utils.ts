@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 /**
  *
@@ -21,16 +21,16 @@ export const cn = (...inputs: ClassValue[]) => {
  */
 export const getMediaQueryFromBreakpoint = (query: string) => {
   switch (query) {
-    case "sm":
-      return "(min-width: 640px)";
-    case "md":
-      return "(min-width: 768px)";
-    case "lg":
-      return "(min-width: 1024px)";
-    case "xl":
-      return "(min-width: 1280px)";
-    case "2xl":
-      return "(min-width: 1536px)";
+    case 'sm':
+      return '(min-width: 640px)';
+    case 'md':
+      return '(min-width: 768px)';
+    case 'lg':
+      return '(min-width: 1024px)';
+    case 'xl':
+      return '(min-width: 1280px)';
+    case '2xl':
+      return '(min-width: 1536px)';
     default:
       return query;
   }

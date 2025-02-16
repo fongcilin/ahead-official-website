@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
-import { type BadgeProps, Badge } from "@/try-stuff/components/ui/badge";
-import { cn } from "@/try-stuff/lib/utils";
+import { type BadgeProps, Badge } from '@/try-stuff/components/ui/badge';
+import { cn } from '@/try-stuff/lib/utils';
 
 export type LinkBadgeItem = {
   id: string;
@@ -15,11 +15,11 @@ export interface LinkBadgesProps extends BadgeProps {
 }
 
 export const LinkBadges = React.forwardRef<
-  React.ComponentRef<"ul">,
+  React.ComponentRef<'ul'>,
   LinkBadgesProps
 >(({ data, className }, ref) => {
   return (
-    <ul ref={ref} className={cn("flex flex-wrap gap-2 p-4", className)}>
+    <ul ref={ref} className={cn('flex flex-wrap gap-2 p-4', className)}>
       {data.map((item) => (
         <li key={item.id}>
           <Link href={`/news/${item.id}`}>
@@ -32,4 +32,4 @@ export const LinkBadges = React.forwardRef<
     </ul>
   );
 });
-LinkBadges.displayName = "LinkBadges";
+LinkBadges.displayName = 'LinkBadges';

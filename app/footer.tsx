@@ -1,14 +1,14 @@
-import Image from "next/image";
-import { Mail, ListTodo } from "lucide-react";
+import Image from 'next/image';
+import { Mail, ListTodo } from 'lucide-react';
 
-import { Icons } from "@/try-stuff/components/icons";
-import { Typography } from "@/try-stuff/components/typography";
-import { Button } from "@/try-stuff/components/ui/button";
+import { Icons } from '@/try-stuff/components/icons';
+import { Typography } from '@/try-stuff/components/typography';
+import { Button } from '@/try-stuff/components/ui/button';
 
 export const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-gray-300 to-white mt-20">
-      <div className="flex justify-center space-x-6 py-10 px-4">
+    <footer className="mt-20 bg-gradient-to-t from-gray-300 to-white">
+      <div className="flex justify-center space-x-6 px-4 py-10">
         <Image
           src="/images/ahead_logo.png"
           alt="Ahead logo"
@@ -17,7 +17,7 @@ export const Footer = () => {
           priority
           className="self-start"
         />
-        <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-6 md:items-center">
+        <div className="flex flex-col space-y-3 md:flex-row md:items-center md:space-x-6 md:space-y-0">
           <div className="max-w-[240px]">
             <Typography.Muted>AHEAD Medicine</Typography.Muted>
             <Typography.Muted>
@@ -30,16 +30,16 @@ export const Footer = () => {
           </div>
           <div className="flex space-x-3">
             <Button variant="outline" size="icon">
-              <Mail className="w-7 h-7" />
+              <Mail className="h-7 w-7" />
             </Button>
             <Button variant="outline" size="icon">
-              <Icons.X className="w-7 h-7" />
+              <Icons.X className="h-7 w-7" />
             </Button>
             <Button variant="outline" size="icon">
-              <Icons.Linkedin className="w-7 h-7" />
+              <Icons.Linkedin className="h-7 w-7" />
             </Button>
             <Button variant="outline" size="icon">
-              <ListTodo className="w-7 h-7" />
+              <ListTodo className="h-7 w-7" />
             </Button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { cn } from "@/try-stuff/lib/utils";
+import { cn } from '@/try-stuff/lib/utils';
 
 interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -8,8 +8,8 @@ export const Typography = {
   H1: ({ children, className }: TypographyProps) => (
     <h1
       className={cn(
-        "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-        className
+        'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+        className,
       )}
     >
       {children}
@@ -18,8 +18,8 @@ export const Typography = {
   H2: ({ children, className }: TypographyProps) => (
     <h2
       className={cn(
-        "scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0",
-        className
+        'scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0',
+        className,
       )}
     >
       {children}
@@ -29,8 +29,8 @@ export const Typography = {
     return (
       <h3
         className={cn(
-          "scroll-m-20 text-2xl font-semibold tracking-tight",
-          className
+          'scroll-m-20 text-2xl font-semibold tracking-tight',
+          className,
         )}
       >
         {children}
@@ -40,28 +40,28 @@ export const Typography = {
   H4: ({ children, className }: TypographyProps) => (
     <h4
       className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
-        className
+        'scroll-m-20 text-xl font-semibold tracking-tight',
+        className,
       )}
     >
       {children}
     </h4>
   ),
   P: ({ children, className }: TypographyProps) => (
-    <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
+    <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}>
       {children}
     </p>
   ),
   Blockquote: ({ children, className }: TypographyProps) => {
     return (
-      <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)}>
+      <blockquote className={cn('mt-6 border-l-2 pl-6 italic', className)}>
         {children}
       </blockquote>
     );
   },
   Muted: ({ children, className }: TypographyProps) => {
     return (
-      <p className={cn("text-sm text-muted-foreground", className)}>
+      <p className={cn('text-sm text-muted-foreground', className)}>
         {children}
       </p>
     );
