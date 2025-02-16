@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useMediaQuery } from "usehooks-ts";
 
-import { cn, getMediaQueryFromBreakpoint } from "@/try-stuff/lib/utils";
+import { Icons } from "@/try-stuff/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,6 +21,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/try-stuff/components/ui/sheet";
 import { Button, buttonVariants } from "@/try-stuff/components/ui/button";
@@ -30,74 +31,53 @@ import {
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
 } from "@/try-stuff/components/ui/accordion";
-import { Icons } from "@/try-stuff/components/icons";
+import { cn, getMediaQueryFromBreakpoint } from "@/try-stuff/lib/utils";
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
-
-const businessComponents: {
+type ListItem = {
   title: string;
   href: string;
   description: string;
-}[] = [
+};
+
+const resources: ListItem[] = [
+  {
+    title: "News",
+    href: "/news",
+    description:
+      "Stay up-to-date with the latest news and announcements from our team.",
+  },
+  {
+    title: "Publications",
+    href: "/publications",
+    description:
+      "Explore our collection of research papers, articles, and other publications.",
+  },
+];
+
+const companyInfos: ListItem[] = [
   {
     title: "About",
     href: "/about",
     description:
-      "Here you'll learn about our history, mission, values, and the passionate team behind our work. ",
+      "Learn more about our company, our mission, and our commitment to innovation.",
   },
   {
     title: "Career",
     href: "/career",
     description:
-      "We're a team of passionate and innovative individuals dedicated to solve the problems about flow cytometry.",
+      "Join our team! We're always looking for talented and passionate individuals to help us build the future of healthcare.",
   },
   {
     title: "Contact",
     href: "/contact",
     description:
-      "Get in touch with us! We'd love to hear from you.  Whether you have questions about our products or services, or you're interested in a partnership, we're here to help.",
+      "Have a question or need help? Get in touch with our team and we'll be happy to assist you.",
   },
   {
     title: "Partnership",
     href: "/partnership",
     description:
-      "Interested in partnering with us? We're always looking for innovative and collaborative opportunities to expand our reach and better serve our customers.",
+      "Interested in partnering with us? Learn more about our partnership opportunities and how we can work together.",
   },
 ];
 
@@ -126,17 +106,30 @@ const PCList = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent",
+                pathname === "/" && "bg-accent text-accent-foreground"
+              )}
+            >
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuTrigger className={cn("bg-transparent")}>
-            Business
+            Company
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-[400px] gap-3 p-4">
-              {businessComponents.map((component) => (
-                <li key={component.title}>
+              {companyInfos.map((item) => (
+                <li key={item.title}>
                   <NavigationMenuLink asChild>
-                    <ListAnchor title={component.title} href={component.href}>
-                      {component.description}
-                    </ListAnchor>
+                    <ListLink title={item.title} href={item.href}>
+                      {item.description}
+                    </ListLink>
                   </NavigationMenuLink>
                 </li>
               ))}
@@ -145,34 +138,16 @@ const PCList = () => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className={cn("bg-transparent")}>
-            News
+            Resources
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-[400px] gap-3 p-4">
-              {components.map((component) => (
-                <li key={component.title}>
+              {resources.map((item) => (
+                <li key={item.title}>
                   <NavigationMenuLink asChild>
-                    <ListAnchor title={component.title} href={component.href}>
-                      {component.description}
-                    </ListAnchor>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn("bg-transparent")}>
-            Publications
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="w-[400px] gap-3 p-4">
-              {components.map((component) => (
-                <li key={component.title}>
-                  <NavigationMenuLink asChild>
-                    <ListAnchor title={component.title} href={component.href}>
-                      {component.description}
-                    </ListAnchor>
+                    <ListLink title={item.title} href={item.href}>
+                      {item.description}
+                    </ListLink>
                   </NavigationMenuLink>
                 </li>
               ))}
@@ -204,29 +179,6 @@ const PCList = () => {
   );
 };
 
-const ListAnchor = React.forwardRef<
-  React.ComponentRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <a
-      ref={ref}
-      className={cn(
-        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-        className
-      )}
-      {...props}
-    >
-      <div className="text-sm font-medium leading-none">{title}</div>
-      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-        {children}
-      </p>
-    </a>
-  );
-});
-
-ListAnchor.displayName = "ListAnchor";
-
 const MobileList = () => {
   const pathname = usePathname();
 
@@ -255,63 +207,62 @@ const MobileList = () => {
           <SheetTitle>
             <VisuallyHidden>Navigation</VisuallyHidden>
           </SheetTitle>
+          <SheetDescription>
+            <VisuallyHidden>
+              This is mobile version of navigation
+            </VisuallyHidden>
+          </SheetDescription>
         </SheetHeader>
         <div className="flex flex-col space-y-4">
+          <Link
+            href="/"
+            className={cn(
+              navigationMenuTriggerStyle(),
+              pathname === "/" && "bg-accent text-accent-foreground",
+              "w-full"
+            )}
+          >
+            Home
+          </Link>
           <Accordion
             type="single"
             collapsible
             className="w-full flex flex-col space-y-4"
           >
-            <AccordionItem value="business" className={cn("border-b-0")}>
+            <AccordionItem value="company" className={cn("border-b-0")}>
               <AccordionNavigationMenuStyleTrigger>
-                Business
+                Company
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
                 <ul className="gap-3 p-4">
-                  {businessComponents.map((component) => (
-                    <li key={component.title}>
-                      <ListAnchor title={component.title} href={component.href}>
-                        {component.description}
-                      </ListAnchor>
+                  {companyInfos.map((item) => (
+                    <li key={item.title} onClick={() => setIsOpen(false)}>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
                     </li>
                   ))}
                 </ul>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="news" className={cn("border-b-0")}>
+            <AccordionItem value="resources" className={cn("border-b-0")}>
               <AccordionNavigationMenuStyleTrigger>
-                News
+                Resources
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
                 <ul className="gap-3 p-4">
-                  {components.map((component) => (
-                    <li key={component.title}>
-                      <ListAnchor title={component.title} href={component.href}>
-                        {component.description}
-                      </ListAnchor>
-                    </li>
-                  ))}
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="publications" className={cn("border-b-0")}>
-              <AccordionNavigationMenuStyleTrigger>
-                Publications
-              </AccordionNavigationMenuStyleTrigger>
-              <AccordionContent>
-                <ul className="gap-3 p-4">
-                  {components.map((component) => (
-                    <li key={component.title}>
-                      <ListAnchor title={component.title} href={component.href}>
-                        {component.description}
-                      </ListAnchor>
+                  {resources.map((item) => (
+                    <li key={item.title} onClick={() => setIsOpen(false)}>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
                     </li>
                   ))}
                 </ul>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Link href="/" className={cn(navigationMenuTriggerStyle(), "w-full")}>
+          <Link href="/" className={cn(cn(buttonVariants()), "w-full")}>
             Cyto-Coplot
           </Link>
           <Link
@@ -329,3 +280,26 @@ const MobileList = () => {
     </Sheet>
   );
 };
+
+const ListLink = React.forwardRef<
+  React.ComponentRef<typeof Link>,
+  React.ComponentPropsWithoutRef<typeof Link>
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <Link
+      ref={ref}
+      className={cn(
+        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        className
+      )}
+      {...props}
+    >
+      <div className="text-sm font-medium leading-none">{title}</div>
+      <p className="line-clamp-3 text-sm leading-snug text-muted-foreground">
+        {children}
+      </p>
+    </Link>
+  );
+});
+
+ListLink.displayName = "ListLink";
