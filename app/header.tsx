@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { useMediaQuery } from 'usehooks-ts';
+import { useWindowSize } from 'usehooks-ts';
 
 import { Icons } from '@/try-stuff/components/icons';
 import {
@@ -30,7 +30,7 @@ import {
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
 } from '@/try-stuff/components/ui/accordion';
-import { cn, getMediaQueryFromBreakpoint } from '@/try-stuff/lib/utils';
+import { cn } from '@/try-stuff/lib/utils';
 
 type ListItem = {
   title: string;
@@ -81,18 +81,21 @@ const companyInfos: ListItem[] = [
 ];
 
 export function Header() {
+  const { width = 0 } = useWindowSize({ initializeWithValue: false });
+  const isMinWidthMd = width >= 768;
+
   return (
     <header className="fixed inset-x-0 top-0 z-10 border-b border-red-800 bg-white">
       <div className="flex items-center justify-between px-4">
         <Link href="/" className="text-primary">
           <Icons.Logo className="h-14 w-28" />
         </Link>
-        <div className="hidden md:block">
-          <PCList />
-        </div>
-        <div className="block md:hidden">
-          <MobileList />
-        </div>
+        {width !== 0 && (
+          <>
+            {isMinWidthMd && <PCList />}
+            {!isMinWidthMd && <MobileList isMinWidthMd={isMinWidthMd} />}
+          </>
+        )}
       </div>
     </header>
   );
@@ -170,17 +173,28 @@ const PCList = () => {
   );
 };
 
-const MobileList = () => {
+interface MobileListProps {
+  isMinWidthMd: boolean;
+}
+
+const MobileList = ({ isMinWidthMd }: MobileListProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const mediaQuery = getMediaQueryFromBreakpoint('md');
-  const isMatched = useMediaQuery(mediaQuery);
+  const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
+
+  // Radix UI just focus on their own components,
+  // so we need to handle focus manually,
+  // if we want to focus on a non-Radix UI component.
+  const handleOpenAutoFocus = (e: Event) => {
+    e.preventDefault();
+    homeLinkRef.current?.focus();
+  };
 
   useEffect(() => {
-    if (isMatched) {
+    if (isMinWidthMd) {
       setIsOpen(false);
     }
-  }, [isMatched]);
+  }, [isMinWidthMd]);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -190,8 +204,8 @@ const MobileList = () => {
         </Button>
       </SheetTrigger>
       <SheetContent
+        onOpenAutoFocus={handleOpenAutoFocus}
         className="h-screen overflow-auto px-0"
-        onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <SheetHeader>
           {/* Even show nothing on the screen, this component still need title for web accessibility */}
@@ -206,6 +220,7 @@ const MobileList = () => {
         </SheetHeader>
         <div className="flex flex-col space-y-4">
           <Link
+            ref={homeLinkRef}
             href="/"
             className={cn(navigationMenuTriggerStyle(), 'w-full rounded-none')}
           >
