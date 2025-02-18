@@ -266,7 +266,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
           </Accordion>
           <Link
             href="/"
-            className={cn(cn(buttonVariants()), 'h-14 w-full rounded-none')}
+            className={cn(cn(buttonVariants()), 'w-full rounded-none')}
           >
             Cyto-Coplot
           </Link>
