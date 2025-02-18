@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useWindowSize } from 'usehooks-ts';
 
-import { Icons } from '@/try-stuff/components/icons';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -85,11 +84,13 @@ export function Header() {
   const isMinWidthMd = width >= 768;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-10 border-b border-red-800 bg-white">
-      <div className="flex items-center justify-between px-4">
-        <Link href="/" className="text-primary">
-          <Icons.Logo className="h-14 w-28" />
-        </Link>
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-10 border-b border-red-800 bg-white',
+        width === 0 && 'h-[57px]',
+      )}
+    >
+      <div className="flex items-center justify-end px-4">
         {width !== 0 && (
           <>
             {isMinWidthMd && <PCList />}
@@ -218,7 +219,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
             </VisuallyHidden>
           </SheetDescription>
         </SheetHeader>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col gap-y-4">
           <Link
             ref={homeLinkRef}
             href="/"
@@ -229,7 +230,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
           <Accordion
             type="single"
             collapsible
-            className="flex w-full flex-col space-y-4 rounded-none"
+            className="flex w-full flex-col gap-y-4 rounded-none"
           >
             <AccordionItem value="company" className={cn('border-b-0')}>
               <AccordionNavigationMenuStyleTrigger className="rounded-none">
@@ -290,7 +291,9 @@ const ListLink = React.forwardRef<
     <Link
       ref={ref}
       className={cn(
-        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
+        'hover:bg-accent hover:text-accent-foreground',
+        'focus:bg-accent focus:text-accent-foreground',
         className,
       )}
       {...props}
