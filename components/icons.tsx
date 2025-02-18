@@ -29,7 +29,7 @@ export const Icons = {
 
       <text
         x="200"
-        y="120"
+        y="140"
         fontSize="100"
         fontFamily="Arial, sans-serif"
         fontWeight="bold"

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -83,8 +82,8 @@ const companyInfos: ListItem[] = [
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-10 bg-transparent backdrop-blur-md">
-      <div className="flex items-center justify-between px-4 py-3">
+    <header className="fixed inset-x-0 top-0 z-10 border-b border-red-800 bg-white">
+      <div className="flex items-center justify-between px-4">
         <Link href="/" className="text-primary">
           <Icons.Logo className="h-14 w-28" />
         </Link>
@@ -100,26 +99,20 @@ export function Header() {
 }
 
 const PCList = () => {
-  const pathname = usePathname();
-
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="space-x-0">
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'bg-transparent',
-                pathname === '/' && 'bg-accent text-accent-foreground',
-              )}
+              className={cn(navigationMenuTriggerStyle(), 'h-14 rounded-none')}
             >
               Home
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn('bg-transparent')}>
+          <NavigationMenuTrigger className={cn('h-14 rounded-none')}>
             Company
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -137,7 +130,7 @@ const PCList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn('bg-transparent')}>
+          <NavigationMenuTrigger className={cn('h-14 rounded-none')}>
             Resources
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -156,7 +149,9 @@ const PCList = () => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(buttonVariants())}>
+            <NavigationMenuLink
+              className={cn(buttonVariants(), 'h-14 rounded-none')}
+            >
               Cyto-Coplot
             </NavigationMenuLink>
           </Link>
@@ -164,11 +159,7 @@ const PCList = () => {
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'bg-transparent',
-                pathname === '/trial' && 'bg-accent text-accent-foreground',
-              )}
+              className={cn(navigationMenuTriggerStyle(), 'h-14 rounded-none')}
             >
               Sign up Trial
             </NavigationMenuLink>
@@ -180,8 +171,6 @@ const PCList = () => {
 };
 
 const MobileList = () => {
-  const pathname = usePathname();
-
   const [isOpen, setIsOpen] = useState(false);
 
   const mediaQuery = getMediaQueryFromBreakpoint('md');
@@ -196,10 +185,12 @@ const MobileList = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant="outline" className="h-14 rounded-none border-none">
+          Open
+        </Button>
       </SheetTrigger>
       <SheetContent
-        className="h-screen overflow-auto"
+        className="h-screen overflow-auto px-0"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <SheetHeader>
@@ -216,21 +207,17 @@ const MobileList = () => {
         <div className="flex flex-col space-y-4">
           <Link
             href="/"
-            className={cn(
-              navigationMenuTriggerStyle(),
-              pathname === '/' && 'bg-accent text-accent-foreground',
-              'w-full',
-            )}
+            className={cn(navigationMenuTriggerStyle(), 'w-full rounded-none')}
           >
             Home
           </Link>
           <Accordion
             type="single"
             collapsible
-            className="flex w-full flex-col space-y-4"
+            className="flex w-full flex-col space-y-4 rounded-none"
           >
             <AccordionItem value="company" className={cn('border-b-0')}>
-              <AccordionNavigationMenuStyleTrigger>
+              <AccordionNavigationMenuStyleTrigger className="rounded-none">
                 Company
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
@@ -246,7 +233,7 @@ const MobileList = () => {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="resources" className={cn('border-b-0')}>
-              <AccordionNavigationMenuStyleTrigger>
+              <AccordionNavigationMenuStyleTrigger className="rounded-none">
                 Resources
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
@@ -262,16 +249,15 @@ const MobileList = () => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Link href="/" className={cn(cn(buttonVariants()), 'w-full')}>
+          <Link
+            href="/"
+            className={cn(cn(buttonVariants()), 'h-14 w-full rounded-none')}
+          >
             Cyto-Coplot
           </Link>
           <Link
             href="/"
-            className={cn(
-              navigationMenuTriggerStyle(),
-              pathname === '/trial' && 'bg-accent text-accent-foreground',
-              'w-full',
-            )}
+            className={cn(navigationMenuTriggerStyle(), 'w-full rounded-none')}
           >
             Sign up Trial
           </Link>
