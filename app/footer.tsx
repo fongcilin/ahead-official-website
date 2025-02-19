@@ -8,7 +8,7 @@ import { Button } from '@/try-stuff/components/ui/button';
 export const Footer = () => {
   return (
     <footer className="mt-20 bg-gradient-to-t from-gray-300 to-white">
-      <div className="flex justify-center space-x-6 px-4 py-10">
+      <div className="flex justify-center gap-x-6 px-4 py-10">
         <Image
           src="/images/ahead_logo.png"
           alt="Ahead logo"
@@ -17,7 +17,7 @@ export const Footer = () => {
           priority
           className="self-start"
         />
-        <div className="flex flex-col space-y-3 md:flex-row md:items-center md:space-x-6 md:space-y-0">
+        <div className="flex flex-col gap-y-3 md:flex-row md:items-center md:gap-x-6 md:gap-y-0">
           <div className="max-w-[240px]">
             <Typography.Muted>AHEAD Medicine</Typography.Muted>
             <Typography.Muted>
@@ -28,7 +28,7 @@ export const Footer = () => {
               District, Taipei City, Taiwan, 115
             </Typography.Muted>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex gap-x-3">
             <Button variant="outline" size="icon">
               <Mail className="h-7 w-7" />
             </Button>

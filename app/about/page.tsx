@@ -56,8 +56,8 @@ const leaderships = [
 
 export default function About() {
   return (
-    <main className="flex flex-col space-y-20 pt-[120px]">
-      <section className="flex flex-col space-y-6">
+    <main className="flex flex-col gap-y-20 pt-[120px]">
+      <section className="flex flex-col gap-y-6">
         <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
           About Us
         </Typography.H1>
@@ -71,7 +71,7 @@ export default function About() {
           </Typography.P>
         </div>
       </section>
-      <section className="flex flex-col space-y-6">
+      <section className="flex flex-col gap-y-6">
         <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
           Mission Statement
         </Typography.H1>
@@ -87,7 +87,7 @@ export default function About() {
           </Typography.P>
         </div>
       </section>
-      <div className="flex flex-col space-y-6">
+      <div className="flex flex-col gap-y-6">
         <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
           Core Leadership
         </Typography.H1>
@@ -110,18 +110,17 @@ export default function About() {
             ) => (
               <div
                 key={id}
-                className="mx-auto flex max-w-[800px] flex-col space-y-6 px-4"
+                className="mx-auto flex max-w-[800px] flex-col gap-y-6 px-4"
               >
                 <section
                   className={cn(
-                    'border-b-2 border-red-700',
-                    'flex flex-col space-y-3 pb-6',
-                    'md:flex-row md:justify-center md:space-x-6 md:space-y-0',
+                    'flex flex-col gap-y-3 border-b-2 border-red-700 pb-6',
+                    'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
                     i !== 0 && 'pt-6',
                     i === arr.length - 1 && 'border-b-0 pb-0',
                   )}
                 >
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col gap-y-2">
                     <Image
                       src={image}
                       alt={`${name}'s photo`}
@@ -135,7 +134,7 @@ export default function About() {
                       <Typography.Muted>{title}</Typography.Muted>
                       <Typography.Muted>{education}</Typography.Muted>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex gap-x-2">
                       <a href={`mailto:${mail}`}>
                         <Button variant="outline" size="icon">
                           <Mail className="h-7 w-7" />
