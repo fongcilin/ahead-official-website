@@ -8,7 +8,12 @@ interface RedTextBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const RedTextBlock = ({ children, className }: RedTextBlockProps) => {
   return (
-    <div className={cn('rounded-md bg-red-800 p-3 text-white', className)}>
+    <div
+      className={cn(
+        'rounded-md bg-gradient-to-b from-red-200 to-red-50 p-3 text-black',
+        className,
+      )}
+    >
       {children}
     </div>
   );

@@ -6,6 +6,8 @@ import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { RedTextBlock } from '@/try-stuff/components/custom/red-text-block';
 import { cn } from '@/try-stuff/lib/utils';
 
+import { TrustByCarousel } from './trust-by-carousel';
+
 const advantages = [
   {
     id: 1,
@@ -85,11 +87,6 @@ const feeds = [
   },
 ];
 
-const trustBy = Array.from({ length: 24 }, (_, i) => ({
-  id: i + 1,
-  image: `image-${i + 1}`,
-}));
-
 export default function Home() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[120px]">
@@ -122,11 +119,11 @@ export default function Home() {
       </div>
 
       {/* make work easier */}
-      <div className="mx-auto flex max-w-[800px] flex-col gap-y-10 px-4">
+      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
           Focus on your proficiency, let us handle the rest
         </Typography.H2>
-        <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+        <div className="grid gap-4 md:grid-cols-4 md:gap-6">
           {advantages.map((item) => (
             <div key={item.id} className="flex flex-col gap-y-2 text-center">
               <Typography.H4 className="text-zinc-500">
@@ -138,19 +135,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* draggable canvas example */}
-      <div className="mx-auto flex w-full max-w-[600px] flex-col gap-y-10 px-4">
-        <Typography.H2 className="text-center text-zinc-500">
-          Try to drag the polygon or the vertex on the canvas
-        </Typography.H2>
-        <AspectRatio
-          ratio={1}
-          className="flex items-center justify-center bg-gray-300"
-        >
-          draggable canvas example
-        </AspectRatio>
       </div>
 
       {/* video */}
@@ -170,7 +154,7 @@ export default function Home() {
       </div>
 
       {/* features */}
-      <div className="mx-auto flex max-w-[800px] flex-col gap-y-10 px-4">
+      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
         {feats.map(({ id, intro }, i) => (
           <div
             key={id}
@@ -180,13 +164,17 @@ export default function Home() {
               i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
             )}
           >
-            <div
-              className={cn(
-                'flex h-[240px] w-[240px] items-center justify-center self-center bg-gray-300',
-                'md:self-auto',
-              )}
-            >
-              real product snapshot
+            <div className="w-full max-w-[480px]">
+              <AspectRatio ratio={1} className="w-full max-w-[480px]">
+                <div
+                  className={cn(
+                    'flex h-full w-full items-center justify-center self-center bg-gray-300',
+                    'md:self-auto',
+                  )}
+                >
+                  real product snapshot
+                </div>
+              </AspectRatio>
             </div>
             <RedTextBlock className={cn('flex-1', 'md:self-center')}>
               <Typography.P>{intro}</Typography.P>
@@ -196,7 +184,7 @@ export default function Home() {
       </div>
 
       {/* user feedback */}
-      <div className="mx-auto flex max-w-[600px] flex-col gap-y-10 px-4">
+      <div className="mx-auto flex max-w-[800px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
           Feedbacks
         </Typography.H2>
@@ -204,7 +192,7 @@ export default function Home() {
           {feeds.map((item, i) => (
             <div
               key={item.id}
-              className={i % 2 === 0 ? 'md:pl-[120px]' : 'md:pr-[120px]'}
+              className={i % 2 === 0 ? 'md:pl-40' : 'md:pr-40'}
             >
               <Typography.P className="rounded-md border-2 border-red-800 p-4">
                 {item.description}
@@ -215,21 +203,11 @@ export default function Home() {
       </div>
 
       {/* trust by */}
-      <div className="mx-auto flex w-full max-w-[800px] flex-col gap-y-10 px-4">
+      <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
           Trust by
         </Typography.H2>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-6">
-          {trustBy.map((item) => (
-            <div key={item.id}>
-              <AspectRatio ratio={1}>
-                <div className="flex h-full w-full items-center justify-center bg-gray-300">
-                  {item.image}
-                </div>
-              </AspectRatio>
-            </div>
-          ))}
-        </div>
+        <TrustByCarousel />
       </div>
     </main>
   );
