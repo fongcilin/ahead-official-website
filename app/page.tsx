@@ -6,7 +6,7 @@ import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { RedTextBlock } from '@/try-stuff/components/custom/red-text-block';
 import { cn } from '@/try-stuff/lib/utils';
 
-import { TrustByCarousel } from './trust-by-carousel';
+import { PartnershipCarousel } from './partnership-carousel';
 
 const advantages = [
   {
@@ -202,12 +202,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* trust by */}
+      {/* partnership */}
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
-          Trust by
+          Partnership
         </Typography.H2>
-        <TrustByCarousel />
+        <PartnershipCarousel />
       </div>
     </main>
   );
