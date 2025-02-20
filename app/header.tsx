@@ -37,45 +37,39 @@ type ListItem = {
   description: string;
 };
 
-const resources: ListItem[] = [
-  {
-    title: 'News',
-    href: '/news',
-    description:
-      'Stay up-to-date with the latest news and announcements from our team.',
-  },
-  {
-    title: 'Publications',
-    href: '/publications',
-    description:
-      'Explore our collection of research papers, articles, and other publications.',
-  },
-];
-
 const companyInfos: ListItem[] = [
   {
     title: 'About',
     href: '/about',
-    description:
-      'Learn more about our company, our mission, and our commitment to innovation.',
+    description: 'Learn more about our company.',
   },
   {
     title: 'Career',
     href: '/career',
-    description:
-      "Join our team! We're always looking for talented and passionate individuals to help us build the future of healthcare.",
+    description: 'Want to join our team?',
   },
   {
     title: 'Contact',
     href: '/contact',
-    description:
-      "Have a question or need help? Get in touch with our team and we'll be happy to assist you.",
+    description: 'Have a question or need help?',
   },
   {
     title: 'Partnership',
     href: '/partnership',
-    description:
-      'Interested in partnering with us? Learn more about our partnership opportunities and how we can work together.',
+    description: 'Interested in partnering with us?',
+  },
+];
+
+const resources: ListItem[] = [
+  {
+    title: 'News',
+    href: '/news',
+    description: 'Stay up-to-date with us.',
+  },
+  {
+    title: 'Publications',
+    href: '/publications',
+    description: 'Explore our collection of publications.',
   },
 ];
 
@@ -105,56 +99,20 @@ export function Header() {
 const PCList = () => {
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-0">
+      <NavigationMenuList className="h-14 space-x-0">
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), 'h-14 rounded-none')}
-            >
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
               Home
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn('h-14 rounded-none')}>
-            Company
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="w-[400px] gap-3 p-4">
-              {companyInfos.map((item) => (
-                <li key={item.title}>
-                  <NavigationMenuLink asChild>
-                    <ListLink title={item.title} href={item.href}>
-                      {item.description}
-                    </ListLink>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className={cn('h-14 rounded-none')}>
-            Resources
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="w-[400px] gap-3 p-4">
-              {resources.map((item) => (
-                <li key={item.title}>
-                  <NavigationMenuLink asChild>
-                    <ListLink title={item.title} href={item.href}>
-                      {item.description}
-                    </ListLink>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(buttonVariants(), 'h-14 rounded-none')}
+              className={cn(
+                buttonVariants({ size: 'full-h-rectangular-default' }),
+              )}
             >
               Cyto-Coplot
             </NavigationMenuLink>
@@ -162,12 +120,52 @@ const PCList = () => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), 'h-14 rounded-none')}
-            >
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
               Sign up Trial
             </NavigationMenuLink>
           </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="flex w-[600px] items-stretch">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-500 to-orange-400 p-4 text-3xl font-bold text-white">
+                Make medical operations easier
+              </div>
+              <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
+                {companyInfos.map((item) => (
+                  <li key={item.title}>
+                    <NavigationMenuLink asChild>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
+                    </NavigationMenuLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="flex w-[600px] justify-end">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-500 to-orange-400 p-4 text-3xl font-bold text-white">
+                Read news and publications from media
+              </div>
+              <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
+                {resources.map((item) => (
+                  <li key={item.title}>
+                    <NavigationMenuLink asChild>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
+                    </NavigationMenuLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
@@ -223,9 +221,21 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
           <Link
             ref={homeLinkRef}
             href="/"
-            className={cn(navigationMenuTriggerStyle(), 'w-full rounded-none')}
+            className={cn(navigationMenuTriggerStyle(), 'w-full')}
           >
             Home
+          </Link>
+          <Link
+            href="/"
+            className={cn(
+              cn(buttonVariants({ size: 'rectangular-default' })),
+              'w-full',
+            )}
+          >
+            Cyto-Coplot
+          </Link>
+          <Link href="/" className={cn(navigationMenuTriggerStyle(), 'w-full')}>
+            Sign up Trial
           </Link>
           <Accordion
             type="single"
@@ -233,7 +243,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
             className="flex w-full flex-col gap-y-4 rounded-none"
           >
             <AccordionItem value="company" className={cn('border-b-0')}>
-              <AccordionNavigationMenuStyleTrigger className="rounded-none">
+              <AccordionNavigationMenuStyleTrigger>
                 Company
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
@@ -249,7 +259,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="resources" className={cn('border-b-0')}>
-              <AccordionNavigationMenuStyleTrigger className="rounded-none">
+              <AccordionNavigationMenuStyleTrigger>
                 Resources
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
@@ -265,18 +275,6 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Link
-            href="/"
-            className={cn(cn(buttonVariants()), 'w-full rounded-none')}
-          >
-            Cyto-Coplot
-          </Link>
-          <Link
-            href="/"
-            className={cn(navigationMenuTriggerStyle(), 'w-full rounded-none')}
-          >
-            Sign up Trial
-          </Link>
         </div>
       </SheetContent>
     </Sheet>
@@ -299,9 +297,7 @@ const ListLink = React.forwardRef<
       {...props}
     >
       <div className="text-sm font-medium leading-none">{title}</div>
-      <p className="line-clamp-3 text-sm leading-snug text-muted-foreground">
-        {children}
-      </p>
+      <p className="text-sm leading-snug text-muted-foreground">{children}</p>
     </Link>
   );
 });
