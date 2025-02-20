@@ -92,12 +92,18 @@ export default function Home() {
     <main className="flex flex-col items-center gap-y-20 pt-[120px]">
       {/* logo text */}
       <div className="flex items-center justify-center">
-        <Icons.Logo className="h-16 w-32" />
+        <Icons.Logo className={cn('h-20 w-40', 'md:h-24 md:w-48')} />
       </div>
 
       {/* key visual  */}
       <div className="mx-auto flex max-w-[800px] flex-col gap-y-4 px-4">
-        <Typography.H1 className="text-center text-zinc-500 md:text-left">
+        <Typography.H1
+          className={cn(
+            'text-center text-5xl text-zinc-500',
+            'md:text-left',
+            'lg:text-7xl',
+          )}
+        >
           Your AI Co-pilot in Medicine
         </Typography.H1>
         <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-4 md:gap-y-0">
