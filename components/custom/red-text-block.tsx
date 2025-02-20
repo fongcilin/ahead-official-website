@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { cn } from '@/try-stuff/lib/utils';
 
 interface RedTextBlockProps extends React.HTMLAttributes<HTMLDivElement> {

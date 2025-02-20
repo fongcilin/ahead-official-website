@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useWindowSize } from 'usehooks-ts';
@@ -179,7 +179,7 @@ interface MobileListProps {
 }
 
 const MobileList = ({ isMinWidthMd }: MobileListProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
 
@@ -191,7 +191,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
     homeLinkRef.current?.focus();
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isMinWidthMd) {
       setIsOpen(false);
     }
