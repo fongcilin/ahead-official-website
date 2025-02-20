@@ -159,13 +159,13 @@ export default function Home() {
           <div
             key={id}
             className={cn(
-              'flex flex-col justify-center gap-y-6',
+              'flex flex-col items-center gap-y-6',
               'md:gap-x-6',
               i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
             )}
           >
             <div className="w-full max-w-[480px]">
-              <AspectRatio ratio={1} className="w-full max-w-[480px]">
+              <AspectRatio ratio={1}>
                 <div
                   className={cn(
                     'flex h-full w-full items-center justify-center self-center bg-gray-300',
@@ -176,7 +176,7 @@ export default function Home() {
                 </div>
               </AspectRatio>
             </div>
-            <RedTextBlock className={cn('flex-1', 'md:self-center')}>
+            <RedTextBlock className={cn('md:flex-[0_0_50%] md:self-center')}>
               <Typography.P>{intro}</Typography.P>
             </RedTextBlock>
           </div>
