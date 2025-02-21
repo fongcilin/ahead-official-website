@@ -35,11 +35,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## About screen breakpoints
-
-`app/**/*` only use `md:*`
-`/components/**/*` use screen breakpoints for UI UX
-
 ## The width and height from Image (Nextjs)
 
 `Image with src "xxx/xxxxx/xx" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.`

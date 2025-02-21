@@ -23,7 +23,7 @@ export const LinkBadges = React.forwardRef<
       {data.map((item) => (
         <li key={item.id}>
           <Link href={`/news/${item.id}`}>
-            <Badge variant="secondary" className={item.className}>
+            <Badge variant="outline" className={item.className}>
               {item.title}
             </Badge>
           </Link>
