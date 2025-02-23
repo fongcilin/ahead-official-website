@@ -35,16 +35,16 @@ export const Footer = () => {
           </Typography.Muted>
         </div>
         <div className="flex gap-x-3">
-          <Button variant="outline" size="icon">
+          <Button variant="gray-outline" size="icon">
             <Mail className="h-7 w-7" />
           </Button>
-          <Button variant="outline" size="icon">
+          <Button variant="gray-outline" size="icon">
             <Icons.X className="h-7 w-7" />
           </Button>
-          <Button variant="outline" size="icon">
+          <Button variant="gray-outline" size="icon">
             <Icons.Linkedin className="h-7 w-7" />
           </Button>
-          <Button variant="outline" size="icon">
+          <Button variant="gray-outline" size="icon">
             <ListTodo className="h-7 w-7" />
           </Button>
         </div>
