@@ -11,6 +11,7 @@ import type {
 } from '@/try-stuff/app/api/news/[tag]/types';
 
 import { Typography } from '@/try-stuff/components/typography';
+import { Icons } from '@/try-stuff/components/icons';
 import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { Button } from '@/try-stuff/components/ui/button';
 import { cn } from '@/try-stuff/lib/utils';
@@ -32,19 +33,21 @@ export const NewsArea = ({
 
   const [hasMoreNews, setHasMoreNews] = React.useState(initHasMoreNewsData);
 
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const perRequestCount = 9;
 
   const handleLoadMore = async () => {
+    setIsLoading(true);
     setCursor((prev) => prev + perRequestCount);
-
     const response = await fetch(
       `/api/news/${tag}?cursor=${cursor}&count=${perRequestCount}`,
     );
     const { data, hasMore } =
       (await response.json()) as GetNewsByIdResponseData;
-
     setNewsList((prev) => [...prev, ...data]);
     setHasMoreNews(hasMore);
+    setIsLoading(false);
   };
 
   return (
@@ -82,7 +85,7 @@ export const NewsArea = ({
       </div>
 
       {/* load more */}
-      {hasMoreNews && (
+      {hasMoreNews && !isLoading && (
         <div className="flex justify-center">
           <Button
             variant="outline"
@@ -94,6 +97,13 @@ export const NewsArea = ({
           >
             LoadMore
           </Button>
+        </div>
+      )}
+
+      {/* loading */}
+      {isLoading && (
+        <div className="flex justify-center">
+          <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
         </div>
       )}
     </>

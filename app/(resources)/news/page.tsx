@@ -1,10 +1,10 @@
 import { redirect } from 'next/navigation';
 
+import type { NewsTag, News } from '@/try-stuff/app/api/news/[tag]/types';
 import {
   fetchInitNewsData,
   fetchHasMoreNewsData,
-} from '@/try-stuff/app/api/news/[tag]/route';
-import type { NewsTag, News } from '@/try-stuff/app/api/news/[tag]/types';
+} from '@/try-stuff/app/api/news/[tag]/server-fetches';
 
 import { Typography } from '@/try-stuff/components/typography';
 
