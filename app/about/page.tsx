@@ -3,6 +3,7 @@ import { Mail } from 'lucide-react';
 
 import { Typography } from '@/try-stuff/components/typography';
 import { Icons } from '@/try-stuff/components/icons';
+import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
 import { Button } from '@/try-stuff/components/ui/button';
 import { cn } from '@/try-stuff/lib/utils';
 
@@ -57,26 +58,28 @@ const leaderships = [
 export default function About() {
   return (
     <main className="flex flex-col gap-y-20 pt-[120px]">
-      <section className="flex flex-col gap-y-6">
-        <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
-          About Us
-        </Typography.H1>
-        <div className="bg-red-50 py-6">
-          <Typography.P className="mx-auto max-w-[600px] px-4">
+      <div className="flex flex-col gap-y-6">
+        <PinkBallsParallax>
+          <Typography.H1 className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+            <span className="bg-rose-400 px-8 py-2 text-white">About Us</span>
+          </Typography.H1>
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10">
             AHEAD Medicine is a pioneering healthtech company. Our flagship
             solution, Cyto-copilot platform, is revolutionizing flow cytometry
             data analysis workflow. Cyto-copilot improves the efficiency,
             reproducibility and scalability of services for disease diagnosis,
             monitoring, and ensuring quality control in cell therapy.
           </Typography.P>
-        </div>
-      </section>
-      <section className="flex flex-col gap-y-6">
-        <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
-          Mission Statement
-        </Typography.H1>
-        <div className="bg-red-50 py-6">
-          <Typography.P className="mx-auto max-w-[600px] px-4">
+        </PinkBallsParallax>
+      </div>
+      <div className="flex flex-col gap-y-6">
+        <PinkBallsParallax>
+          <div className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
+              Mission Statement
+            </Typography.H1>
+          </div>
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10">
             At AHEAD, we are committed to bridging the gap in healthcare equity
             and addressing the shortage of healthcare professionals through our
             advanced data analysis solutions. Our mission is to deliver systems
@@ -85,76 +88,77 @@ export default function About() {
             healthcare technologies, propelling the industry toward a more
             innovative and efficient future.
           </Typography.P>
-        </div>
-      </section>
+        </PinkBallsParallax>
+      </div>
       <div className="flex flex-col gap-y-6">
-        <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
-          Core Leadership
-        </Typography.H1>
-        <div className="bg-red-50 py-6">
-          {leaderships.map(
-            (
-              {
-                id,
-                image,
-                imageSize,
-                name,
-                title,
-                education,
-                mail,
-                linkedin,
-                intro,
-              },
-              i,
-              arr,
-            ) => (
-              <div
-                key={id}
-                className="mx-auto flex max-w-[800px] flex-col gap-y-6 px-4"
-              >
-                <section
-                  className={cn(
-                    'flex flex-col gap-y-3 border-b-2 border-red-700 pb-6',
-                    'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
-                    i !== 0 && 'pt-6',
-                    i === arr.length - 1 && 'border-b-0 pb-0',
-                  )}
-                >
-                  <div className="flex flex-col gap-y-2">
-                    <Image
-                      src={image}
-                      alt={`${name}'s photo`}
-                      width={imageSize.width}
-                      height={imageSize.height}
-                      priority
-                      className="rounded-xl"
-                    />
-                    <div className="flex flex-col">
-                      <Typography.Muted>{name}</Typography.Muted>
-                      <Typography.Muted>{title}</Typography.Muted>
-                      <Typography.Muted>{education}</Typography.Muted>
+        <PinkBallsParallax>
+          <Typography.H1 className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+            <span className="bg-rose-400 px-8 py-2 text-white">
+              Core Leadership
+            </span>
+          </Typography.H1>
+          <div className="mx-auto mt-6 max-w-[960px] px-4 pb-20 pt-10">
+            {leaderships.map(
+              (
+                {
+                  id,
+                  image,
+                  imageSize,
+                  name,
+                  title,
+                  education,
+                  mail,
+                  linkedin,
+                  intro,
+                },
+                i,
+                arr,
+              ) => (
+                <div key={id} className="flex flex-col gap-y-6">
+                  <div
+                    className={cn(
+                      'flex flex-col gap-y-3 border-b border-red-200 pb-6',
+                      'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
+                      i !== 0 && 'pt-6',
+                      i === arr.length - 1 && 'border-b-0 pb-0',
+                    )}
+                  >
+                    <div className="flex flex-col gap-y-2 self-center">
+                      <Image
+                        src={image}
+                        alt={`${name}'s photo`}
+                        width={imageSize.width}
+                        height={imageSize.height}
+                        priority
+                        className="rounded-xl"
+                      />
+                      <div className="flex flex-col">
+                        <Typography.Muted>{name}</Typography.Muted>
+                        <Typography.Muted>{title}</Typography.Muted>
+                        <Typography.Muted>{education}</Typography.Muted>
+                      </div>
+                      <div className="flex gap-x-2">
+                        <a href={`mailto:${mail}`}>
+                          <Button variant="outline" size="icon">
+                            <Mail className="h-7 w-7" />
+                          </Button>
+                        </a>
+                        <a href={linkedin} target="_blank" rel="noreferrer">
+                          <Button variant="outline" size="icon">
+                            <Icons.Linkedin className="h-7 w-7" />
+                          </Button>
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex gap-x-2">
-                      <a href={`mailto:${mail}`}>
-                        <Button variant="outline" size="icon">
-                          <Mail className="h-7 w-7" />
-                        </Button>
-                      </a>
-                      <a href={linkedin} target="_blank" rel="noreferrer">
-                        <Button variant="outline" size="icon">
-                          <Icons.Linkedin className="h-7 w-7" />
-                        </Button>
-                      </a>
+                    <div className="flex-1">
+                      <Typography.P className="flex-1">{intro}</Typography.P>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <Typography.P className="flex-1">{intro}</Typography.P>
-                  </div>
-                </section>
-              </div>
-            ),
-          )}
-        </div>
+                </div>
+              ),
+            )}
+          </div>
+        </PinkBallsParallax>
       </div>
     </main>
   );
