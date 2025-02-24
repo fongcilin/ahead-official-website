@@ -149,7 +149,8 @@ const PCList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex w-[600px] justify-end">
+            {/* Make the height same as `Company` */}
+            <div className="flex min-h-[301px] w-[600px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-500 to-orange-400 p-4 text-3xl font-bold text-white">
                 Read news and publications from media
               </div>
