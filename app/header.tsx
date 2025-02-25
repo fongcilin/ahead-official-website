@@ -223,6 +223,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
             ref={homeLinkRef}
             href="/"
             className={cn(navigationMenuTriggerStyle(), 'w-full')}
+            onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
