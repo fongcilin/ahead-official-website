@@ -97,7 +97,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
       <SquirmingCells
-        className="min-h-[calc(100vh-56px)]"
+        className="min-h-[600px] md:min-h-[800px]"
         contentClassName="flex flex-col gap-y-20"
       >
         {/* Logo text */}
