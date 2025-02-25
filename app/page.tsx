@@ -150,10 +150,9 @@ export default function Home() {
           <AspectRatio ratio={16 / 9}>
             <iframe
               src="https://www.youtube.com/embed/EG-B5R5tYtQ"
-              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
               width="100%"
-              height="auto"
-              style={{ aspectRatio: '16/9' }}
+              height="100%"
               title="intro video"
             />
           </AspectRatio>
