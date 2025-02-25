@@ -1,9 +1,9 @@
-import Image from 'next/image';
-
 import { Icons } from '@/try-stuff/components/icons';
 import { Typography } from '@/try-stuff/components/typography';
 import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
-import { RedTextBlock } from '@/try-stuff/components/custom/red-text-block';
+import { PinkTextBlock } from '@/try-stuff/components/custom/pink-text-block';
+import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
+import { SquirmingCells } from '@/try-stuff/components/custom/squirming-cells';
 import { cn } from '@/try-stuff/lib/utils';
 
 import { PartnershipCarousel } from './partnership-carousel';
@@ -39,31 +39,37 @@ const feats = [
   {
     id: 1,
     image: '',
+    title: 'Feature 1',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 2,
     image: '',
+    title: 'Feature 2',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 3,
     image: '',
+    title: 'Feature 3',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 4,
     image: '',
+    title: 'Feature 4',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 5,
     image: '',
+    title: 'Feature 5',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
   {
     id: 6,
     image: '',
+    title: 'Feature 6',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
 ];
@@ -89,44 +95,39 @@ const feeds = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center gap-y-20 pt-[120px]">
-      {/* logo text */}
-      <div className="flex items-center justify-center">
-        <Icons.Logo className={cn('h-20 w-40', 'md:h-24 md:w-48')} />
-      </div>
+    <main className="flex flex-col items-center gap-y-20 pt-[56px]">
+      <SquirmingCells
+        className="min-h-[calc(100vh-56px)]"
+        contentClassName="flex flex-col gap-y-20"
+      >
+        {/* Logo text */}
+        <div className="flex items-center justify-center pt-[calc(120px-56px)]">
+          <Icons.Logo className={cn('h-20 w-40', 'md:h-24 md:w-48')} />
+        </div>
 
-      {/* key visual  */}
-      <div className="mx-auto flex max-w-[800px] flex-col gap-y-4 px-4">
-        <Typography.H1
-          className={cn(
-            'text-center text-5xl text-zinc-500',
-            'md:text-left',
-            'lg:text-7xl',
-          )}
-        >
-          Your AI Co-pilot in Medicine
-        </Typography.H1>
-        <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-4 md:gap-y-0">
-          <Typography.Blockquote className="self-start border-red-800 font-bold">
+        {/* Key visual  */}
+        <div className="mx-auto flex max-w-[800px] flex-col gap-y-4 px-4">
+          <Typography.H1
+            className={cn(
+              'text-center text-5xl text-zinc-500',
+              'md:text-left',
+              'lg:text-7xl',
+            )}
+          >
+            Your AI Co-pilot in Medicine
+          </Typography.H1>
+          <Typography.Blockquote className="max-w-[400px] self-start border-red-800 font-bold">
             AHEAD&apos;s Cyto-copilot technology revolutionizes workforce
             efficiency and precision medicine by specializing in enhancing flow
             cytometry analysis for research, clinical diagnostics, and cell
             therapy quality control.
           </Typography.Blockquote>
-          <Image
-            src="/images/erythrocyte.png"
-            width={256}
-            height={237}
-            alt="Ahead logo"
-            priority
-            className="self-center"
-          />
         </div>
-      </div>
+      </SquirmingCells>
 
-      {/* make work easier */}
+      {/* Focus on your proficiency */}
       <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
-        <Typography.H2 className="text-center text-zinc-500">
+        <Typography.H2 className="my-10 text-center text-zinc-500">
           Focus on your proficiency, let us handle the rest
         </Typography.H2>
         <div className="grid gap-4 md:grid-cols-4 md:gap-6">
@@ -135,16 +136,16 @@ export default function Home() {
               <Typography.H4 className="text-zinc-500">
                 {item.title}
               </Typography.H4>
-              <RedTextBlock>
+              <PinkTextBlock>
                 <Typography.P>{item.description}</Typography.P>
-              </RedTextBlock>
+              </PinkTextBlock>
             </div>
           ))}
         </div>
       </div>
 
-      {/* video */}
-      <div className="w-screen border-y border-red-800 bg-red-50">
+      {/* Video */}
+      <PinkBallsParallax className="w-screen py-10">
         <div className="mx-auto max-w-[800px]">
           <AspectRatio ratio={16 / 9}>
             <iframe
@@ -157,11 +158,11 @@ export default function Home() {
             />
           </AspectRatio>
         </div>
-      </div>
+      </PinkBallsParallax>
 
-      {/* features */}
-      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
-        {feats.map(({ id, intro }, i) => (
+      {/* Features */}
+      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-20 px-4">
+        {feats.map(({ id, title, intro }, i) => (
           <div
             key={id}
             className={cn(
@@ -182,14 +183,15 @@ export default function Home() {
                 </div>
               </AspectRatio>
             </div>
-            <RedTextBlock className={cn('md:flex-[0_0_50%] md:self-center')}>
+            <PinkTextBlock className={cn('md:flex-[0_0_50%] md:self-center')}>
+              <Typography.H3>{title}</Typography.H3>
               <Typography.P>{intro}</Typography.P>
-            </RedTextBlock>
+            </PinkTextBlock>
           </div>
         ))}
       </div>
 
-      {/* user feedback */}
+      {/* Feedbacks */}
       <div className="mx-auto flex max-w-[800px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
           Feedbacks
@@ -208,7 +210,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* partnership */}
+      {/* Partnership */}
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <Typography.H2 className="text-center text-zinc-500">
           Partnership
