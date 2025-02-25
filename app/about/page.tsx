@@ -17,10 +17,10 @@ const leaderships = [
       "Andrea Wang, co-founder and CEO of AHEAD Medicine Corporation, is a recognized leader at the convergence of entrepreneurship, medicine, and data science. A cancer survivor with a transformative vision for healthcare, Andrea's expertise is shaped by her academic tenure at Baylor College of Medicine and her impactful roles in the pharmaceutical industry. Since leading AHEAD's inception in 2017 alongside Kevin and Jeremy, she has steered the company through global challenges, solidifying its reputation in healthcare innovation. Not only has Andrea's work been published in leading scientific literature, but she is also an inventor of patents critical to AHEAD’s cutting-edge technology. Her commitment to integrating AI in healthcare aims to revolutionize patient care on a global scale.",
     mail: 'andrea.wang@aheadmedicine.com',
     linkedin: 'https://www.linkedin.com/in/andrea-yufen-wang/',
-    image: '/images/team/andrea.wang2.jpg',
+    image: '/images/team/andrea.wang.png',
     imageSize: {
       width: 256,
-      height: 383,
+      height: 278,
     },
   },
   {
