@@ -13,16 +13,17 @@ type Circle = {
   count: number;
 };
 
-interface SquirmingCellsProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SquirmingCellsBannerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   contentClassName?: string;
 }
 
-export const SquirmingCells = ({
+export const SquirmingCellsBanner = ({
   children,
   className,
   contentClassName,
-}: SquirmingCellsProps) => {
+}: SquirmingCellsBannerProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

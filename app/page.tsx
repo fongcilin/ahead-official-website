@@ -3,9 +3,9 @@ import { Typography } from '@/try-stuff/components/typography';
 import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { PinkTextBlock } from '@/try-stuff/components/custom/pink-text-block';
 import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
-import { SquirmingCells } from '@/try-stuff/components/custom/squirming-cells';
 import { cn } from '@/try-stuff/lib/utils';
 
+import { SquirmingCellsBanner } from './squirming-cells-banner';
 import { PartnershipCarousel } from './partnership-carousel';
 
 const advantages = [
@@ -96,7 +96,7 @@ const feeds = [
 export default function Home() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
-      <SquirmingCells
+      <SquirmingCellsBanner
         className="min-h-[600px] md:min-h-[800px]"
         contentClassName="flex flex-col gap-y-20"
       >
@@ -123,7 +123,7 @@ export default function Home() {
             therapy quality control.
           </Typography.Blockquote>
         </div>
-      </SquirmingCells>
+      </SquirmingCellsBanner>
 
       {/* Focus on your proficiency */}
       <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
