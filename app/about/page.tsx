@@ -57,29 +57,27 @@ const leaderships = [
 
 export default function About() {
   return (
-    <main className="flex flex-col gap-y-20 pt-[120px]">
-      <div className="flex flex-col gap-y-6">
-        <PinkBallsParallax>
-          <Typography.H1 className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+    <main>
+      <PinkBallsParallax className="flex flex-col gap-y-20 pt-40">
+        <div className="flex flex-col gap-y-6">
+          <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center">
             <span className="bg-rose-400 px-8 py-2 text-white">About Us</span>
           </Typography.H1>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10">
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
             AHEAD Medicine is a pioneering healthtech company. Our flagship
             solution, Cyto-copilot platform, is revolutionizing flow cytometry
             data analysis workflow. Cyto-copilot improves the efficiency,
             reproducibility and scalability of services for disease diagnosis,
             monitoring, and ensuring quality control in cell therapy.
           </Typography.P>
-        </PinkBallsParallax>
-      </div>
-      <div className="flex flex-col gap-y-6">
-        <PinkBallsParallax>
-          <div className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+        </div>
+        <div className="flex flex-col gap-y-6">
+          <div className="mx-auto max-w-[600px] px-4 text-center">
             <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
               Mission Statement
             </Typography.H1>
           </div>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10">
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
             At AHEAD, we are committed to bridging the gap in healthcare equity
             and addressing the shortage of healthcare professionals through our
             advanced data analysis solutions. Our mission is to deliver systems
@@ -88,11 +86,9 @@ export default function About() {
             healthcare technologies, propelling the industry toward a more
             innovative and efficient future.
           </Typography.P>
-        </PinkBallsParallax>
-      </div>
-      <div className="flex flex-col gap-y-6">
-        <PinkBallsParallax>
-          <Typography.H1 className="mx-auto -mt-6 max-w-[600px] px-4 text-center">
+        </div>
+        <div className="flex flex-col gap-y-6">
+          <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center">
             <span className="bg-rose-400 px-8 py-2 text-white">
               Core Leadership
             </span>
@@ -151,15 +147,17 @@ export default function About() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <Typography.P className="flex-1">{intro}</Typography.P>
+                      <Typography.P className="flex-1 text-justify">
+                        {intro}
+                      </Typography.P>
                     </div>
                   </div>
                 </div>
               ),
             )}
           </div>
-        </PinkBallsParallax>
-      </div>
+        </div>
+      </PinkBallsParallax>
     </main>
   );
 }
