@@ -117,6 +117,7 @@ export const PartnershipCarousel = () => {
         AutoScroll({
           startDelay: 0,
           stopOnInteraction: false,
+          speed: 1,
         }),
       ]}
       className="w-full"
