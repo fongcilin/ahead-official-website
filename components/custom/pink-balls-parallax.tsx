@@ -11,7 +11,7 @@ export const PinkBallsParallax = ({
   return (
     <div
       className={cn(
-        `z-[-1] bg-[url('/svgs/pink_bubbles.svg')] bg-cover bg-fixed bg-center bg-no-repeat`,
+        `bg-[url('/svgs/pink_bubbles.svg')] bg-cover bg-fixed bg-center bg-no-repeat`,
         className,
       )}
     >
