@@ -59,9 +59,9 @@ export const NewsArea = ({
             key={item.id}
             href={item.url}
             target="_blank"
-            className="flex flex-col gap-y-2"
+            className="flex flex-col gap-y-4"
           >
-            <div className="rounded-md border border-red-800">
+            <div className="border border-zinc-400">
               {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
               <AspectRatio ratio={16 / 9}>
                 <Image
@@ -70,15 +70,27 @@ export const NewsArea = ({
                   fill
                   sizes="(max-width: 768px) 600px, 320px"
                   priority
-                  className="rounded-md object-cover"
+                  className="object-cover"
                 />
               </AspectRatio>
             </div>
-            <div className="flex flex-col gap-y-2">
-              <Typography.Blockquote className="mt-0 line-clamp-2 border-red-800 font-bold">
+            <div className="flex flex-col gap-y-4">
+              <Typography.ThickBlockquote className="mt-0 line-clamp-2 border-red-800">
                 {item.title}
-              </Typography.Blockquote>
-              <Typography.Muted>{item.footer}</Typography.Muted>
+              </Typography.ThickBlockquote>
+              <Typography.Muted>
+                {item.footer.map(({ variant, text }, i) => (
+                  <span
+                    key={i}
+                    className={cn({
+                      'border border-zinc-600 px-2': variant === 'border',
+                      'px-1': variant === 'normal',
+                    })}
+                  >
+                    {text}
+                  </span>
+                ))}
+              </Typography.Muted>
             </div>
           </Link>
         ))}
@@ -86,7 +98,7 @@ export const NewsArea = ({
 
       {/* load more */}
       {hasMoreNews && !isLoading && (
-        <div className="flex justify-center">
+        <div className="mt-20 flex justify-center">
           <Button
             variant="outline"
             className={cn(
@@ -95,14 +107,14 @@ export const NewsArea = ({
             )}
             onClick={handleLoadMore}
           >
-            LoadMore
+            Load More
           </Button>
         </div>
       )}
 
       {/* loading */}
       {isLoading && (
-        <div className="flex justify-center">
+        <div className="mt-20 flex justify-center">
           <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
         </div>
       )}

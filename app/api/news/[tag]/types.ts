@@ -2,7 +2,7 @@ export type NewsTag =
   | 'all'
   | 'global-bio-and-investment'
   | 'the-hub-news'
-  | 'yahoo'
+  | 'yahoo-news'
   | 'the-storm-media'
   | 'bnext'
   | 'protocols';
@@ -13,7 +13,7 @@ export type News = {
   image: string;
   tag: NewsTag;
   title: string;
-  footer: string;
+  footer: { variant: 'border' | 'normal'; text: string }[];
 };
 
 export type GetNewsByIdResponseData = {

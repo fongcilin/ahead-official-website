@@ -4,20 +4,20 @@ import Link from 'next/link';
 import { type BadgeProps, Badge } from '@/try-stuff/components/ui/badge';
 import { cn } from '@/try-stuff/lib/utils';
 
-export type LinkBadgeItem = {
-  id: string;
+export type LinkBadgeItem<T> = {
+  id: T;
   title: string;
   className: string;
 };
 
-export interface LinkBadgesProps extends BadgeProps {
-  data: LinkBadgeItem[];
+export interface LinkBadgesProps<T extends string> extends BadgeProps {
+  data: LinkBadgeItem<T>[];
 }
 
-export const LinkBadges = React.forwardRef<
-  React.ComponentRef<'ul'>,
-  LinkBadgesProps
->(({ data, className }, ref) => {
+const LinkBadgesWithGeneric = <T extends string>(
+  { data, className }: LinkBadgesProps<T>,
+  ref: React.ForwardedRef<React.ComponentRef<'ul'>>,
+) => {
   return (
     <ul ref={ref} className={cn('flex flex-wrap gap-2 p-4', className)}>
       {data.map((item) => (
@@ -31,5 +31,12 @@ export const LinkBadges = React.forwardRef<
       ))}
     </ul>
   );
-});
+};
+
+export const LinkBadges = React.forwardRef(
+  LinkBadgesWithGeneric as <T extends string>(
+    props: LinkBadgesProps<T>,
+    ref: React.ForwardedRef<React.ComponentRef<'ul'>>,
+  ) => React.ReactElement,
+);
 LinkBadges.displayName = 'LinkBadges';

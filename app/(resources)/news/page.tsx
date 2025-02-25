@@ -7,6 +7,7 @@ import {
 } from '@/try-stuff/app/api/news/[tag]/server-fetches';
 
 import { Typography } from '@/try-stuff/components/typography';
+import { cn } from '@/try-stuff/lib/utils';
 
 import { NewsLinkBadges } from './news-link-badges';
 import { NewsArea } from './news-area';
@@ -33,7 +34,12 @@ export default async function News({ params }: { params: Params }) {
   return (
     <main className="mx-auto flex w-full max-w-[1080px] flex-col gap-10 px-4 pt-[120px]">
       {/* title */}
-      <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center text-zinc-500">
+      <Typography.H1
+        className={cn(
+          'mx-auto max-w-[600px] px-4 text-center text-zinc-500',
+          'first-letter:bg-zinc-900 first-letter:text-white',
+        )}
+      >
         News
       </Typography.H1>
 

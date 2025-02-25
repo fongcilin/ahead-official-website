@@ -59,6 +59,13 @@ export const Typography = {
       </blockquote>
     );
   },
+  ThickBlockquote: ({ children, className }: TypographyProps) => {
+    return (
+      <blockquote className={cn('mt-6 border-l-4 pl-4 font-bold', className)}>
+        {children}
+      </blockquote>
+    );
+  },
   Muted: ({ children, className }: TypographyProps) => {
     return (
       <p className={cn('text-sm text-muted-foreground', className)}>

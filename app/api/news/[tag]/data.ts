@@ -7,7 +7,12 @@ export const newsList: News[] = [
     image: '/images/news/gbimonthly_logo.jpg',
     tag: 'global-bio-and-investment',
     title: '先勁智能AI落地彰濱秀傳 革新血癌與淋巴癌診斷',
-    footer: '2025 Global Bio Investment Article',
+    // footer: ['2025 Global Bio Investment Article'],
+    footer: [
+      { variant: 'normal', text: '2025' },
+      { variant: 'border', text: 'Global Bio and Investment' },
+      { variant: 'normal', text: 'Article' },
+    ],
   },
   {
     id: '2',
@@ -15,15 +20,21 @@ export const newsList: News[] = [
     image: '/images/news/the_hub_news.png',
     tag: 'the-hub-news',
     title: '彰濱秀傳與先勁智能合作　利用AI人工智慧革新血癌與淋巴癌診斷',
-    footer: 'The Hub News 2025-02-06',
+    footer: [
+      { variant: 'border', text: 'The Hub News' },
+      { variant: 'normal', text: '2025-02-06' },
+    ],
   },
   {
     id: '3',
     url: 'https://tw.news.yahoo.com/%E5%BD%B0%E6%BF%B1%E7%A7%80%E5%82%B3%E9%86%AB%E9%99%A2%E8%88%87%E5%85%88%E5%8B%81%E6%99%BA%E8%83%BD%E5%90%88%E4%BD%9C-%E7%94%A8ai%E9%9D%A9%E6%96%B0%E8%A1%80%E7%99%8C%E8%88%87%E6%B7%8B%E5%B7%B4%E7%99%8C%E8%A8%BA%E6%96%B7-124200974.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAANFQWaSbMcGJwsu12wypE-H2VesvxHm-ktPQryjel1dEIooedddIMujYQ8G9VWJMWpCCoEhIKjpN6SvhJ4BVHz3eekuVhJhx_Gs072ZBjY-DZ6zVbiF1n2ClmssW-3v6BmWfIpNd4O_6vIPYVtlTgoKf4RTjkMugHAuogghAIZ28',
     image: '/images/news/yahoo.jpg',
-    tag: 'yahoo',
+    tag: 'yahoo-news',
     title: '彰濱秀傳醫院與先勁智能合作 用AI革新血癌與淋巴癌診斷',
-    footer: 'Yahoo News 2025-02-06',
+    footer: [
+      { variant: 'border', text: 'Yahoo News' },
+      { variant: 'normal', text: '2025-02-06' },
+    ],
   },
   {
     id: '4',
@@ -31,7 +42,11 @@ export const newsList: News[] = [
     image: '/images/news/ahead_x_thestormmedia_2.jpg',
     tag: 'the-storm-media',
     title: '血癌檢測百倍速！先勁智能創新AI輔助診斷技術，憑實力闖出名聲',
-    footer: '2024 the storm media med ai award',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'The Storm Media' },
+      { variant: 'normal', text: 'med ai award' },
+    ],
   },
   {
     id: '5',
@@ -39,7 +54,11 @@ export const newsList: News[] = [
     image: '/images/news/ahead_x_thestormmedia_1.jpg',
     tag: 'the-storm-media',
     title: '風傳媒「AI醫療領航大獎」 台北榮總、中國附醫、神瑞獲獎',
-    footer: '2024 the storm media med ai award',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'The Storm Media' },
+      { variant: 'normal', text: 'med ai award' },
+    ],
   },
   {
     id: '6',
@@ -47,7 +66,11 @@ export const newsList: News[] = [
     image: '/images/news/bnext.jpg',
     tag: 'bnext',
     title: '2024台灣AI大賞｜台灣新護國神山，這10家台灣企業領跑AI市場',
-    footer: '2024 BNEXT ai award',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'BNEXT' },
+      { variant: 'normal', text: 'ai award' },
+    ],
   },
   {
     id: '7',
@@ -56,7 +79,11 @@ export const newsList: News[] = [
     tag: 'bnext',
     title:
       '2024台灣AI大賞｜7秒鐘找出異常細胞！先勁智能用AI加持判讀，成果登入聖經教科書',
-    footer: '2024 BNEXT ai award',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'BNEXT' },
+      { variant: 'normal', text: 'ai award' },
+    ],
   },
   {
     id: '8',
@@ -64,7 +91,11 @@ export const newsList: News[] = [
     image: '/images/news/gbimonthly_logo.jpg',
     tag: 'global-bio-and-investment',
     title: '30分鐘變7秒!先勁智能AI血癌檢驗平台寫下經典教科書',
-    footer: '2024 Global Bio Investment Article',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'Global Bio and Investment' },
+      { variant: 'normal', text: 'Article' },
+    ],
   },
   {
     id: '9',
@@ -72,7 +103,11 @@ export const newsList: News[] = [
     image: '/images/news/gbimonthly_logo.jpg',
     tag: 'global-bio-and-investment',
     title: '數位病理學里程碑!美國IVD大廠Quest收購PathAI資產',
-    footer: '2024 Global Bio Investment Article',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'border', text: 'Global Bio and Investment' },
+      { variant: 'normal', text: 'Article' },
+    ],
   },
   {
     id: '10',
@@ -81,6 +116,11 @@ export const newsList: News[] = [
     title:
       'Using Artificial Intelligence to Interpret Clinical Flow Cytometry Datasets for Automated Disease Diagnosis and/or Monitoring',
     tag: 'protocols',
-    footer: '2024 Flow Cytometry Protocols',
+    // footer: '2024 Flow Cytometry Protocols',
+    footer: [
+      { variant: 'normal', text: '2024' },
+      { variant: 'normal', text: 'Flow Cytometry' },
+      { variant: 'border', text: 'Protocols' },
+    ],
   },
 ];
