@@ -119,7 +119,7 @@ const PCList = () => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/trial" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
               Sign up Trial
             </NavigationMenuLink>
@@ -236,7 +236,10 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
           >
             Cyto-Coplot
           </Link>
-          <Link href="/" className={cn(navigationMenuTriggerStyle(), 'w-full')}>
+          <Link
+            href="/trial"
+            className={cn(navigationMenuTriggerStyle(), 'w-full')}
+          >
             Sign up Trial
           </Link>
           <Accordion
