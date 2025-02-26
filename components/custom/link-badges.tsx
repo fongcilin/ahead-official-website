@@ -4,18 +4,19 @@ import Link from 'next/link';
 import { type BadgeProps, Badge } from '@/try-stuff/components/ui/badge';
 import { cn } from '@/try-stuff/lib/utils';
 
-export type LinkBadgeItem<T> = {
-  id: T;
-  title: string;
+export type LinkBadgeItem<TId, TTitle> = {
+  id: TId;
+  title: TTitle;
   className: string;
 };
 
-export interface LinkBadgesProps<T extends string> extends BadgeProps {
-  data: LinkBadgeItem<T>[];
+export interface LinkBadgesProps<TId extends string, TTitle extends string>
+  extends BadgeProps {
+  data: LinkBadgeItem<TId, TTitle>[];
 }
 
-const LinkBadgesWithGeneric = <T extends string>(
-  { data, className }: LinkBadgesProps<T>,
+const LinkBadgesWithGeneric = <TId extends string, TTitle extends string>(
+  { data, className }: LinkBadgesProps<TId, TTitle>,
   ref: React.ForwardedRef<React.ComponentRef<'ul'>>,
 ) => {
   return (
@@ -34,8 +35,8 @@ const LinkBadgesWithGeneric = <T extends string>(
 };
 
 export const LinkBadges = React.forwardRef(
-  LinkBadgesWithGeneric as <T extends string>(
-    props: LinkBadgesProps<T>,
+  LinkBadgesWithGeneric as <TId extends string, TTitle extends string>(
+    props: LinkBadgesProps<TId, TTitle>,
     ref: React.ForwardedRef<React.ComponentRef<'ul'>>,
   ) => React.ReactElement,
 );

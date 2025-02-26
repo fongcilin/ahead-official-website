@@ -7,7 +7,6 @@ export const newsList: News[] = [
     image: '/images/news/gbimonthly_logo.jpg',
     tag: 'global-bio-and-investment',
     title: '先勁智能AI落地彰濱秀傳 革新血癌與淋巴癌診斷',
-    // footer: ['2025 Global Bio Investment Article'],
     footer: [
       { variant: 'normal', text: '2025' },
       { variant: 'border', text: 'Global Bio and Investment' },
@@ -116,11 +115,65 @@ export const newsList: News[] = [
     title:
       'Using Artificial Intelligence to Interpret Clinical Flow Cytometry Datasets for Automated Disease Diagnosis and/or Monitoring',
     tag: 'protocols',
-    // footer: '2024 Flow Cytometry Protocols',
     footer: [
       { variant: 'normal', text: '2024' },
       { variant: 'normal', text: 'Flow Cytometry' },
       { variant: 'border', text: 'Protocols' },
     ],
   },
+  {
+    id: '11',
+    url: 'https://www.linkedin.com/posts/international-society-for-advancement-of-cytometry_congratulations-to-our-march-ldp-featured-activity-7170833059481653250-uA5A/?utm_source=share&utm_medium=member_desktop',
+    image: '/images/news/2024ISACInternationalInnovator.jpg',
+    title: 'ISAC 2024 Leadership Development Program recipients',
+    tag: 'linkedin',
+    footer: [
+      {
+        variant: 'normal',
+        text: 'AHEAD Medicine X ISAC X International Innovator',
+      },
+      { variant: 'normal', text: '2024-03' },
+      { variant: 'border', text: 'LinkedIn' },
+    ],
+  },
+  {
+    id: '12',
+    url: 'https://www.prnewswire.com/news-releases/ahead-medicine-corporation-reveals-cross-test-aml-diagnostic-technique-at-ash-2023-302032407.html?tc=eml_cleartime',
+    image: '/images/news/ahead_x_ash_2023.jpg',
+    title:
+      'AHEAD Medicine Corporation Reveals Cross-Test AML Diagnostic Technique at ASH 2023',
+    tag: 'pr-newswire',
+    footer: [
+      {
+        variant: 'normal',
+        text: 'AHEAD Medicine X ASH X NEWS',
+      },
+      { variant: 'normal', text: '2024-03' },
+      { variant: 'border', text: 'PR Newswire' },
+    ],
+  },
+  {
+    id: '13',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
+    image: '/images/news/ahead_x_ash_2023.jpg',
+    tag: 'science-direct',
+    title: 'AHEAD will be giving poster presentation at ASH 2023',
+    footer: [
+      { variant: 'normal', text: 'AHEAD Medicine X ASH' },
+      { variant: 'normal', text: '2024-03' },
+      { variant: 'border', text: 'Science Direct' },
+    ],
+  },
+  // {
+  //   id: '14',
+  //   url: '',
+  //   image: '/images/news/ahead_x_cyto_2023.jpg',
+  //   title:
+  //     'Exciting News! AHEAD and BD Bioscience Join Forces to Present at CYTO 2023 Conference',
+  //   tag: '',
+  //   footer: [
+  //     { variant: 'normal', text: 'AHEAD Medicine x CYTO' },
+  //     { variant: 'normal', text: '2023-05' },
+  //   ],
+  // }
 ];

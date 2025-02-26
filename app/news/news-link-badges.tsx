@@ -1,4 +1,4 @@
-import type { NewsTag } from '@/try-stuff/app/api/news/[tag]/types';
+import type { NewsTag, NewsTitle } from '@/try-stuff/app/api/news/[tag]/types';
 import {
   type LinkBadgeItem,
   type LinkBadgesProps,
@@ -8,7 +8,7 @@ import { cn } from '@/try-stuff/lib/utils';
 
 const baseBadgeClassName = cn('text-base font-bold');
 
-const badges: LinkBadgeItem<NewsTag>[] = [
+const badges: LinkBadgeItem<NewsTag, NewsTitle>[] = [
   {
     id: 'all',
     title: 'All',
@@ -44,10 +44,25 @@ const badges: LinkBadgeItem<NewsTag>[] = [
     title: 'Protocols',
     className: cn(baseBadgeClassName),
   },
+  {
+    id: 'linkedin',
+    title: 'LinkedIn',
+    className: cn(baseBadgeClassName),
+  },
+  {
+    id: 'pr-newswire',
+    title: 'PR Newswire',
+    className: cn(baseBadgeClassName),
+  },
+  {
+    id: 'science-direct',
+    title: 'Science Direct',
+    className: cn(baseBadgeClassName),
+  },
 ];
 
 export const NewsLinkBadges = (
-  props: Omit<LinkBadgesProps<NewsTag>, 'data'>,
+  props: Omit<LinkBadgesProps<NewsTag, NewsTitle>, 'data'>,
 ) => {
   return <LinkBadges {...props} data={badges} />;
 };

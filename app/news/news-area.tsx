@@ -78,17 +78,17 @@ export const NewsArea = ({
               <Typography.H5 className="mt-0 line-clamp-2 border-red-800">
                 {item.title}
               </Typography.H5>
-              <Typography.Muted>
-                {item.footer.map(({ variant, text }, i) => (
+              <Typography.Muted className="flex flex-wrap">
+                {item.footer.map((subItem, i) => (
                   <span
                     key={i}
                     className={cn({
                       'border border-rose-200 px-2 text-rose-500':
-                        variant === 'border',
-                      'px-1': variant === 'normal',
+                        subItem.variant === 'border',
+                      'px-1': subItem.variant === 'normal',
                     })}
                   >
-                    {text}
+                    {subItem.text}
                   </span>
                 ))}
               </Typography.Muted>

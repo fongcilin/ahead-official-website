@@ -5,7 +5,22 @@ export type NewsTag =
   | 'yahoo-news'
   | 'the-storm-media'
   | 'bnext'
-  | 'protocols';
+  | 'protocols'
+  | 'linkedin'
+  | 'pr-newswire'
+  | 'science-direct';
+
+export type NewsTitle =
+  | 'All'
+  | 'Global Bio and Investment'
+  | 'The Hub News'
+  | 'Yahoo News'
+  | 'The Storm Media'
+  | 'BNEXT'
+  | 'Protocols'
+  | 'LinkedIn'
+  | 'PR Newswire'
+  | 'Science Direct';
 
 export type News = {
   id: string;
@@ -13,7 +28,10 @@ export type News = {
   image: string;
   tag: NewsTag;
   title: string;
-  footer: { variant: 'border' | 'normal'; text: string }[];
+  footer: (
+    | { variant: 'normal'; text: string }
+    | { variant: 'border'; text: NewsTitle }
+  )[];
 };
 
 export type GetNewsByIdResponseData = {
