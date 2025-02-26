@@ -60,9 +60,11 @@ export default function About() {
     <main>
       <PinkBallsParallax className="flex flex-col gap-y-20 pt-40">
         <div className="flex flex-col gap-y-6">
-          <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center">
-            <span className="bg-rose-400 px-8 py-2 text-white">About Us</span>
-          </Typography.H1>
+          <div className="mx-auto max-w-[600px] px-4 text-center">
+            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
+              About Us
+            </Typography.H1>
+          </div>
           <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
             AHEAD Medicine is a pioneering healthtech company. Our flagship
             solution, Cyto-copilot platform, is revolutionizing flow cytometry
@@ -88,73 +90,58 @@ export default function About() {
           </Typography.P>
         </div>
         <div className="flex flex-col gap-y-6">
-          <Typography.H1 className="mx-auto max-w-[600px] px-4 text-center">
-            <span className="bg-rose-400 px-8 py-2 text-white">
+          <div className="mx-auto max-w-[600px] px-4 text-center">
+            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
               Core Leadership
-            </span>
-          </Typography.H1>
+            </Typography.H1>
+          </div>
+
           <div className="mx-auto mt-6 max-w-[960px] px-4 pb-20 pt-10">
-            {leaderships.map(
-              (
-                {
-                  id,
-                  image,
-                  imageSize,
-                  name,
-                  title,
-                  education,
-                  mail,
-                  linkedin,
-                  intro,
-                },
-                i,
-                arr,
-              ) => (
-                <div key={id} className="flex flex-col gap-y-6">
-                  <div
-                    className={cn(
-                      'flex flex-col gap-y-3 border-b border-red-200 pb-6',
-                      'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
-                      i !== 0 && 'pt-6',
-                      i === arr.length - 1 && 'border-b-0 pb-0',
-                    )}
-                  >
-                    <div className="flex flex-col gap-y-2 self-center">
-                      <Image
-                        src={image}
-                        alt={`${name}'s photo`}
-                        width={imageSize.width}
-                        height={imageSize.height}
-                        priority
-                        className="rounded-xl"
-                      />
-                      <div className="flex flex-col">
-                        <Typography.Muted>{name}</Typography.Muted>
-                        <Typography.Muted>{title}</Typography.Muted>
-                        <Typography.Muted>{education}</Typography.Muted>
-                      </div>
-                      <div className="flex gap-x-2">
-                        <a href={`mailto:${mail}`}>
-                          <Button variant="outline" size="icon">
-                            <Mail className="h-7 w-7" />
-                          </Button>
-                        </a>
-                        <a href={linkedin} target="_blank" rel="noreferrer">
-                          <Button variant="outline" size="icon">
-                            <Icons.Linkedin className="h-7 w-7" />
-                          </Button>
-                        </a>
-                      </div>
+            {leaderships.map((item, i, arr) => (
+              <div key={item.id} className="flex flex-col gap-y-6">
+                <div
+                  className={cn(
+                    'flex flex-col gap-y-3 border-b border-red-200 pb-10',
+                    'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
+                    i !== 0 && 'pt-10',
+                    i === arr.length - 1 && 'border-b-0 pb-0',
+                  )}
+                >
+                  <div className="flex flex-col gap-y-2 self-center">
+                    <Image
+                      src={item.image}
+                      alt={`${item.name}'s photo`}
+                      width={item.imageSize.width}
+                      height={item.imageSize.height}
+                      priority
+                      className="rounded-xl"
+                    />
+                    <div className="flex flex-col">
+                      <Typography.Muted>{item.name}</Typography.Muted>
+                      <Typography.Muted>{item.title}</Typography.Muted>
+                      <Typography.Muted>{item.education}</Typography.Muted>
                     </div>
-                    <div className="flex-1">
-                      <Typography.P className="flex-1 text-justify">
-                        {intro}
-                      </Typography.P>
+                    <div className="flex gap-x-2">
+                      <a href={`mailto:${item.mail}`}>
+                        <Button variant="outline" size="icon">
+                          <Mail className="h-7 w-7" />
+                        </Button>
+                      </a>
+                      <a href={item.linkedin} target="_blank" rel="noreferrer">
+                        <Button variant="outline" size="icon">
+                          <Icons.Linkedin className="h-7 w-7" />
+                        </Button>
+                      </a>
                     </div>
                   </div>
+                  <div className="flex-1">
+                    <Typography.P className="flex-1 text-justify">
+                      {item.intro}
+                    </Typography.P>
+                  </div>
                 </div>
-              ),
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </PinkBallsParallax>
