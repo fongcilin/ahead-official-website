@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { Manrope, Geist, Geist_Mono } from 'next/font/google';
+
+import { Toaster } from '@/try-stuff/components/ui/sonner';
+import { cn } from '@/try-stuff/lib/utils';
+
 import './globals.css';
 import { Header } from './header';
 import { Footer } from './footer';
-import { cn } from '@/try-stuff/lib/utils';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -42,6 +45,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
