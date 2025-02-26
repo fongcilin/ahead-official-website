@@ -59,9 +59,9 @@ export const NewsArea = ({
             key={item.id}
             href={item.url}
             target="_blank"
-            className="flex flex-col gap-y-4"
+            className="flex flex-col gap-y-4 border-[1.5px] border-zinc-200"
           >
-            <div className="border border-zinc-400">
+            <div className="border-b-[1.5px] border-zinc-200">
               {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
               <AspectRatio ratio={16 / 9}>
                 <Image
@@ -74,16 +74,17 @@ export const NewsArea = ({
                 />
               </AspectRatio>
             </div>
-            <div className="flex flex-col gap-y-4">
-              <Typography.ThickBlockquote className="mt-0 line-clamp-2 border-red-800">
+            <div className="flex flex-col gap-y-4 px-3 pb-9">
+              <Typography.H5 className="mt-0 line-clamp-2 border-red-800">
                 {item.title}
-              </Typography.ThickBlockquote>
+              </Typography.H5>
               <Typography.Muted>
                 {item.footer.map(({ variant, text }, i) => (
                   <span
                     key={i}
                     className={cn({
-                      'border border-zinc-600 px-2': variant === 'border',
+                      'border border-rose-200 px-2 text-rose-500':
+                        variant === 'border',
                       'px-1': variant === 'normal',
                     })}
                   >
@@ -102,7 +103,8 @@ export const NewsArea = ({
           <Button
             variant="outline"
             className={cn(
-              'w-80 border-rose-800 text-rose-500',
+              'w-60 border-rose-800 text-rose-500',
+              'sm:w-80',
               'hover:bg-rose-900 hover:text-rose-200',
             )}
             onClick={handleLoadMore}
