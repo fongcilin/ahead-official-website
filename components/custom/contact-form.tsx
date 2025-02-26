@@ -37,7 +37,11 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export const ContactForm = () => {
+interface ContactFormProps extends React.HTMLAttributes<HTMLFormElement> {
+  namePrefix: string;
+}
+
+export const ContactForm = ({ namePrefix }: ContactFormProps) => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,7 +57,7 @@ export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const submit = async (values: FormData) => {
-    const name = `[From Contact Page] ${values.name}`;
+    const name = `${namePrefix} ${values.name}`;
     const msg = `organization: ${values.organization}
     position: ${values.position}
     message: ${values.message}`;
