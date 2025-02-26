@@ -47,6 +47,16 @@ export const Typography = {
       {children}
     </h4>
   ),
+  H5: ({ children, className }: TypographyProps) => (
+    <h4
+      className={cn(
+        'scroll-m-20 text-lg font-semibold tracking-tight',
+        className,
+      )}
+    >
+      {children}
+    </h4>
+  ),
   P: ({ children, className }: TypographyProps) => (
     <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}>
       {children}
@@ -61,7 +71,9 @@ export const Typography = {
   },
   ThickBlockquote: ({ children, className }: TypographyProps) => {
     return (
-      <blockquote className={cn('mt-6 border-l-4 pl-4 font-bold', className)}>
+      <blockquote
+        className={cn('mt-6 border-l-[10px] pl-4 font-bold', className)}
+      >
         {children}
       </blockquote>
     );
