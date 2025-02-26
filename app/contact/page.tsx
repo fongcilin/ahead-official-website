@@ -13,7 +13,7 @@ export default function Contact() {
           </Typography.H1>
         </div>
         <div className={cn('mx-auto min-w-full px-4', 'sm:min-w-[600px]')}>
-          <ContactForm />
+          <ContactForm namePrefix="[From Contact Page]" />
         </div>
       </PinkBallsParallax>
     </main>
