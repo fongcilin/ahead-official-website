@@ -117,7 +117,7 @@ export default function Home() {
             Your AI Co-pilot in Medicine
           </Typography.H1>
           <Typography.Blockquote className="max-w-[400px] self-start border-red-800 font-bold">
-            AHEAD&apos;s Cyto-copilot technology revolutionizes workforce
+            AHEAD{`'`}s Cyto-copilot technology revolutionizes workforce
             efficiency and precision medicine by specializing in enhancing flow
             cytometry analysis for research, clinical diagnostics, and cell
             therapy quality control.
@@ -161,9 +161,9 @@ export default function Home() {
 
       {/* Features */}
       <div className="mx-auto flex max-w-[1080px] flex-col gap-y-20 px-4">
-        {feats.map(({ id, title, intro }, i) => (
+        {feats.map((item, i) => (
           <div
-            key={id}
+            key={item.id}
             className={cn(
               'flex flex-col items-center gap-y-6',
               'md:gap-x-6',
@@ -183,8 +183,8 @@ export default function Home() {
               </AspectRatio>
             </div>
             <PinkTextBlock className={cn('md:flex-[0_0_50%] md:self-center')}>
-              <Typography.H3>{title}</Typography.H3>
-              <Typography.P>{intro}</Typography.P>
+              <Typography.H3>{item.title}</Typography.H3>
+              <Typography.P>{item.intro}</Typography.P>
             </PinkTextBlock>
           </div>
         ))}
