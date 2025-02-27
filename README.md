@@ -45,7 +45,7 @@ If see this warning, check the `Rendered size:` from `Elements` tab in browser's
 
 `Warning: Error: Setting up fake worker failed: "Failed to fetch dynamically imported module: https://cdnjs.cloudflare.com/ajax/libs/pdf.js/[PDFJS_VERSION]/pdf.worker.min.js".`
 
-1. This error is about using `pdf.worker.min.js` on cdn, but it only has really old version on cdn. So go to `node_modules/react-pdf/node_modules/pdfjs-dist/build/pdf.worker.mjs` and copy the whole code.
+1. This error is about using `pdf.worker.min.js` on cdn, but it only has really old version on cdn. So go to `node_modules/pdfjs-dist/build/pdf.worker.min.mjs` and copy the whole code.
 2. Create a file `/public/pdfs/pdf.worker.min.js` and paste the code into the file.
 3. Add rule in `.eslintrc.json` and `prettierignore` for avoiding detecting and formatting `/public/pdfs/pdf.worker.min.js`.
 4. For `Warning: TextLayer styles not found. Read more: https://github.com/wojtekmaj/react-pdf#support-for-text-layer` and `Warning: AnnotationLayer styles not found. Read more: https://github.com/wojtekmaj/react-pdf#support-for-annotations`.
