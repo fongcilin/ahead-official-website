@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import type { NewsTag, News } from '@/try-stuff/app/api/news/[tag]/types';
+import type { NewsTag } from '@/try-stuff/app/api/news/[tag]/types';
 import {
   fetchInitNewsData,
   fetchHasMoreNewsData,
@@ -13,7 +13,7 @@ import { NewsArea } from './news-area';
 
 type Params = Promise<{ tag?: NewsTag }>;
 
-export default async function News({ params }: { params: Params }) {
+export default async function NewsPage({ params }: { params: Params }) {
   const { tag } = await params;
   const validTag = tag || 'all';
   const newsCount = 9;
@@ -31,7 +31,7 @@ export default async function News({ params }: { params: Params }) {
   );
 
   return (
-    <main className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4 pt-[120px]">
+    <main className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 self-start px-4 pt-[120px]">
       {/* title */}
       <div className="mx-auto max-w-[600px] px-4">
         <Typography.H1 className="flex text-center text-zinc-500">
