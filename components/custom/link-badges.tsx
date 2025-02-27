@@ -12,18 +12,19 @@ export type LinkBadgeItem<TId, TTitle> = {
 
 export interface LinkBadgesProps<TId extends string, TTitle extends string>
   extends BadgeProps {
+  page: string;
   data: LinkBadgeItem<TId, TTitle>[];
 }
 
 const LinkBadgesWithGeneric = <TId extends string, TTitle extends string>(
-  { data, className }: LinkBadgesProps<TId, TTitle>,
+  { page, data, className }: LinkBadgesProps<TId, TTitle>,
   ref: React.ForwardedRef<React.ComponentRef<'ul'>>,
 ) => {
   return (
     <ul ref={ref} className={cn('flex flex-wrap gap-2 p-4', className)}>
       {data.map((item) => (
         <li key={item.id}>
-          <Link href={`/news/${item.id}`}>
+          <Link href={`/${page}/${item.id}`}>
             <Badge variant="outline" className={item.className}>
               {item.title}
             </Badge>
