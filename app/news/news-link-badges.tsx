@@ -62,7 +62,7 @@ const badges: LinkBadgeItem<NewsTag, NewsTitle>[] = [
 ];
 
 export const NewsLinkBadges = (
-  props: Omit<LinkBadgesProps<NewsTag, NewsTitle>, 'data'>,
+  props: Omit<LinkBadgesProps<NewsTag, NewsTitle>, 'page' | 'data'>,
 ) => {
-  return <LinkBadges {...props} data={badges} />;
+  return <LinkBadges {...props} page="news" data={badges} />;
 };
