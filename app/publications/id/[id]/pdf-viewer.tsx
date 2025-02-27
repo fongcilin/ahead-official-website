@@ -7,6 +7,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 import { Icons } from '@/try-stuff/components/icons';
 import { Typography } from '@/try-stuff/components/typography';
+import { Button } from '@/try-stuff/components/ui/button';
 
 // Get the worker from the cdn
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdfs/pdf.worker.min.js';
@@ -16,7 +17,17 @@ interface PDFViewerProps {
 }
 
 export const PDFViewer = ({ file }: PDFViewerProps) => {
+  // Example: /pdfs/ICCS2024.pdf -> ICCS2024.pdf
+  const fileName = file.split('/').pop() ?? 'document.pdf';
+
   const [numPages, setNumPages] = useState<number | null>(null);
+
+  const downloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = file;
+    link.download = fileName;
+    link.click();
+  };
 
   const handleDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
     setNumPages(numPages);
@@ -27,9 +38,12 @@ export const PDFViewer = ({ file }: PDFViewerProps) => {
   };
 
   return (
-    <div>
+    <div className="space-y-6">
       {numPages !== null && (
-        <Typography.P className="mb-6">Total pages: {numPages}</Typography.P>
+        <div className="flex items-center justify-between">
+          <Typography.P className="mb-6">Total pages: {numPages}</Typography.P>
+          <Button onClick={downloadPDF}>Download PDF</Button>
+        </div>
       )}
       <Document
         file={file}
