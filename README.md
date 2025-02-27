@@ -54,22 +54,3 @@ If see this warning, check the `Rendered size:` from `Elements` tab in browser's
   import 'react-pdf/dist/esm/Page/TextLayer.css';
   import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
   ```
-
-## Fix deprecated `punycode` warning
-
-```bash
-(node:86139) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-```
-
-1.
-
-```bash
-npm run build
-```
-
-2.
-
-```bash
-npm update
-```
