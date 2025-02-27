@@ -7,6 +7,7 @@ import { cn } from '@/try-stuff/lib/utils';
 import './globals.css';
 import { Header } from './header';
 import { Footer } from './footer';
+import { GoogleAnalytics } from './google-analytics';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -34,6 +35,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // TODO: Check if we're in production then enable GA in future
+  // const isProdEnv = process.env.NODE_ENV === 'production';
+  const gaMeasurementId = 'G-6P1YY9WDWQ';
+
   return (
     <html lang="en">
       <body
@@ -42,6 +47,9 @@ export default function RootLayout({
           'grid min-h-screen grid-rows-[1fr,auto]',
         )}
       >
+        {gaMeasurementId && (
+          <GoogleAnalytics gaMeasurementId={gaMeasurementId} />
+        )}
         <Header />
         {children}
         <Footer />

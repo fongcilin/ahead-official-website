@@ -12,3 +12,20 @@ import { twMerge } from 'tailwind-merge';
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 };
+
+/**
+ * @param name a string representing the event name of the GA4 event
+ * @param params an object representing the event parameters of the GA4 event
+ * @example trackEvent("button_click", { "button_id": "cta_button" })
+ */
+
+export const trackEvent = (
+  name: Gtag.EventNames | (string & {}),
+  params?: Gtag.EventParams,
+) => {
+  if (typeof window !== 'undefined') {
+    window.gtag('event', name, params);
+  } else {
+    console.error('this function should only be called in the browser');
+  }
+};

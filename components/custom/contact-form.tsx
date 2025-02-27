@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
+import { toast } from 'sonner';
 import { Icons } from '@/try-stuff/components/icons';
 import {
   Form,
@@ -17,7 +18,7 @@ import {
 import { Input } from '@/try-stuff/components/ui/input';
 import { Textarea } from '@/try-stuff/components/ui/textarea';
 import { Button } from '@/try-stuff/components/ui/button';
-import { toast } from 'sonner';
+import { trackEvent } from '@/try-stuff/lib/utils';
 
 const formSchema = z.object({
   name: z
@@ -81,6 +82,7 @@ export const ContactForm = ({ namePrefix }: ContactFormProps) => {
       );
       const data: { result: string } = await res.json();
       if (data.result === 'success') {
+        trackEvent(`send_contact_form ${namePrefix}`);
         toast.success('Sent successfully');
       } else {
         toast.error('Failed to send');
