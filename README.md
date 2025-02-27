@@ -40,3 +40,36 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 `Image with src "xxx/xxxxx/xx" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.`
 
 If see this warning, check the `Rendered size:` from `Elements` tab in browser's console, and use the width and height from it.
+
+## About react-pdf error in Nextjs
+
+`Warning: Error: Setting up fake worker failed: "Failed to fetch dynamically imported module: https://cdnjs.cloudflare.com/ajax/libs/pdf.js/[PDFJS_VERSION]/pdf.worker.min.js".`
+
+1. This error is about using `pdf.worker.min.js` on cdn, but it only has really old version on cdn. So go to `node_modules/react-pdf/node_modules/pdfjs-dist/build/pdf.worker.mjs` and copy the whole code.
+2. Create a file `/public/pdfs/pdf.worker.min.js` and paste the code into the file.
+3. Add rule in `.eslintrc.json` and `prettierignore` for avoiding detecting and formatting `/public/pdfs/pdf.worker.min.js`.
+4. For `Warning: TextLayer styles not found. Read more: https://github.com/wojtekmaj/react-pdf#support-for-text-layer` and `Warning: AnnotationLayer styles not found. Read more: https://github.com/wojtekmaj/react-pdf#support-for-annotations`.
+
+- ```js
+  import 'react-pdf/dist/esm/Page/TextLayer.css';
+  import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+  ```
+
+## Fix deprecated `punycode` warning
+
+```bash
+(node:86139) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+```
+
+1.
+
+```bash
+npm run build
+```
+
+2.
+
+```bash
+npm update
+```
