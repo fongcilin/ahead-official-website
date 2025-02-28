@@ -9,6 +9,8 @@ import { Icons } from '@/try-stuff/components/icons';
 import { Typography } from '@/try-stuff/components/typography';
 import { Button } from '@/try-stuff/components/ui/button';
 
+import { useWindowSize } from 'usehooks-ts';
+
 // Get the worker from the cdn
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdfs/pdf.worker.min.js';
 
@@ -37,6 +39,12 @@ export const PDFViewer = ({ file }: PDFViewerProps) => {
     console.error(`PDF loading error: ${error}`);
   };
 
+  const { width = 0 } = useWindowSize({ initializeWithValue: false });
+
+  // Subtract the padding from the container
+  const paddingX = 16 * 2;
+  const pdfWidth = width < 1024 ? width - paddingX : 1024 - paddingX;
+
   return (
     <div className="space-y-6">
       {numPages !== null && (
@@ -57,7 +65,7 @@ export const PDFViewer = ({ file }: PDFViewerProps) => {
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={1080}
+            width={pdfWidth}
             loading={
               <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
             }
