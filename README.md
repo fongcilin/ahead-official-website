@@ -35,6 +35,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## About the `import` syntax of React
+
+[React Typescript](https://react.dev/learn/typescript)
+
+- For type, no need to import, just use React.SomeType [ex. React.ReactNode]
+- For others, use `import { useSomeHook, someFunction } from 'react'` [ex. `import { useState, createContext } from 'react'`]
+
 ## The width and height from Image (Nextjs)
 
 `Image with src "xxx/xxxxx/xx" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.`

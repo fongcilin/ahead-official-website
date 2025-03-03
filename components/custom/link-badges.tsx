@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import Link from 'next/link';
 
 import { type BadgeProps, Badge } from '@/try-stuff/components/ui/badge';
@@ -35,7 +35,7 @@ const LinkBadgesWithGeneric = <TId extends string, TTitle extends string>(
   );
 };
 
-export const LinkBadges = React.forwardRef(
+export const LinkBadges = forwardRef(
   LinkBadgesWithGeneric as <TId extends string, TTitle extends string>(
     props: LinkBadgesProps<TId, TTitle>,
     ref: React.ForwardedRef<React.ComponentRef<'ul'>>,

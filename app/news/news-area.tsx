@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,13 +27,13 @@ export const NewsArea = ({
   initNewsData,
   initHasMoreNewsData,
 }: NewsAreaProps) => {
-  const [newsList, setNewsList] = React.useState<News[]>(initNewsData);
+  const [newsList, setNewsList] = useState<News[]>(initNewsData);
 
-  const [cursor, setCursor] = React.useState(initNewsData.length);
+  const [cursor, setCursor] = useState(initNewsData.length);
 
-  const [hasMoreNews, setHasMoreNews] = React.useState(initHasMoreNewsData);
+  const [hasMoreNews, setHasMoreNews] = useState(initHasMoreNewsData);
 
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const perRequestCount = 9;
 

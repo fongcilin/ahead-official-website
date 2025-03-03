@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,15 +28,15 @@ export const PublicationsArea = ({
   initHasMorePublicationData,
 }: PublicationsAreaProps) => {
   const [publicationList, setPublicationList] =
-    React.useState<Publication[]>(initPublicationData);
+    useState<Publication[]>(initPublicationData);
 
-  const [cursor, setCursor] = React.useState(initPublicationData.length);
+  const [cursor, setCursor] = useState(initPublicationData.length);
 
-  const [hasMorePublications, setHasMorePublications] = React.useState(
+  const [hasMorePublications, setHasMorePublications] = useState(
     initHasMorePublicationData,
   );
 
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const perRequestCount = 9;
 

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useWindowSize } from 'usehooks-ts';
@@ -178,9 +178,9 @@ interface MobileListProps {
 }
 
 const MobileList = ({ isMinWidthMd }: MobileListProps) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const homeLinkRef = React.useRef<HTMLAnchorElement | null>(null);
+  const homeLinkRef = useRef<HTMLAnchorElement | null>(null);
 
   // Radix UI just focus on their own components,
   // so we need to handle focus manually,
@@ -190,7 +190,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
     homeLinkRef.current?.focus();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isMinWidthMd) {
       setIsOpen(false);
     }
@@ -286,7 +286,7 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
   );
 };
 
-const ListLink = React.forwardRef<
+const ListLink = forwardRef<
   React.ComponentRef<typeof Link>,
   React.ComponentPropsWithoutRef<typeof Link>
 >(({ className, title, children, ...props }, ref) => {
