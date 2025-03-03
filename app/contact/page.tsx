@@ -3,7 +3,7 @@ import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-para
 import { ContactForm } from '@/try-stuff/components/custom/contact-form';
 import { cn } from '@/try-stuff/lib/utils';
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <main>
       <PinkBallsParallax className="flex min-h-[calc(100vh-160px)] flex-col gap-y-20 pb-20 pt-40">

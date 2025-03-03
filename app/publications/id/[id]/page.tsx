@@ -10,7 +10,11 @@ const fileMap = new Map<PublicationId, string>([
 
 type Params = Promise<{ id?: string }>;
 
-export default async function PublicationPage({ params }: { params: Params }) {
+export default async function PublicationByIdPage({
+  params,
+}: {
+  params: Params;
+}) {
   const { id } = await params;
 
   const file = fileMap.get(id as PublicationId);

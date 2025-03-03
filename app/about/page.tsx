@@ -55,7 +55,7 @@ Andrea's scientific contributions have been featured in leading journals and the
   },
 ];
 
-export default function About() {
+export default function AboutPage() {
   return (
     <main>
       <PinkBallsParallax className="flex flex-col gap-y-20 pt-40">

@@ -93,7 +93,7 @@ const feeds = [
   },
 ];
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
       <SquirmingCellsBanner
