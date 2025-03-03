@@ -29,7 +29,7 @@ import {
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
 } from '@/try-stuff/components/ui/accordion';
-import { cn } from '@/try-stuff/lib/utils';
+import { cn, createLinkTarget } from '@/try-stuff/lib/utils';
 
 type ListItem = {
   title: string;
@@ -45,7 +45,7 @@ const companyInfos: ListItem[] = [
   },
   {
     title: 'Career',
-    href: '/career',
+    href: 'https://aheadmedicine.teamdoor.io/',
     description: 'Want to join our team?',
   },
   {
@@ -293,6 +293,7 @@ const ListLink = forwardRef<
   return (
     <Link
       ref={ref}
+      target={createLinkTarget(props.href as string)}
       className={cn(
         'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
         'hover:bg-accent hover:text-accent-foreground',

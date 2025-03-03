@@ -29,3 +29,13 @@ export const trackEvent = (
     console.error('this function should only be called in the browser');
   }
 };
+
+/**
+ * @param href a string representing the href of the link
+ * @example createLinkTarget("https://google.com") //=> "_blank"
+ * @example createLinkTarget("/about") //=> "_self"
+ */
+
+export const createLinkTarget = (href: string) => {
+  return href.startsWith('http') ? '_blank' : '_self';
+};
