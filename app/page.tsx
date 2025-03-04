@@ -117,10 +117,9 @@ export default function HomePage() {
             Your AI Co-pilot in Medicine
           </Typography.H1>
           <Typography.Blockquote className="max-w-[400px] self-start border-red-800 font-bold">
-            AHEAD{`'`}s Cyto-copilot technology revolutionizes workforce
-            efficiency and precision medicine by specializing in enhancing flow
-            cytometry analysis for research, clinical diagnostics, and cell
-            therapy quality control.
+            AHEAD{`'`}s Cyto-copilot enhances the efficiency, consistency, and
+            scalability of flow cytometry analysis, empowering research,
+            clinical diagnostics, and cell therapy quality control.
           </Typography.Blockquote>
         </div>
       </SquirmingCellsBanner>

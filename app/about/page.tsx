@@ -66,11 +66,12 @@ export default function AboutPage() {
             </Typography.H1>
           </div>
           <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
-            AHEAD Medicine is a pioneering healthtech company. Our flagship
-            solution, Cyto-copilot platform, is revolutionizing flow cytometry
-            data analysis workflow. Cyto-copilot improves the efficiency,
-            reproducibility and scalability of services for disease diagnosis,
-            monitoring, and ensuring quality control in cell therapy.
+            AHEAD Medicine is transforming healthcare through innovative AI
+            technology. Our flagship Cyto-copilot platform employ AI to
+            streamline the flow cytometry data analysis workflow. Cyto-copilot
+            empowers healthcare providers to deliver faster, more consistent,
+            standardized and scalable results for disease diagnosis, patient
+            monitoring, and cell therapy quality control.
           </Typography.P>
         </div>
         <div className="flex flex-col gap-y-6">
@@ -80,13 +81,13 @@ export default function AboutPage() {
             </Typography.H1>
           </div>
           <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
-            At AHEAD, we are committed to bridging the gap in healthcare equity
-            and addressing the shortage of healthcare professionals through our
-            advanced data analysis solutions. Our mission is to deliver systems
-            that are swift, precise, consistent, and expandable. We strive to
-            improve patient care by pioneering the development of cutting-edge
-            healthcare technologies, propelling the industry toward a more
-            innovative and efficient future.
+            At AHEAD, our mission is to enhance healthcare equity and address
+            the shortage of healthcare professionals through groundbreaking data
+            analysis solutions. We are committed to delivering fast, accurate,
+            consistent, and scalable systems that drive better patient outcomes.
+            By pioneering advanced healthcare technologies, we aim to shape a
+            more innovative, efficient, and accessible future for the ealhtcare
+            industry.
           </Typography.P>
         </div>
         <div className="flex flex-col gap-y-6">

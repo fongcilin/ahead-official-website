@@ -14,7 +14,7 @@ import { Typography } from '@/try-stuff/components/typography';
 import { Icons } from '@/try-stuff/components/icons';
 import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { Button } from '@/try-stuff/components/ui/button';
-import { cn, createLinkTarget } from '@/try-stuff/lib/utils';
+import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
 
 interface PublicationsAreaProps {
   tag: PublicationTag;
@@ -62,6 +62,7 @@ export const PublicationsArea = ({
             key={item.id}
             href={item.url}
             target={createLinkTarget(item.url)}
+            rel={createLinkRel(item.url)}
             className="flex flex-col gap-y-4 border-[1.5px] border-zinc-200"
           >
             <div className="relative border-b-[1.5px] border-zinc-200">

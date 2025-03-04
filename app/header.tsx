@@ -22,14 +22,14 @@ import {
   SheetDescription,
   SheetTrigger,
 } from '@/try-stuff/components/ui/sheet';
-import { Button, buttonVariants } from '@/try-stuff/components/ui/button';
+import { Button } from '@/try-stuff/components/ui/button';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
 } from '@/try-stuff/components/ui/accordion';
-import { cn, createLinkTarget } from '@/try-stuff/lib/utils';
+import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
 
 type ListItem = {
   title: string;
@@ -37,11 +37,16 @@ type ListItem = {
   description: string;
 };
 
-const companyInfos: ListItem[] = [
+const company: ListItem[] = [
   {
     title: 'About',
     href: '/about',
     description: 'Learn more about our company.',
+  },
+  {
+    title: 'Partnership',
+    href: '/partnership',
+    description: 'Interested in partnering with us?',
   },
   {
     title: 'Career',
@@ -53,23 +58,26 @@ const companyInfos: ListItem[] = [
     href: '/contact',
     description: 'Have a question or need help?',
   },
+];
+
+const technologies: ListItem[] = [
   {
-    title: 'Partnership',
-    href: '/partnership',
-    description: 'Interested in partnering with us?',
+    title: 'Cyto-Coplot',
+    href: '/',
+    description: 'AI powered flow cytometry analysis.',
   },
 ];
 
 const resources: ListItem[] = [
   {
-    title: 'News',
-    href: '/news',
-    description: 'Stay up-to-date with us.',
-  },
-  {
     title: 'Publications',
     href: '/publications',
-    description: 'Explore our collection of publications.',
+    description: 'Explore Our Scientific Publications & Research.',
+  },
+  {
+    title: 'News',
+    href: '/news',
+    description: 'Stay up-to-date with our latest news.',
   },
 ];
 
@@ -108,24 +116,6 @@ const PCList = () => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(
-                buttonVariants({ size: 'full-h-rectangular-default' }),
-              )}
-            >
-              Cyto-Coplot
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/trial" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
-              Sign up Trial
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex w-[600px] items-stretch">
@@ -133,7 +123,29 @@ const PCList = () => {
                 Make medical operations easier
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
-                {companyInfos.map((item) => (
+                {company.map((item) => (
+                  <li key={item.title}>
+                    <NavigationMenuLink asChild>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
+                    </NavigationMenuLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Technologies</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            {/* Make the height same as `Company` */}
+            <div className="flex min-h-[301px] w-[600px] justify-end">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-500 to-orange-400 p-4 text-3xl font-bold text-white">
+                Resolve the complexity of medical data
+              </div>
+              <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
+                {technologies.map((item) => (
                   <li key={item.title}>
                     <NavigationMenuLink asChild>
                       <ListLink title={item.title} href={item.href}>
@@ -167,6 +179,13 @@ const PCList = () => {
               </ul>
             </div>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/trial" legacyBehavior passHref>
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
+              Cyto-copilot Trial
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
@@ -227,21 +246,6 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
           >
             Home
           </Link>
-          <Link
-            href="/"
-            className={cn(
-              cn(buttonVariants({ size: 'rectangular-default' })),
-              'w-full',
-            )}
-          >
-            Cyto-Coplot
-          </Link>
-          <Link
-            href="/trial"
-            className={cn(navigationMenuTriggerStyle(), 'w-full')}
-          >
-            Sign up Trial
-          </Link>
           <Accordion
             type="single"
             collapsible
@@ -253,7 +257,23 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
               </AccordionNavigationMenuStyleTrigger>
               <AccordionContent>
                 <ul className="gap-3 p-4">
-                  {companyInfos.map((item) => (
+                  {company.map((item) => (
+                    <li key={item.title} onClick={() => setIsOpen(false)}>
+                      <ListLink title={item.title} href={item.href}>
+                        {item.description}
+                      </ListLink>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="technologies" className={cn('border-b-0')}>
+              <AccordionNavigationMenuStyleTrigger>
+                Technologies
+              </AccordionNavigationMenuStyleTrigger>
+              <AccordionContent>
+                <ul className="gap-3 p-4">
+                  {technologies.map((item) => (
                     <li key={item.title} onClick={() => setIsOpen(false)}>
                       <ListLink title={item.title} href={item.href}>
                         {item.description}
@@ -280,6 +300,12 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+          <Link
+            href="/trial"
+            className={cn(navigationMenuTriggerStyle(), 'w-full')}
+          >
+            Cyto-copilot Trial
+          </Link>
         </div>
       </SheetContent>
     </Sheet>
@@ -294,6 +320,7 @@ const ListLink = forwardRef<
     <Link
       ref={ref}
       target={createLinkTarget(props.href as string)}
+      rel={createLinkRel(props.href as string)}
       className={cn(
         'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
         'hover:bg-accent hover:text-accent-foreground',

@@ -39,3 +39,14 @@ export const trackEvent = (
 export const createLinkTarget = (href: string) => {
   return href.startsWith('http') ? '_blank' : '_self';
 };
+
+/**
+ *
+ * @param href a string representing the href of the link
+ * @returns a string representing the rel attribute of the link
+ * @example createLinkRel("https://google.com") //=> "noopener noreferrer"
+ * @example createLinkRel("/about") //=> ""
+ */
+export const createLinkRel = (href: string) => {
+  return href.startsWith('http') ? 'noopener noreferrer' : '';
+};
