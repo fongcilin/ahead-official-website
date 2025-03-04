@@ -61,3 +61,9 @@ If see this warning, check the `Rendered size:` from `Elements` tab in browser's
   import 'react-pdf/dist/esm/Page/TextLayer.css';
   import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
   ```
+
+## Change NEXT_PUBLIC_NGROK_BASE_URL every time re-launch ngrok
+
+1. Make sure have a [account](https://ngrok.com/)
+2. Do `touch .env.local` for making a local env file
+3. Overwrite `NEXT_PUBLIC_NGROK_BASE_URL` in `.env.local` every time re-launch the ngrok

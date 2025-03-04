@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { Icons } from '@/try-stuff/components/icons';
 import { Typography } from '@/try-stuff/components/typography';
 import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
@@ -7,6 +9,14 @@ import { cn } from '@/try-stuff/lib/utils';
 
 import { SquirmingCellsBanner } from './squirming-cells-banner';
 import { PartnershipCarousel } from './partnership-carousel';
+
+export const metadata: Metadata = {
+  // The metadata in ./layout.tsx only applies to the child routes of the layout,
+  // so we need to define the metadata for the home page here.
+  title: {
+    absolute: 'Home | AHEAD Medicine',
+  },
+};
 
 const advantages = [
   {

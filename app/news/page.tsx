@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 import type { NewsTag } from '@/try-stuff/app/api/news/[tag]/types';
@@ -10,6 +11,10 @@ import { Typography } from '@/try-stuff/components/typography';
 
 import { NewsLinkBadges } from './news-link-badges';
 import { NewsArea } from './news-area';
+
+export const metadata: Metadata = {
+  title: 'News',
+};
 
 type Params = Promise<{ tag?: NewsTag }>;
 

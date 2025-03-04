@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 import type { PublicationId } from '@/try-stuff/app/api/publications/[tag]/types';
 
 import { PDFViewer } from './pdf-viewer';
+
+export const metadata: Metadata = {
+  title: 'Publications',
+};
 
 const fileMap = new Map<PublicationId, string>([
   ['iccs-2024', `/pdfs/ICCS2024.pdf`],

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 import type { PublicationTag } from '@/try-stuff/app/api/publications/[tag]/types';
@@ -10,6 +11,10 @@ import { Typography } from '@/try-stuff/components/typography';
 
 import { PublicationsLinkBadges } from './publications-link-badges';
 import { PublicationsArea } from './publications-area';
+
+export const metadata: Metadata = {
+  title: 'Publications',
+};
 
 type Params = Promise<{ tag?: PublicationTag }>;
 

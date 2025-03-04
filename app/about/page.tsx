@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
 
@@ -6,6 +7,10 @@ import { Icons } from '@/try-stuff/components/icons';
 import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
 import { Button } from '@/try-stuff/components/ui/button';
 import { cn } from '@/try-stuff/lib/utils';
+
+export const metadata: Metadata = {
+  title: 'About',
+};
 
 const leaderships = [
   {

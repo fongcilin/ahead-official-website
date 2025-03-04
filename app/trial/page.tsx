@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
+
 import { Typography } from '@/try-stuff/components/typography';
 import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
 import { ContactForm } from '@/try-stuff/components/custom/contact-form';
 import { cn } from '@/try-stuff/lib/utils';
+
+export const metadata: Metadata = {
+  title: 'Trial',
+};
 
 export default function TrialPage() {
   return (
