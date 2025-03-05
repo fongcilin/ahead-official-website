@@ -16,115 +16,96 @@ const partnerships = [
   {
     id: 'ntuh',
     image: '/images/partnership/ntuh.svg',
-    alt: 'ntuh image',
     href: 'https://www.ntuh.gov.tw/ntuh/ntuhgroup.jsp',
   },
   {
     id: 'ntucc',
     image: '/images/partnership/ntucc.png',
-    alt: 'ntucc image',
     href: 'https://www.ntucc.gov.tw/ntucc/Index.action',
   },
   {
     id: 'upmc',
     image: '/images/partnership/upmc.png',
-    alt: 'upmc image',
     href: 'https://www.upmc.com/',
+  },
+  {
+    id: 'roswell-park',
+    image: '/images/partnership/roswell-park.png',
+    href: 'https://www.roswellpark.org/',
   },
   {
     id: 'johns-hopkins',
     image: '/images/partnership/johns-hopkins.png',
-    alt: 'johns-hopkins image',
     href: 'https://www.hopkinsmedicine.org/',
   },
   {
     id: 'mayo-clinic',
     image: '/images/partnership/mayo-clinic.png',
-    alt: 'mayo-clinic image',
     href: 'https://www.mayoclinic.org/',
   },
   {
     id: 'show-chwan',
     image: '/images/partnership/show-chwan.png',
-    alt: 'show-chwan image',
     href: 'https://www.scmh.org.tw/',
   },
   {
     id: 'jcvi',
     image: '/images/partnership/jcvi.png',
-    alt: 'jcvi image',
     href: 'https://www.jcvi.org/',
   },
   {
     id: 'berkeley-skydeck',
     image: '/images/partnership/berkeley-skydeck.png',
-    alt: 'berkeley-skydeck image',
     href: 'https://skydeck.berkeley.edu/',
   },
   {
     id: 'isac',
     image: '/images/partnership/isac.png',
-    alt: 'isac image',
     href: 'https://isac-net.org/',
   },
   {
     id: 'nist',
     image: '/images/partnership/nist.png',
-    alt: 'nist image',
     href: 'https://www.nist.gov/',
   },
   {
     id: 'bd',
     image: '/images/partnership/bd.png',
-    alt: 'bd image',
-    href: 'https://www.bd.com/',
+    href: 'https://www.bdbiosciences.com/en-us',
   },
   {
     id: 'flowsols',
     image: '/images/partnership/flowsols.png',
-    alt: 'flowsols image',
     href: 'https://www.flowsols.com/',
   },
-  // TODO: Followings are not sure how to do sorting
+  // TODO: Followings are not available
   // {
   //   id: 'aplc',
   //   image: '/images/partnership/aplc.png',
-  //   alt: 'aplc image',
   // },
   // {
   //   id: 'dharmais',
   //   image: '/images/partnership/dharmais.png',
-  //   alt: 'dharmais image',
   // },
   // {
   //   id: 'flow-logic',
   //   image: '/images/partnership/flow-logic.png',
-  //   alt: 'flow-logic image',
-  // },
-  // {
-  //   id: 'roswell-park',
-  //   image: '/images/partnership/roswell-park.png',
-  //   alt: 'roswell-park image',
   // },
   // {
   //   id: 'soulcap-initiative',
   //   image: '/images/partnership/soulcap-initiative.png',
-  //   alt: 'soulcap-initiative image',
   // },
   // {
   //   id: 'tzuchi',
   //   image: '/images/partnership/tzuchi.png',
-  //   alt: 'tzuchi image',
   // },
   // {
   //   id: 'university-of-rochester',
   //   image: '/images/partnership/university-of-rochester.png',
-  //   alt: 'university-of-rochester image',
   // },
   // {
   //   id: 'vghtc',
   //   image: '/images/partnership/vghtc.png',
-  //   alt: 'vghtc image',
   // },
 ];
 
@@ -160,7 +141,7 @@ export const PartnershipCarousel = () => {
               <AspectRatio ratio={1}>
                 <Image
                   src={item.image}
-                  alt={item.alt}
+                  alt={`${item.id} image`}
                   fill
                   sizes="150px"
                   priority
