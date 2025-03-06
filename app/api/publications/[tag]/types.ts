@@ -10,10 +10,8 @@ export type PublicationTagName =
   | 'JOURNAL'
   | 'CONFERENCE SPEECH';
 
-export type PublicationId = 'iccs-2024';
-
 export type Publication = {
-  id: PublicationId;
+  id: string;
   url: string;
   image: string;
   tag: PublicationTag;

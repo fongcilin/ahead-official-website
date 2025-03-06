@@ -31,13 +31,26 @@ export const trackEvent = (
 };
 
 /**
+ *
  * @param href a string representing the href of the link
+ * @returns a boolean representing whether the link is an external link
+ * @example isHttp("https://google.com") //=> true
+ * @example isHttp("/about") //=> false
+ */
+
+export const isHttp = (href: string) => {
+  return href.startsWith('http');
+};
+
+/**
+ * @param href a string representing the href of the link
+ * @returns a string representing the target attribute of the link
  * @example createLinkTarget("https://google.com") //=> "_blank"
  * @example createLinkTarget("/about") //=> "_self"
  */
 
 export const createLinkTarget = (href: string) => {
-  return href.startsWith('http') ? '_blank' : '_self';
+  return isHttp(href) ? '_blank' : '_self';
 };
 
 /**
@@ -48,5 +61,5 @@ export const createLinkTarget = (href: string) => {
  * @example createLinkRel("/about") //=> ""
  */
 export const createLinkRel = (href: string) => {
-  return href.startsWith('http') ? 'noopener noreferrer' : '';
+  return isHttp(href) ? 'noopener noreferrer' : '';
 };

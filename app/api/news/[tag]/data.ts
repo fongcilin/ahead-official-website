@@ -124,7 +124,7 @@ export const newsList: News[] = [
   {
     id: '11',
     url: 'https://www.linkedin.com/posts/international-society-for-advancement-of-cytometry_congratulations-to-our-march-ldp-featured-activity-7170833059481653250-uA5A/?utm_source=share&utm_medium=member_desktop',
-    image: '/images/news/2024ISACInternationalInnovator.jpg',
+    image: '/images/news/2024_isac_international_innovator.jpg',
     title: 'ISAC 2024 Leadership Development Program recipients',
     tag: 'linkedin',
     footer: [

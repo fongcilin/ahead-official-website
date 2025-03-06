@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -56,43 +56,25 @@ export const PublicationsArea = ({
   return (
     <>
       {/* new list */}
-      <div className="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      <div
+        className={cn(
+          'grid flex-1 grid-cols-1 gap-8',
+          'sm:grid-cols-2 md:grid-cols-3',
+        )}
+      >
         {publicationList.map((item) => (
-          <Link
-            key={item.id}
-            href={item.url}
-            target={createLinkTarget(item.url)}
-            rel={createLinkRel(item.url)}
-            className="flex flex-col gap-y-4 border-[1.5px] border-zinc-200"
-          >
-            <div className="relative border-b-[1.5px] border-zinc-200">
-              {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
-              <AspectRatio ratio={16 / 9}>
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 600px, 320px"
-                  priority
-                  className="object-cover"
-                />
-              </AspectRatio>
-              <div className="absolute -right-2 bottom-2 text-nowrap bg-red-800 px-2 py-1 text-xs text-white">
-                {item.tagName}
-              </div>
-            </div>
-            <div className="flex flex-col gap-y-4 px-3 pb-9">
-              <Typography.H5 className="mt-0 line-clamp-2 border-red-800">
-                {item.title}
-              </Typography.H5>
-              <Typography.Muted className="flex flex-wrap">
-                {item.author}
-              </Typography.Muted>
-              <Typography.Muted className="flex flex-wrap">
-                {item.footer}
-              </Typography.Muted>
-            </div>
-          </Link>
+          <Fragment key={item.id}>
+            {item.url !== '' && (
+              <Link
+                href={item.url}
+                target={createLinkTarget(item.url)}
+                rel={createLinkRel(item.url)}
+              >
+                <ListItem item={item} />
+              </Link>
+            )}
+            {item.url === '' && <ListItem item={item} />}
+          </Fragment>
         ))}
       </div>
 
@@ -120,5 +102,43 @@ export const PublicationsArea = ({
         </div>
       )}
     </>
+  );
+};
+
+interface ListItemProps {
+  item: Publication;
+}
+
+const ListItem = ({ item }: ListItemProps) => {
+  return (
+    <div className="flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200">
+      <div className="relative border-b-[1.5px] border-zinc-200">
+        {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
+        <AspectRatio ratio={16 / 9}>
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            sizes="(max-width: 768px) 600px, 320px"
+            priority
+            className="object-cover"
+          />
+        </AspectRatio>
+        <div className="absolute -right-2 bottom-2 text-nowrap bg-red-800 px-2 py-1 text-xs text-white">
+          {item.tagName}
+        </div>
+      </div>
+      <div className="flex flex-col gap-y-4 px-3 pb-9">
+        <Typography.H5 className="mt-0 line-clamp-2 border-red-800">
+          {item.title}
+        </Typography.H5>
+        <Typography.Muted className="flex flex-wrap">
+          {item.author}
+        </Typography.Muted>
+        <Typography.Muted className="flex flex-wrap">
+          {item.footer}
+        </Typography.Muted>
+      </div>
+    </div>
   );
 };
