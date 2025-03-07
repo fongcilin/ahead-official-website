@@ -1,10 +1,19 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Mail, ListTodo } from 'lucide-react';
 
 import { Icons } from '@/try-stuff/components/icons';
 import { Typography } from '@/try-stuff/components/typography';
 import { Button } from '@/try-stuff/components/ui/button';
-import { cn } from '../lib/utils';
+import { cn, createLinkRel, createLinkTarget } from '../lib/utils';
+
+const mediaLinks = {
+  mail: 'mailto:team@aheadmedicine.com',
+  x: 'https://x.com/AHEAD_Medicine',
+  linkedin:
+    'https://www.linkedin.com/company/aheadmedicine/posts/?feedView=all',
+  newsletter: 'https://news.aheadmedicine.com/signup',
+};
 
 export const Footer = () => {
   return (
@@ -35,18 +44,38 @@ export const Footer = () => {
           </Typography.Muted>
         </div>
         <div className="flex gap-x-3">
-          <Button variant="gray-outline" size="icon">
-            <Mail className="h-7 w-7" />
-          </Button>
-          <Button variant="gray-outline" size="icon">
-            <Icons.X className="h-7 w-7" />
-          </Button>
-          <Button variant="gray-outline" size="icon">
-            <Icons.Linkedin className="h-7 w-7" />
-          </Button>
-          <Button variant="gray-outline" size="icon">
-            <ListTodo className="h-7 w-7" />
-          </Button>
+          <Link href={mediaLinks.mail}>
+            <Button variant="gray-outline" size="icon">
+              <Mail className="h-7 w-7" />
+            </Button>
+          </Link>
+          <Link
+            href={mediaLinks.x}
+            rel={createLinkRel(mediaLinks.x)}
+            target={createLinkTarget(mediaLinks.x)}
+          >
+            <Button variant="gray-outline" size="icon">
+              <Icons.X className="h-7 w-7" />
+            </Button>
+          </Link>
+          <Link
+            href={mediaLinks.linkedin}
+            rel={createLinkRel(mediaLinks.linkedin)}
+            target={createLinkTarget(mediaLinks.linkedin)}
+          >
+            <Button variant="gray-outline" size="icon">
+              <Icons.Linkedin className="h-7 w-7" />
+            </Button>
+          </Link>
+          <Link
+            href={mediaLinks.newsletter}
+            rel={createLinkRel(mediaLinks.newsletter)}
+            target={createLinkTarget(mediaLinks.newsletter)}
+          >
+            <Button variant="gray-outline" size="icon">
+              <ListTodo className="h-7 w-7" />
+            </Button>
+          </Link>
         </div>
       </div>
     </footer>
