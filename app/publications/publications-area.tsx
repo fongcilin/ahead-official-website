@@ -58,7 +58,7 @@ export const PublicationsArea = ({
       {/* new list */}
       <div
         className={cn(
-          'grid flex-1 grid-cols-1 gap-8',
+          'grid grid-cols-1 gap-8',
           'sm:grid-cols-2 md:grid-cols-3',
         )}
       >
@@ -69,6 +69,7 @@ export const PublicationsArea = ({
                 href={item.url}
                 target={createLinkTarget(item.url)}
                 rel={createLinkRel(item.url)}
+                className="inline-block"
               >
                 <ListItem item={item} />
               </Link>

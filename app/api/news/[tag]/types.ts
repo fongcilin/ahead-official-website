@@ -8,7 +8,32 @@ export type NewsTag =
   | 'protocols'
   | 'linkedin'
   | 'pr-newswire'
-  | 'science-direct';
+  | 'science-direct'
+  | 'cna'
+  | 'ahead-self'
+  | 'meet'
+  | 'escca'
+  | 'nist'
+  | 'aacr'
+  | 'life-science-nation'
+  | 'berkeley-public-health'
+  | 'ee-taiwan'
+  | 'world-journal'
+  | 'futurology-life'
+  | 'teamdoor'
+  | 'ctee'
+  | 'app-works'
+  | 'hlth'
+  | 'live-remo'
+  | 'digitimes'
+  | 'tech-orange'
+  | 'ltn'
+  | 'berkeley-skydeck'
+  | 'ustv'
+  | 'ithome'
+  | 'eet'
+  | 'facebook'
+  | 'technews';
 
 export type NewsTitle =
   | 'All'
@@ -20,13 +45,38 @@ export type NewsTitle =
   | 'Protocols'
   | 'LinkedIn'
   | 'PR Newswire'
-  | 'Science Direct';
+  | 'Science Direct'
+  | 'CNA'
+  | 'Ahead Self'
+  | 'Meet'
+  | 'ESCCA'
+  | 'NIST'
+  | 'AACR'
+  | 'Life Science Nation'
+  | 'Berkeley Public Health'
+  | 'EE Taiwan'
+  | 'World Journal'
+  | 'Futurology Life'
+  | 'Teamdoor'
+  | 'CTEE'
+  | 'App Works'
+  | 'HLTH'
+  | 'Live Remo'
+  | 'Digitimes'
+  | 'Tech Orange'
+  | 'LTN'
+  | 'Berkeley Skydeck'
+  | 'USTV'
+  | 'iThome'
+  | 'EE Times'
+  | 'Facebook'
+  | 'TechNews';
 
 export type News = {
   id: string;
   url: string;
   image: string;
-  tag: NewsTag;
+  tag: Exclude<NewsTag, 'ahead-self'>;
   title: string;
   footer: (
     | { variant: 'normal'; text: string }
@@ -34,7 +84,23 @@ export type News = {
   )[];
 };
 
+export type AheadSelfNews = {
+  id: string;
+  url: '';
+  image: string;
+  tag: Extract<NewsTag, 'ahead-self'>;
+  title: string;
+  footer: (
+    | { variant: 'normal'; text: string }
+    | { variant: 'border'; text: NewsTitle }
+  )[];
+  content: {
+    text: string;
+    link?: string;
+  };
+};
+
 export type GetNewsByIdResponseData = {
-  data: News[];
+  data: (News | AheadSelfNews)[];
   hasMore: boolean;
 };
