@@ -30,7 +30,7 @@ import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
 
 interface NewsAreaProps {
   tag: NewsTag;
-  initNewsData: News[];
+  initNewsData: (News | AheadSelfNews)[];
   initHasMoreNewsData: boolean;
 }
 
