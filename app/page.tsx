@@ -8,7 +8,7 @@ import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-para
 import { cn } from '@/try-stuff/lib/utils';
 
 import { SquirmingCellsBanner } from './squirming-cells-banner';
-import { PartnershipCarousel } from './partnership-carousel';
+import { Partnership } from './partnership';
 
 export const metadata: Metadata = {
   // The metadata in ./layout.tsx only applies to the child routes of the layout,
@@ -219,12 +219,7 @@ export default function HomePage() {
       </div>
 
       {/* Partnership */}
-      <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
-        <Typography.H2 className="text-center text-zinc-500">
-          Partnership
-        </Typography.H2>
-        <PartnershipCarousel />
-      </div>
+      <Partnership />
     </main>
   );
 }
