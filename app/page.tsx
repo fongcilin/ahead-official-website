@@ -8,6 +8,7 @@ import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-para
 import { cn } from '@/try-stuff/lib/utils';
 
 import { SquirmingCellsBanner } from './squirming-cells-banner';
+import { HandleTheRest } from './handle-the-rest';
 import { Partnership } from './partnership';
 
 export const metadata: Metadata = {
@@ -17,33 +18,6 @@ export const metadata: Metadata = {
     absolute: 'Home | AHEAD Medicine',
   },
 };
-
-const advantages = [
-  {
-    id: 1,
-    title: 'Efficiency',
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, aspernatur? Laborum, id sint iusto ipsam quaerat repudiandae molestias recusandae tempore hic magnam esse aut provident modi expedita voluptates officiis ad?',
-  },
-  {
-    id: 2,
-    title: 'Precision',
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, aspernatur? Laborum, id sint iusto ipsam quaerat repudiandae molestias recusandae tempore hic magnam esse aut provident modi expedita voluptates officiis ad?',
-  },
-  {
-    id: 3,
-    title: 'Innovation',
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, aspernatur? Laborum, id sint iusto ipsam quaerat repudiandae molestias recusandae tempore hic magnam esse aut provident modi expedita voluptates officiis ad?',
-  },
-  {
-    id: 4,
-    title: 'Quality',
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, aspernatur? Laborum, id sint iusto ipsam quaerat repudiandae molestias recusandae tempore hic magnam esse aut provident modi expedita voluptates officiis ad?',
-  },
-];
 
 const feats = [
   {
@@ -135,23 +109,7 @@ export default function HomePage() {
       </SquirmingCellsBanner>
 
       {/* Focus on your proficiency */}
-      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
-        <Typography.H2 className="my-10 text-center text-zinc-500">
-          Focus on your proficiency, let us handle the rest
-        </Typography.H2>
-        <div className="grid gap-4 md:grid-cols-4 md:gap-6">
-          {advantages.map((item) => (
-            <div key={item.id} className="flex flex-col gap-y-2 text-center">
-              <Typography.H4 className="text-zinc-500">
-                {item.title}
-              </Typography.H4>
-              <PinkTextBlock>
-                <Typography.P>{item.description}</Typography.P>
-              </PinkTextBlock>
-            </div>
-          ))}
-        </div>
-      </div>
+      <HandleTheRest />
 
       {/* Video */}
       <PinkBallsParallax className="w-screen py-10">
