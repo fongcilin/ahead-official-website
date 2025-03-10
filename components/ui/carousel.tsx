@@ -259,6 +259,52 @@ const CarouselNext = forwardRef<
 });
 CarouselNext.displayName = 'CarouselNext';
 
+const CarouselCustomPrevious = forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<typeof Button>
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+
+  return (
+    <Button
+      ref={ref}
+      variant={variant}
+      size={size}
+      className={className}
+      disabled={!canScrollPrev}
+      onClick={scrollPrev}
+      {...props}
+    >
+      <ArrowLeft className="h-4 w-4" />
+      <span className="sr-only">Previous slide</span>
+    </Button>
+  );
+});
+CarouselCustomPrevious.displayName = 'CarouselCustomPrevious';
+
+const CarouselCustomNext = forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<typeof Button>
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { scrollNext, canScrollNext } = useCarousel();
+
+  return (
+    <Button
+      ref={ref}
+      variant={variant}
+      size={size}
+      className={className}
+      disabled={!canScrollNext}
+      onClick={scrollNext}
+      {...props}
+    >
+      <ArrowRight className="h-4 w-4" />
+      <span className="sr-only">Next slide</span>
+    </Button>
+  );
+});
+CarouselCustomNext.displayName = 'CarouselCustomNext';
+
 export {
   type CarouselApi,
   Carousel,
@@ -266,4 +312,6 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselCustomPrevious,
+  CarouselCustomNext,
 };

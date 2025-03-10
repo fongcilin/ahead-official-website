@@ -10,6 +10,7 @@ import { cn } from '@/try-stuff/lib/utils';
 import { SquirmingCellsBanner } from './squirming-cells-banner';
 import { HandleTheRest } from './handle-the-rest';
 import { Partnership } from './partnership';
+import { Highlights } from './highlights';
 
 export const metadata: Metadata = {
   // The metadata in ./layout.tsx only applies to the child routes of the layout,
@@ -55,25 +56,6 @@ const feats = [
     image: '',
     title: 'Feature 6',
     intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-];
-
-const feeds = [
-  {
-    id: 1,
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 2,
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 3,
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 4,
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
   },
 ];
 
@@ -157,24 +139,8 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Feedbacks */}
-      <div className="mx-auto flex max-w-[800px] flex-col gap-y-10 px-4">
-        <Typography.H2 className="text-center text-zinc-500">
-          Feedbacks
-        </Typography.H2>
-        <div className={cn('grid gap-4', 'md:gap-6')}>
-          {feeds.map((item, i) => (
-            <div
-              key={item.id}
-              className={i % 2 === 0 ? 'md:pl-40' : 'md:pr-40'}
-            >
-              <Typography.P className="rounded-md border-2 border-red-800 p-4">
-                {item.description}
-              </Typography.P>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Highlights */}
+      <Highlights />
 
       {/* Partnership */}
       <Partnership />
