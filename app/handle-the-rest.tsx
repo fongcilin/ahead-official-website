@@ -45,13 +45,11 @@ export const HandleTheRest = () => {
       <div className={cn('grid gap-y-8', 'md:grid-cols-3 md:gap-x-12')}>
         {advantages.map((item) => (
           <div key={item.id} className="flex flex-col items-center gap-y-6">
-            <div className="flex w-full justify-center rounded-t-md bg-gradient-to-b from-red-200 to-red-100 p-6">
-              {item.Icon}
-            </div>
+            {item.Icon}
             <Typography.H4 className="text-zinc-500">
               {item.title}
             </Typography.H4>
-            <PinkTextBlock className="w-full flex-1 rounded-b-full rounded-t-none from-red-100 to-red-50 text-center">
+            <PinkTextBlock className="flex-1 text-center">
               {item.descriptions.map((item, i) => (
                 <Typography.P key={i} className="[&:not(:first-child)]:mt-0">
                   {item}
