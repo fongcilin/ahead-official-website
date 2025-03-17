@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { News, AheadSelfNews } from '@/try-stuff/app/api/news/[tag]/types';
+import type { News, HighlightNews } from '@/try-stuff/app/api/news/[tag]/types';
 
 import {
   typographyVariants,
@@ -21,7 +21,7 @@ import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
 import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
 
 interface NewsItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  item: News | AheadSelfNews;
+  item: News | HighlightNews;
 }
 
 export const NewsItem = ({ item, className }: NewsItemProps) => {
@@ -68,15 +68,28 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
   );
 };
 
-interface AheadSelfNewsItemProps
+interface HighlightNewsItemProps
   extends React.ComponentPropsWithRef<typeof DialogTrigger> {
-  item: AheadSelfNews;
+  item: HighlightNews;
 }
 
-export const AheadSelfNewsItem = ({
+export const HighlightNewsItem = ({
   item,
   className,
-}: AheadSelfNewsItemProps) => {
+}: HighlightNewsItemProps) => {
+  if (item.content === undefined) {
+    return (
+      <Link
+        key={item.id}
+        href={item.url}
+        target="_blank"
+        className="inline-block"
+      >
+        <NewsItem item={item} className={className} />
+      </Link>
+    );
+  }
+
   return (
     <Dialog>
       <DialogTrigger className={cn('inline-block text-left', className)}>

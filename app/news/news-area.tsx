@@ -6,21 +6,17 @@ import Link from 'next/link';
 import type {
   NewsTag,
   News,
-  AheadSelfNews,
   GetNewsByIdResponseData,
 } from '@/try-stuff/app/api/news/[tag]/types';
 
 import { Icons } from '@/try-stuff/components/icons';
 import { Button } from '@/try-stuff/components/ui/button';
-import {
-  NewsItem,
-  AheadSelfNewsItem,
-} from '@/try-stuff/components/custom/news-item';
+import { NewsItem } from '@/try-stuff/components/custom/news-item';
 import { cn } from '@/try-stuff/lib/utils';
 
 interface NewsAreaProps {
   tag: NewsTag;
-  initNewsData: (News | AheadSelfNews)[];
+  initNewsData: News[];
   initHasMoreNewsData: boolean;
 }
 
@@ -29,8 +25,7 @@ export const NewsArea = ({
   initNewsData,
   initHasMoreNewsData,
 }: NewsAreaProps) => {
-  const [newsList, setNewsList] =
-    useState<(News | AheadSelfNews)[]>(initNewsData);
+  const [newsList, setNewsList] = useState<News[]>(initNewsData);
 
   const [cursor, setCursor] = useState(initNewsData.length);
 
@@ -59,17 +54,14 @@ export const NewsArea = ({
       <div className="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         {newsList.map((item) => (
           <Fragment key={item.id}>
-            {item.tag !== 'ahead-self' && (
-              <Link
-                key={item.id}
-                href={item.url}
-                target="_blank"
-                className="inline-block"
-              >
-                <NewsItem item={item} />
-              </Link>
-            )}
-            {item.tag === 'ahead-self' && <AheadSelfNewsItem item={item} />}
+            <Link
+              key={item.id}
+              href={item.url}
+              target="_blank"
+              className="inline-block"
+            >
+              <NewsItem item={item} />
+            </Link>
           </Fragment>
         ))}
       </div>

@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-
-import type { News, AheadSelfNews } from '@/try-stuff/app/api/news/[tag]/types';
+import type { HighlightNews } from '@/try-stuff/app/api/news/[tag]/types';
 
 import AutoPlay from 'embla-carousel-autoplay';
 import {
@@ -13,13 +11,10 @@ import {
   CarouselCustomNext,
 } from '@/try-stuff/components/ui/carousel';
 import { cn } from '@/try-stuff/lib/utils';
-import {
-  NewsItem,
-  AheadSelfNewsItem,
-} from '@/try-stuff/components/custom/news-item';
+import { HighlightNewsItem } from '@/try-stuff/components/custom/news-item';
 
 interface HighlightsCarouselProps {
-  newsData: (News | AheadSelfNews)[];
+  newsData: HighlightNews[];
 }
 
 export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
@@ -43,21 +38,7 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
               'md:basis-1/3',
             )}
           >
-            <>
-              {item.tag !== 'ahead-self' && (
-                <Link
-                  key={item.id}
-                  href={item.url}
-                  target="_blank"
-                  className="inline-block h-full"
-                >
-                  <NewsItem item={item} />
-                </Link>
-              )}
-              {item.tag === 'ahead-self' && (
-                <AheadSelfNewsItem item={item} className="h-full" />
-              )}
-            </>
+            <HighlightNewsItem item={item} className="h-full" />
           </CarouselItem>
         ))}
       </CarouselContent>

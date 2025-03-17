@@ -1,4 +1,4 @@
-import { fetchInitNewsData } from '@/try-stuff/app/api/news/[tag]/server-fetches';
+import { fetchAllHighlightNewsData } from '@/try-stuff/app/api/news/[tag]/server-fetches';
 
 import { Typography } from '@/try-stuff/components/typography';
 import { cn } from '@/try-stuff/lib/utils';
@@ -6,10 +6,7 @@ import { cn } from '@/try-stuff/lib/utils';
 import { HighlightsCarousel } from './highlights-carousel';
 
 export const Highlights = async () => {
-  const validTag = 'all';
-  const newsCount = 9;
-
-  const newsData = await fetchInitNewsData(validTag, newsCount);
+  const newsData = await fetchAllHighlightNewsData();
 
   return (
     <div
