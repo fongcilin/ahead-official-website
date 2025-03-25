@@ -44,11 +44,6 @@ const company: ListItem[] = [
     description: 'Learn more about our company.',
   },
   {
-    title: 'Partnership',
-    href: '/partnership',
-    description: 'Interested in partnering with us?',
-  },
-  {
     title: 'Career',
     href: 'https://aheadmedicine.teamdoor.io/',
     description: 'Want to join our team?',
@@ -118,7 +113,7 @@ const PCList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex w-[600px] items-stretch">
+            <div className="flex min-h-[301px] w-[600px] items-stretch">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-900 to-red-700 p-4 text-3xl font-bold text-white">
                 Make medical operations easier
               </div>
