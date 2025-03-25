@@ -3,16 +3,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Typography } from '@/try-stuff/components/typography';
+import { Typography } from '@/components/typography';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/try-stuff/components/ui/carousel';
-import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
-import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
-import { cn, createLinkRel, createLinkTarget } from '@/try-stuff/lib/utils';
+} from '@/components/ui/carousel';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { cn, createLinkRel, createLinkTarget } from '@/lib/utils';
 
 type Partner = {
   id: string;

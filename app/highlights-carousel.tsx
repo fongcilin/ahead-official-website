@@ -1,6 +1,6 @@
 'use client';
 
-import type { HighlightNews } from '@/try-stuff/app/api/news/[tag]/types';
+import type { HighlightNews } from '@/app/api/news/[tag]/types';
 
 import AutoPlay from 'embla-carousel-autoplay';
 import {
@@ -9,9 +9,9 @@ import {
   CarouselItem,
   CarouselCustomPrevious,
   CarouselCustomNext,
-} from '@/try-stuff/components/ui/carousel';
-import { cn } from '@/try-stuff/lib/utils';
-import { HighlightNewsItem } from '@/try-stuff/components/custom/news-item';
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+import { HighlightNewsItem } from '@/components/custom/news-item';
 
 interface HighlightsCarouselProps {
   newsData: HighlightNews[];

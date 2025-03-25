@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { cn } from '@/try-stuff/lib/utils';
+import { cn } from '@/lib/utils';
 
 const Textarea = forwardRef<
   HTMLTextAreaElement,

@@ -7,12 +7,12 @@ import type {
   NewsTag,
   News,
   GetNewsByIdResponseData,
-} from '@/try-stuff/app/api/news/[tag]/types';
+} from '@/app/api/news/[tag]/types';
 
-import { Icons } from '@/try-stuff/components/icons';
-import { Button } from '@/try-stuff/components/ui/button';
-import { NewsItem } from '@/try-stuff/components/custom/news-item';
-import { cn } from '@/try-stuff/lib/utils';
+import { Icons } from '@/components/icons';
+import { Button } from '@/components/ui/button';
+import { NewsItem } from '@/components/custom/news-item';
+import { cn } from '@/lib/utils';
 
 interface NewsAreaProps {
   tag: NewsTag;

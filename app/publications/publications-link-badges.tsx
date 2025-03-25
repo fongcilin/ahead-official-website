@@ -1,13 +1,13 @@
 import type {
   PublicationTag,
   PublicationTagName,
-} from '@/try-stuff/app/api/publications/[tag]/types';
+} from '@/app/api/publications/[tag]/types';
 import {
   type LinkBadgeItem,
   type LinkBadgesProps,
   LinkBadges,
-} from '@/try-stuff/components/custom/link-badges';
-import { cn } from '@/try-stuff/lib/utils';
+} from '@/components/custom/link-badges';
+import { cn } from '@/lib/utils';
 
 const baseBadgeClassName = cn('text-base font-bold');
 

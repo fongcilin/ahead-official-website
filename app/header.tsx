@@ -13,7 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/try-stuff/components/ui/navigation-menu';
+} from '@/components/ui/navigation-menu';
 import {
   Sheet,
   SheetContent,
@@ -21,15 +21,15 @@ import {
   SheetTitle,
   SheetDescription,
   SheetTrigger,
-} from '@/try-stuff/components/ui/sheet';
-import { Button } from '@/try-stuff/components/ui/button';
+} from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionNavigationMenuStyleTrigger,
-} from '@/try-stuff/components/ui/accordion';
-import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
+} from '@/components/ui/accordion';
+import { cn, createLinkTarget, createLinkRel } from '@/lib/utils';
 
 type ListItem = {
   title: string;

@@ -1,4 +1,4 @@
-import { cn } from '@/try-stuff/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface PinkTextBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

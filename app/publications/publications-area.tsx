@@ -8,13 +8,13 @@ import type {
   PublicationTag,
   Publication,
   GetPublicationByIdResponseData,
-} from '@/try-stuff/app/api/publications/[tag]/types';
+} from '@/app/api/publications/[tag]/types';
 
-import { Typography } from '@/try-stuff/components/typography';
-import { Icons } from '@/try-stuff/components/icons';
-import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
-import { Button } from '@/try-stuff/components/ui/button';
-import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
+import { Typography } from '@/components/typography';
+import { Icons } from '@/components/icons';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button } from '@/components/ui/button';
+import { cn, createLinkTarget, createLinkRel } from '@/lib/utils';
 
 interface PublicationsAreaProps {
   tag: PublicationTag;

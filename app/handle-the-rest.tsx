@@ -1,7 +1,7 @@
-import { Icons } from '@/try-stuff/components/icons';
-import { Typography } from '@/try-stuff/components/typography';
-import { PinkTextBlock } from '@/try-stuff/components/custom/pink-text-block';
-import { cn } from '@/try-stuff/lib/utils';
+import { Icons } from '@/components/icons';
+import { Typography } from '@/components/typography';
+import { PinkTextBlock } from '@/components/custom/pink-text-block';
+import { cn } from '@/lib/utils';
 
 const advantages = [
   {

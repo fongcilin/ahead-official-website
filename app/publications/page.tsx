@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-import type { PublicationTag } from '@/try-stuff/app/api/publications/[tag]/types';
+import type { PublicationTag } from '@/app/api/publications/[tag]/types';
 import {
   fetchInitPublicationData,
   fetchHasMorePublicationData,
-} from '@/try-stuff/app/api/publications/[tag]/server-fetches';
+} from '@/app/api/publications/[tag]/server-fetches';
 
-import { Typography } from '@/try-stuff/components/typography';
+import { Typography } from '@/components/typography';
 
 import { PublicationsLinkBadges } from './publications-link-badges';
 import { PublicationsArea } from './publications-area';

@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
 
-import { Typography } from '@/try-stuff/components/typography';
-import { Icons } from '@/try-stuff/components/icons';
-import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
-import { Button } from '@/try-stuff/components/ui/button';
-import { cn } from '@/try-stuff/lib/utils';
+import { Typography } from '@/components/typography';
+import { Icons } from '@/components/icons';
+import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'About',

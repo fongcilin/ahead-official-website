@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-import { Typography } from '@/try-stuff/components/typography';
-import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
-import { ContactForm } from '@/try-stuff/components/custom/contact-form';
-import { cn } from '@/try-stuff/lib/utils';
+import { Typography } from '@/components/typography';
+import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { ContactForm } from '@/components/custom/contact-form';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Trial',

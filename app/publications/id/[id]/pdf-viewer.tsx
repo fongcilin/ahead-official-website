@@ -5,9 +5,9 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
-import { Icons } from '@/try-stuff/components/icons';
-import { Typography } from '@/try-stuff/components/typography';
-import { Button } from '@/try-stuff/components/ui/button';
+import { Icons } from '@/components/icons';
+import { Typography } from '@/components/typography';
+import { Button } from '@/components/ui/button';
 
 import { useWindowSize } from 'usehooks-ts';
 

@@ -4,9 +4,9 @@ import { forwardRef } from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
 
-import { cn } from '@/try-stuff/lib/utils';
+import { cn } from '@/lib/utils';
 
-import { navigationMenuTriggerStyle } from '@/try-stuff/components/ui/navigation-menu';
+import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 
 const Accordion = AccordionPrimitive.Root;
 

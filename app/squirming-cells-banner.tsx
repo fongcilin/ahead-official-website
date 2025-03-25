@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { useWindowSize } from 'usehooks-ts';
 
-import { cn } from '@/try-stuff/lib/utils';
+import { cn } from '@/lib/utils';
 
 type Circle = {
   vx: number;

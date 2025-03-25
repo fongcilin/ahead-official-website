@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Typography } from '@/try-stuff/components/typography';
-import { buttonVariants } from '@/try-stuff/components/ui/button';
-import { cn } from '@/try-stuff/lib/utils';
+import { Typography } from '@/components/typography';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export default function NotFound() {
   return (

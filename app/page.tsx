@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
-import { Icons } from '@/try-stuff/components/icons';
-import { Typography } from '@/try-stuff/components/typography';
-import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
-import { PinkTextBlock } from '@/try-stuff/components/custom/pink-text-block';
-import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
-import { cn } from '@/try-stuff/lib/utils';
+import { Icons } from '@/components/icons';
+import { Typography } from '@/components/typography';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { PinkTextBlock } from '@/components/custom/pink-text-block';
+import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { cn } from '@/lib/utils';
 
 // import { SquirmingCellsBanner } from './squirming-cells-banner';
 import { HandleTheRest } from './handle-the-rest';

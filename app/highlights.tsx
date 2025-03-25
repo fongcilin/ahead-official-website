@@ -1,7 +1,7 @@
-import { fetchAllHighlightNewsData } from '@/try-stuff/app/api/news/[tag]/server-fetches';
+import { fetchAllHighlightNewsData } from '@/app/api/news/[tag]/server-fetches';
 
-import { Typography } from '@/try-stuff/components/typography';
-import { cn } from '@/try-stuff/lib/utils';
+import { Typography } from '@/components/typography';
+import { cn } from '@/lib/utils';
 
 import { HighlightsCarousel } from './highlights-carousel';
 

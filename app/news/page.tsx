@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-import type { NewsTag } from '@/try-stuff/app/api/news/[tag]/types';
+import type { NewsTag } from '@/app/api/news/[tag]/types';
 import {
   fetchInitNewsData,
   fetchHasMoreNewsData,
-} from '@/try-stuff/app/api/news/[tag]/server-fetches';
+} from '@/app/api/news/[tag]/server-fetches';
 
-import { Typography } from '@/try-stuff/components/typography';
+import { Typography } from '@/components/typography';
 
 import { NewsLinkBadges } from './news-link-badges';
 import { NewsArea } from './news-area';

@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { toast } from 'sonner';
-import { Icons } from '@/try-stuff/components/icons';
+import { Icons } from '@/components/icons';
 import {
   Form,
   FormField,
@@ -14,11 +14,11 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from '@/try-stuff/components/ui/form';
-import { Input } from '@/try-stuff/components/ui/input';
-import { Textarea } from '@/try-stuff/components/ui/textarea';
-import { Button } from '@/try-stuff/components/ui/button';
-import { trackEvent } from '@/try-stuff/lib/utils';
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z

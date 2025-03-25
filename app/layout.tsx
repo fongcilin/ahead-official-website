@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Manrope, Geist, Geist_Mono } from 'next/font/google';
 
-import { Toaster } from '@/try-stuff/components/ui/sonner';
-import { cn } from '@/try-stuff/lib/utils';
+import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
 import './globals.css';
 import { Header } from './header';

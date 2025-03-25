@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 import Link from 'next/link';
 
-import { type BadgeProps, Badge } from '@/try-stuff/components/ui/badge';
-import { cn } from '@/try-stuff/lib/utils';
+import { type BadgeProps, Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 export type LinkBadgeItem<TId, TTitle> = {
   id: TId;

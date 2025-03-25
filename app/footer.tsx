@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, ListTodo } from 'lucide-react';
 
-import { Icons } from '@/try-stuff/components/icons';
-import { Typography } from '@/try-stuff/components/typography';
-import { Button } from '@/try-stuff/components/ui/button';
+import { Icons } from '@/components/icons';
+import { Typography } from '@/components/typography';
+import { Button } from '@/components/ui/button';
 import { cn, createLinkRel, createLinkTarget } from '../lib/utils';
 
 const mediaLinks = {

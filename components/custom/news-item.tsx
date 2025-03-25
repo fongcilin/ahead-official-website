@@ -3,12 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { News, HighlightNews } from '@/try-stuff/app/api/news/[tag]/types';
+import type { News, HighlightNews } from '@/app/api/news/[tag]/types';
 
-import {
-  typographyVariants,
-  Typography,
-} from '@/try-stuff/components/typography';
+import { typographyVariants, Typography } from '@/components/typography';
 import {
   Dialog,
   DialogContent,
@@ -16,9 +13,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/try-stuff/components/ui/dialog';
-import { AspectRatio } from '@/try-stuff/components/ui/aspect-ratio';
-import { cn, createLinkTarget, createLinkRel } from '@/try-stuff/lib/utils';
+} from '@/components/ui/dialog';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { cn, createLinkTarget, createLinkRel } from '@/lib/utils';
 
 interface NewsItemProps extends React.HTMLAttributes<HTMLDivElement> {
   item: News | HighlightNews;
