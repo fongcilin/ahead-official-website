@@ -67,3 +67,11 @@ If see this warning, check the `Rendered size:` from `Elements` tab in browser's
 1. Make sure have a [account](https://ngrok.com/)
 2. Do `touch .env.local` for making a local env file
 3. Overwrite `NEXT_PUBLIC_NGROK_BASE_URL` in `.env.local` every time re-launch the ngrok
+
+## Deploy to vercel (temporary)
+
+1. `npm install -g vercel`
+2. `vercel --version` for checking the library is ready or not
+3. `vercel login`
+4. `cd /path/to/your/nextjs-project`
+5. Every time modifying the codebase, run `vercel` again. But this will make a new domain, so use `vercel --prod` for overlapping the previous one.
