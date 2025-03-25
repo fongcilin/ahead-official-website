@@ -68,6 +68,7 @@ export default function HomePage() {
           src="/images/banner/cell_bg.png"
           alt="cell bg background"
           fill
+          priority
           style={{ objectFit: 'cover', zIndex: -1 }}
         />
         <Image
@@ -84,6 +85,7 @@ export default function HomePage() {
           src="/images/banner/cell_right.png"
           alt="cell right background"
           fill
+          priority
           style={{
             objectFit: 'contain',
             objectPosition: 'right top',
