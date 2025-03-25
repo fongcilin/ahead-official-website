@@ -57,7 +57,7 @@ const company: ListItem[] = [
 
 const technologies: ListItem[] = [
   {
-    title: 'Cyto-Coplot',
+    title: 'Cyto-Copilot',
     href: '/',
     description: 'AI powered flow cytometry analysis.',
   },
