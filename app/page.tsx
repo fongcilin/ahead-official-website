@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { Icons } from '@/try-stuff/components/icons';
@@ -7,7 +8,7 @@ import { PinkTextBlock } from '@/try-stuff/components/custom/pink-text-block';
 import { PinkBallsParallax } from '@/try-stuff/components/custom/pink-balls-parallax';
 import { cn } from '@/try-stuff/lib/utils';
 
-import { SquirmingCellsBanner } from './squirming-cells-banner';
+// import { SquirmingCellsBanner } from './squirming-cells-banner';
 import { HandleTheRest } from './handle-the-rest';
 import { Partnership } from './partnership';
 import { Highlights } from './highlights';
@@ -62,10 +63,33 @@ const feats = [
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
-      <SquirmingCellsBanner
-        className="min-h-[600px] md:min-h-[800px]"
-        contentClassName="flex flex-col gap-y-20"
-      >
+      <div className={cn('relative min-h-[600px] w-full', 'md:min-h-[800px]')}>
+        <Image
+          src="/images/banner/cell_bg.png"
+          alt="cell bg background"
+          fill
+          style={{ objectFit: 'cover', zIndex: -1 }}
+        />
+        <Image
+          src="/images/banner/cell_role.png"
+          alt="cell role background"
+          fill
+          style={{
+            objectFit: 'contain',
+            objectPosition: 'right bottom',
+            zIndex: -1,
+          }}
+        />
+        <Image
+          src="/images/banner/cell_right.png"
+          alt="cell right background"
+          fill
+          style={{
+            objectFit: 'contain',
+            objectPosition: 'right top',
+            zIndex: -1,
+          }}
+        />
         {/* Logo text */}
         <div className="flex items-center justify-center pt-[calc(120px-56px)]">
           <Icons.Logo className={cn('h-20 w-40', 'md:h-24 md:w-48')} />
@@ -88,7 +112,7 @@ export default function HomePage() {
             clinical diagnostics, and cell therapy quality control.
           </Typography.Blockquote>
         </div>
-      </SquirmingCellsBanner>
+      </div>
 
       {/* Focus on your proficiency */}
       <HandleTheRest />

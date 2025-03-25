@@ -9,9 +9,9 @@ export default function NotFound() {
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-8">
       <Image
-        src="/images/erythrocyte.png"
+        src="/images/erythrocytes.png"
         width={256}
-        height={237}
+        height={256}
         alt="Ahead logo"
         priority
         className="self-center"
