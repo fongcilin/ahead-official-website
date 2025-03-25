@@ -114,7 +114,7 @@ const PCList = () => {
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex min-h-[301px] w-[600px] items-stretch">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-900 to-red-700 p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
                 Make medical operations easier
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -136,7 +136,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-900 to-red-700 p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
                 Resolve the complexity of medical data
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -158,7 +158,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-red-900 to-red-700 p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
                 Read news and publications from media
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
