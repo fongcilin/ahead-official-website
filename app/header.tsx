@@ -58,7 +58,7 @@ const company: ListItem[] = [
 const technologies: ListItem[] = [
   {
     title: 'Cyto-Copilot',
-    href: '/',
+    href: 'https://cyto-copilot-c.aheadmedicine.com/',
     description: 'AI powered flow cytometry analysis.',
   },
 ];
