@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 
 import { Typography } from '@/components/typography';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { PinkTextBlock } from '@/components/custom/pink-text-block';
 import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
 import { cn } from '@/lib/utils';
 
@@ -19,45 +18,6 @@ export const metadata: Metadata = {
     absolute: 'Home | AHEAD Medicine',
   },
 };
-
-const feats = [
-  {
-    id: 1,
-    image: '',
-    title: 'Feature 1',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 2,
-    image: '',
-    title: 'Feature 2',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 3,
-    image: '',
-    title: 'Feature 3',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 4,
-    image: '',
-    title: 'Feature 4',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 5,
-    image: '',
-    title: 'Feature 5',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-  {
-    id: 6,
-    image: '',
-    title: 'Feature 6',
-    intro: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat fuga temporibus vel, iusto dignissimos nobis doloribus non rem eveniet sit labore dolorem earum obcaecati repellendus ratione. Totam, quis odio.`,
-  },
-];
 
 export default function HomePage() {
   return (
@@ -141,37 +101,6 @@ export default function HomePage() {
           </AspectRatio>
         </div>
       </PinkBallsParallax>
-
-      {/* Features */}
-      <div className="mx-auto flex max-w-[1080px] flex-col gap-y-20 px-4">
-        {feats.map((item, i) => (
-          <div
-            key={item.id}
-            className={cn(
-              'flex flex-col items-center gap-y-6',
-              'md:gap-x-6',
-              i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
-            )}
-          >
-            <div className="w-full max-w-[480px]">
-              <AspectRatio ratio={1}>
-                <div
-                  className={cn(
-                    'flex h-full w-full items-center justify-center self-center bg-gray-300',
-                    'md:self-auto',
-                  )}
-                >
-                  real product snapshot
-                </div>
-              </AspectRatio>
-            </div>
-            <PinkTextBlock className={cn('md:flex-[0_0_50%] md:self-center')}>
-              <Typography.H3>{item.title}</Typography.H3>
-              <Typography.P>{item.intro}</Typography.P>
-            </PinkTextBlock>
-          </div>
-        ))}
-      </div>
 
       {/* Highlights */}
       <Highlights />
