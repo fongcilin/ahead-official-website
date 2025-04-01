@@ -56,7 +56,7 @@ export const PDFViewer = ({ file }: PDFViewerProps) => {
       <Document
         file={file}
         loading={
-          <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
+          <Icons.Spinner className="text-ahead-red-800 h-12 w-12 animate-spin" />
         }
         onLoadSuccess={handleDocumentLoadSuccess}
         onLoadError={handleDocumentLoadError}
@@ -67,7 +67,7 @@ export const PDFViewer = ({ file }: PDFViewerProps) => {
             pageNumber={index + 1}
             width={pdfWidth}
             loading={
-              <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
+              <Icons.Spinner className="text-ahead-red-800 h-12 w-12 animate-spin" />
             }
           />
         ))}

@@ -206,7 +206,7 @@ export const ContactForm = ({ namePrefix }: ContactFormProps) => {
         {/* loading */}
         {isLoading && (
           <div className="flex justify-center">
-            <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
+            <Icons.Spinner className="text-ahead-red-800 h-12 w-12 animate-spin" />
           </div>
         )}
       </form>

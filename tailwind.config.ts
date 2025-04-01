@@ -11,6 +11,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        ahead: {
+          // Only 700 and 500 come from logo's color,
+          // Others are from AI
+          red: {
+            900: '#7f1d1d',
+            800: '#991b1b',
+            700: '#b81c2d',
+            600: '#dc2626',
+            500: '#e74648',
+            400: '#f87171',
+            300: '#fca5a5',
+            200: '#fecaca',
+            100: '#fee2e2',
+            50: '#fef2f2',
+          },
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

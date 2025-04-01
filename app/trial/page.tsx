@@ -14,7 +14,7 @@ export default function TrialPage() {
     <main>
       <PinkBallsParallax className="flex min-h-[calc(100vh-160px)] flex-col gap-y-20 pb-20 pt-40">
         <div className="flex flex-col gap-y-6">
-          <Typography.H1 className="mx-auto max-w-[800px] bg-rose-400 px-8 py-6 text-center text-white">
+          <Typography.H1 className="bg-ahead-red-500 mx-auto max-w-[800px] px-8 py-6 text-center text-white">
             Request a 30-day free trial
           </Typography.H1>
         </div>

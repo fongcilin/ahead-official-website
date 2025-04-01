@@ -66,7 +66,7 @@ export default function AboutPage() {
       <PinkBallsParallax className="flex flex-col gap-y-20 pt-40">
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
+            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
               About Us
             </Typography.H1>
           </div>
@@ -81,7 +81,7 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
+            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
               Mission Statement
             </Typography.H1>
           </div>
@@ -97,7 +97,7 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-rose-400 px-8 py-6 text-white">
+            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
               Core Leadership
             </Typography.H1>
           </div>

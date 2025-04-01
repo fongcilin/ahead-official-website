@@ -72,9 +72,9 @@ export const NewsArea = ({
           <Button
             variant="outline"
             className={cn(
-              'w-60 border-rose-800 text-rose-500',
+              'border-ahead-red-500 text-ahead-red-500 w-60',
               'sm:w-80',
-              'hover:bg-rose-900 hover:text-rose-200',
+              'hover:bg-ahead-red-700 hover:border-ahead-red-700 hover:text-white',
             )}
             onClick={handleLoadMore}
           >
@@ -86,7 +86,7 @@ export const NewsArea = ({
       {/* loading */}
       {isLoading && (
         <div className="mt-20 flex justify-center">
-          <Icons.Spinner className="h-12 w-12 animate-spin text-rose-600" />
+          <Icons.Spinner className="text-ahead-red-800 h-12 w-12 animate-spin" />
         </div>
       )}
     </>

@@ -43,7 +43,7 @@ export default async function PublicationsPage({ params }: { params: Params }) {
       {/* title */}
       <div className="mx-auto max-w-[600px] px-4">
         <Typography.H1 className="flex text-center text-zinc-500">
-          <span className="bg-rose-500 px-1 text-white">P</span>ublications
+          <span className="bg-ahead-red-700 px-1 text-white">P</span>ublications
         </Typography.H1>
       </div>
 

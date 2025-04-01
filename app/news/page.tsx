@@ -40,7 +40,7 @@ export default async function NewsPage({ params }: { params: Params }) {
       {/* title */}
       <div className="mx-auto max-w-[600px] px-4">
         <Typography.H1 className="flex text-center text-zinc-500">
-          <span className="bg-rose-500 px-1 text-white">N</span>ews
+          <span className="bg-ahead-red-700 px-1 text-white">N</span>ews
         </Typography.H1>
       </div>
 

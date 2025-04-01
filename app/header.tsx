@@ -84,7 +84,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-10 border-b border-red-800 bg-white',
+        'border-ahead-red-800 fixed inset-x-0 top-0 z-10 border-b bg-white',
         width === 0 && 'h-[57px]',
       )}
     >
@@ -118,7 +118,7 @@ const PCList = () => {
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex min-h-[301px] w-[600px] items-stretch">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
+              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
                 Make medical operations easier
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -140,7 +140,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
+              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
                 Resolve the complexity of medical data
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -162,7 +162,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-600 p-4 text-3xl font-bold text-white">
+              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
                 Read news and publications from media
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">

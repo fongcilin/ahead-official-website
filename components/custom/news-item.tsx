@@ -51,7 +51,7 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
             <span
               key={i}
               className={cn({
-                'border border-rose-200 px-2 text-rose-500':
+                'border-ahead-red-700 text-ahead-red-700 border px-2':
                   subItem.variant === 'border',
                 'px-1': subItem.variant === 'normal',
               })}
@@ -132,7 +132,7 @@ export const HighlightNewsItem = ({
               <span
                 key={i}
                 className={cn({
-                  'border border-rose-200 px-2 text-rose-500':
+                  'border-ahead-red-700 text-ahead-red-700 border px-2':
                     subItem.variant === 'border',
                   'px-1': subItem.variant === 'normal',
                 })}
