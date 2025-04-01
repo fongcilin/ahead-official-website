@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
-import { Icons } from '@/components/icons';
 import { Typography } from '@/components/typography';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { PinkTextBlock } from '@/components/custom/pink-text-block';
@@ -94,11 +93,17 @@ export default function HomePage() {
         />
         {/* Logo text */}
         <div className="flex items-center justify-center pt-[calc(120px-56px)]">
-          <Icons.Logo className={cn('h-20 w-40', 'md:h-24 md:w-48')} />
+          <Image
+            src="/images/ahead_logo.png"
+            alt="Ahead logo"
+            width={170}
+            height={140}
+            priority
+          />
         </div>
 
         {/* Key visual  */}
-        <div className="mx-auto flex max-w-[800px] flex-col gap-y-4 px-4">
+        <div className="mx-auto mt-8 flex max-w-[800px] flex-col gap-y-4 px-4">
           <Typography.H1
             className={cn(
               'text-center text-5xl text-zinc-500',

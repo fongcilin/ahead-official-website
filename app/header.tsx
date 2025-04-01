@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useWindowSize } from 'usehooks-ts';
 
+import { Icons } from '@/components/icons';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -87,7 +88,10 @@ export function Header() {
         width === 0 && 'h-[57px]',
       )}
     >
-      <div className="flex items-center justify-end px-4">
+      <div className="flex items-center justify-between px-4">
+        <Link href="/">
+          <Icons.Logo className="h-14 w-28" />
+        </Link>
         {width !== 0 && (
           <>
             {isMinWidthMd && <PCList />}
