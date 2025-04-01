@@ -2,18 +2,6 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
-    id: 'https://www.cna.com.tw/postwrite/chi/392571',
-    url: 'https://www.cna.com.tw/postwrite/chi/392571',
-    image: '/images/news/cna_2025_01_15.png',
-    tag: 'press_chinese',
-    title:
-      '醫療、生醫國際合作 花蓮慈院、台灣愛維盛、美國AbVision攜手「攻克癌症」',
-    footer: [
-      { variant: 'border', text: 'Press (Chinese)' },
-      { variant: 'normal', text: '2025-01-15' },
-    ],
-  },
-  {
     id: 'https://news.gbimonthly.com/tw/article/show.php?num=74245',
     url: 'https://news.gbimonthly.com/tw/article/show.php?num=74245',
     image: '/images/news/gbimonthly_logo.jpg',
@@ -44,6 +32,18 @@ export const newsList: (News | HighlightNews)[] = [
     footer: [
       { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2025-02-06' },
+    ],
+  },
+  {
+    id: 'https://www.cna.com.tw/postwrite/chi/392571',
+    url: 'https://www.cna.com.tw/postwrite/chi/392571',
+    image: '/images/news/cna_2025_01_15.png',
+    tag: 'press_chinese',
+    title:
+      '醫療、生醫國際合作 花蓮慈院、台灣愛維盛、美國AbVision攜手「攻克癌症」',
+    footer: [
+      { variant: 'border', text: 'Press (Chinese)' },
+      { variant: 'normal', text: '2025-01-15' },
     ],
   },
   {
@@ -146,17 +146,6 @@ export const newsList: (News | HighlightNews)[] = [
     ],
   },
   {
-    id: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
-    url: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
-    image: '/images/news/ahead_x_ash_2023.jpg',
-    tag: 'conference',
-    title: 'AHEAD will be giving poster presentation at ASH 2023',
-    footer: [
-      { variant: 'border', text: 'Conference' },
-      { variant: 'normal', text: '2022-11-02' },
-    ],
-  },
-  {
     id: 'ahead-x-cyto-2023',
     url: '',
     image: '/images/news/ahead_x_cyto_2023.jpg',
@@ -171,6 +160,17 @@ export const newsList: (News | HighlightNews)[] = [
       text: `We are thrilled to announce that AHEAD, in collaboration with BD Bioscience, will be presenting at the highly anticipated CYTO 2023 conference. As one of the semi-finalists in the CYTO 2023 Innovation Showcase, we are excited to share our cutting-edge work in the field of automated analysis. Our joint presentation will focus on the innovative automated analysis of OneFlow LST (lymphoma screening test) utilizing AHEAD's advanced technology. If you're attending CYTO 2023, we invite you to stop by our poster presentation to learn more about our groundbreaking work. For those unable to attend the conference, we have also prepared an informative innovation video that you can watch below.`,
       link: 'https://youtu.be/Ze4CBZaRCAY',
     },
+  },
+  {
+    id: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
+    image: '/images/news/ahead_x_ash_2023.jpg',
+    tag: 'conference',
+    title: 'AHEAD will be giving poster presentation at ASH 2023',
+    footer: [
+      { variant: 'border', text: 'Conference' },
+      { variant: 'normal', text: '2022-11-02' },
+    ],
   },
   {
     id: 'https://meet.bnext.com.tw/articles/view/49618',
@@ -242,18 +242,6 @@ export const newsList: (News | HighlightNews)[] = [
     },
   },
   {
-    id: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
-    url: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
-    image: '/images/news/berkeley_public_health.png',
-    tag: 'social_media',
-    title:
-      'AHEAD concluded the inaugural cohort of Berkeley-Taiwan Health Innovation Accelerator Program with a high note.',
-    footer: [
-      { variant: 'border', text: 'Social Media' },
-      { variant: 'normal', text: '2021-11' },
-    ],
-  },
-  {
     id: 'https://www.eettaiwan.com/20211116nt11-first-ee-awards-asia-disclosed-all-the-winners/',
     url: 'https://www.eettaiwan.com/20211116nt11-first-ee-awards-asia-disclosed-all-the-winners/',
     image: '/images/news/ee_awards.png',
@@ -273,6 +261,18 @@ export const newsList: (News | HighlightNews)[] = [
     footer: [
       { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2021-11-16' },
+    ],
+  },
+  {
+    id: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
+    url: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
+    image: '/images/news/berkeley_public_health.png',
+    tag: 'social_media',
+    title:
+      'AHEAD concluded the inaugural cohort of Berkeley-Taiwan Health Innovation Accelerator Program with a high note.',
+    footer: [
+      { variant: 'border', text: 'Social Media' },
+      { variant: 'normal', text: '2021-11' },
     ],
   },
   {
