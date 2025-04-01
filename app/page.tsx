@@ -97,7 +97,7 @@ export default function HomePage() {
             src="/images/ahead_logo.png"
             alt="Ahead logo"
             width={170}
-            height={140}
+            height={139}
             priority
           />
         </div>
@@ -125,7 +125,10 @@ export default function HomePage() {
       <HandleTheRest />
 
       {/* Video */}
-      <PinkBallsParallax className="w-screen py-10">
+      <PinkBallsParallax
+        id="cyto-copilot-intro-video"
+        className="w-screen py-10"
+      >
         <div className="mx-auto max-w-[800px]">
           <AspectRatio ratio={16 / 9}>
             <iframe
