@@ -9,10 +9,10 @@ import { cn, createLinkRel, createLinkTarget } from '../lib/utils';
 
 const mediaLinks = {
   mail: 'mailto:team@aheadmedicine.com',
-  x: 'https://x.com/AHEAD_Medicine',
+  facebook: 'https://www.facebook.com/AHEADIntelligence#',
   linkedin:
     'https://www.linkedin.com/company/aheadmedicine/posts/?feedView=all',
-  newsletter: 'https://news.aheadmedicine.com/signup',
+  hsforms: 'https://share.hsforms.com/1IR8OTPZGTmecZGcsWwjIAwcbh0e',
 };
 
 export const Footer = () => {
@@ -50,12 +50,12 @@ export const Footer = () => {
             </Button>
           </Link>
           <Link
-            href={mediaLinks.x}
-            rel={createLinkRel(mediaLinks.x)}
-            target={createLinkTarget(mediaLinks.x)}
+            href={mediaLinks.facebook}
+            rel={createLinkRel(mediaLinks.facebook)}
+            target={createLinkTarget(mediaLinks.facebook)}
           >
             <Button variant="gray-outline" size="icon">
-              <Icons.X className="h-7 w-7" />
+              <Icons.Facebook className="h-7 w-7" />
             </Button>
           </Link>
           <Link
@@ -68,9 +68,9 @@ export const Footer = () => {
             </Button>
           </Link>
           <Link
-            href={mediaLinks.newsletter}
-            rel={createLinkRel(mediaLinks.newsletter)}
-            target={createLinkTarget(mediaLinks.newsletter)}
+            href={mediaLinks.hsforms}
+            rel={createLinkRel(mediaLinks.hsforms)}
+            target={createLinkTarget(mediaLinks.hsforms)}
           >
             <Button variant="gray-outline" size="icon">
               <ListTodo className="h-7 w-7" />
