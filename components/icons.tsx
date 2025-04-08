@@ -1,47 +1,6 @@
 type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
-  Logo: (props: IconProps) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="400"
-      height="200"
-      viewBox="0 0 400 200"
-      {...props}
-    >
-      <defs>
-        <filter id="gooey">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -7"
-            result="gooey"
-          />
-          <feBlend in="SourceGraphic" in2="gooey" />
-        </filter>
-        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#8B0000" />
-          <stop offset="50%" stopColor="#A52A2A" />
-          <stop offset="100%" stopColor="#B22222" />
-        </linearGradient>
-      </defs>
-
-      <text
-        x="200"
-        y="140"
-        fontSize="100"
-        fontFamily="Arial, sans-serif"
-        fontWeight="bold"
-        textAnchor="middle"
-        fill="url(#textGradient)"
-        filter="url(#gooey)"
-        letterSpacing="5"
-      >
-        AHEAD
-      </text>
-    </svg>
-  ),
   Facebook: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

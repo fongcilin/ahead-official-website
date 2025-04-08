@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect, forwardRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useWindowSize } from 'usehooks-ts';
 
-import { Icons } from '@/components/icons';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -84,13 +84,13 @@ export function Header() {
   return (
     <header
       className={cn(
-        'border-ahead-red-800 fixed inset-x-0 top-0 z-10 border-b bg-white',
+        'fixed inset-x-0 top-0 z-10 border-b border-ahead-red-800 bg-white',
         width === 0 && 'h-[57px]',
       )}
     >
       <div className="flex items-center justify-between px-4">
-        <Link href="/">
-          <Icons.Logo className="h-14 w-28" />
+        <Link href="/" className="flex h-14 items-center">
+          <Image src="/logo.svg" width={112} height={23} alt="logo text" />
         </Link>
         {width !== 0 && (
           <>
@@ -118,7 +118,7 @@ const PCList = () => {
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex min-h-[301px] w-[600px] items-stretch">
-              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
                 Make medical operations easier
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -140,7 +140,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
                 Resolve the complexity of medical data
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -162,7 +162,7 @@ const PCList = () => {
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="from-ahead-red-700 to-ahead-red-500 flex flex-1 items-center justify-center bg-gradient-to-r p-4 text-3xl font-bold text-white">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
                 Read news and publications from media
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
