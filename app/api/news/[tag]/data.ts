@@ -2,6 +2,17 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: 'https://learning.isac-net.org/products/introduction-to-ml-and-ai#tab-product_tab_contents__3',
+    url: 'https://learning.isac-net.org/products/introduction-to-ml-and-ai#tab-product_tab_contents__3',
+    image: '/images/news/cyto_university.png',
+    tag: 'conference',
+    title: 'Introduction to ML and AI (Webinars)',
+    footer: [
+      { variant: 'border', text: 'Conference' },
+      { variant: 'normal', text: '2025-05-14' },
+    ],
+  },
+  {
     id: 'https://news.gbimonthly.com/tw/article/show.php?num=74245',
     url: 'https://news.gbimonthly.com/tw/article/show.php?num=74245',
     image: '/images/news/gbimonthly_logo.jpg',
