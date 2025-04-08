@@ -66,14 +66,19 @@ export default function HomePage() {
         <div className="mx-auto mt-8 flex max-w-[800px] flex-col gap-y-4 px-4">
           <Typography.H1
             className={cn(
-              'text-center text-5xl text-zinc-500',
-              'md:text-left',
+              'inline-block text-center text-5xl text-zinc-500 backdrop-blur-md',
+              'md:text-left md:backdrop-blur-0',
               'lg:text-7xl',
             )}
           >
             Your AI Co-pilot in Medicine
           </Typography.H1>
-          <Typography.Blockquote className="max-w-[400px] self-start border-red-800 font-bold">
+          <Typography.Blockquote
+            className={cn(
+              'max-w-[400px] self-start border-red-800 font-bold backdrop-blur-md',
+              'md:backdrop-blur-0',
+            )}
+          >
             AHEAD{`'`}s Cyto-copilot enhances the efficiency, consistency, and
             scalability of flow cytometry analysis, empowering research,
             clinical diagnostics, and cell therapy quality control.
