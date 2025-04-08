@@ -1,13 +1,12 @@
 import { Icons } from '@/components/icons';
 import { Typography } from '@/components/typography';
-import { PinkTextBlock } from '@/components/custom/pink-text-block';
 import { cn } from '@/lib/utils';
 
 const advantages = [
   {
     id: 1,
     title: 'Fast',
-    Icon: <Icons.FastClock className="h-[120px] w-[120px] text-zinc-400" />,
+    Icon: <Icons.FastClock className="h-16 w-16 text-zinc-700" />,
     descriptions: [
       `Up to 100X Faster than current manual analysis`,
       `Enable batch analysis and triage before report sign off`,
@@ -16,9 +15,7 @@ const advantages = [
   {
     id: 2,
     title: 'Consistent',
-    Icon: (
-      <Icons.PeopleConnection className="h-[120px] w-[120px] text-zinc-400" />
-    ),
+    Icon: <Icons.PeopleConnection className="h-16 w-16 text-zinc-700" />,
     descriptions: [
       `Reproducible fully-automated analysis that mitigate inter-operator variabilities`,
     ],
@@ -26,9 +23,7 @@ const advantages = [
   {
     id: 3,
     title: 'Adaptable & Scalable',
-    Icon: (
-      <Icons.DataConnection className="h-[120px] w-[120px] text-zinc-400" />
-    ),
+    Icon: <Icons.DataConnection className="h-16 w-16 text-zinc-700" />,
     descriptions: [
       `Instrument & Reagent Agnostics`,
       `Adaptable Across Different Research & Clinical Applications`,
@@ -38,24 +33,30 @@ const advantages = [
 
 export const HandleTheRest = () => {
   return (
-    <div className="mx-auto flex max-w-[960px] flex-col gap-y-10 px-4">
+    <div className="mx-auto flex max-w-[1280px] flex-col gap-y-10 px-4">
       <Typography.H2 className="my-10 text-center text-zinc-500">
         Focus on your proficiency, let us handle the rest
       </Typography.H2>
-      <div className={cn('grid gap-y-8', 'md:grid-cols-3 md:gap-x-12')}>
+      <div className={cn('grid gap-y-8', 'lg:grid-cols-3 lg:gap-x-12')}>
         {advantages.map((item) => (
-          <div key={item.id} className="flex flex-col items-center gap-y-6">
+          <div
+            key={item.id}
+            className="flex flex-col items-center gap-y-5 rounded-md bg-zinc-50 p-6 text-center shadow-md"
+          >
             {item.Icon}
-            <Typography.H4 className="text-zinc-500">
+            <Typography.H4 className="text-zinc-600">
               {item.title}
             </Typography.H4>
-            <PinkTextBlock className="flex-1 text-center">
+            <div>
               {item.descriptions.map((item, i) => (
-                <Typography.P key={i} className="[&:not(:first-child)]:mt-0">
+                <Typography.P
+                  key={i}
+                  className={cn('text-zinc-500', '[&:not(:first-child)]:mt-0')}
+                >
                   {item}
                 </Typography.P>
               ))}
-            </PinkTextBlock>
+            </div>
           </div>
         ))}
       </div>
