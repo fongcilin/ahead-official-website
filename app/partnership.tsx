@@ -20,7 +20,7 @@ type Partner = {
   href: string;
 };
 
-const academias: Partner[] = [
+const taiwan: Partner[] = [
   {
     id: 'ntuh',
     image: '/images/partnership/ntuh.svg',
@@ -31,6 +31,24 @@ const academias: Partner[] = [
     image: '/images/partnership/ntucc.png',
     href: 'https://www.ntucc.gov.tw/ntucc/Index.action',
   },
+  {
+    id: 'show-chwan',
+    image: '/images/partnership/show-chawn.png',
+    href: 'https://www.scmh.org.tw/',
+  },
+  {
+    id: 'appworks',
+    image: '/images/partnership/appworks.svg',
+    href: 'https://appworks.tw/',
+  },
+  {
+    id: 'nthu',
+    image: '/images/partnership/nthu.png',
+    href: 'https://www.nthu.edu.tw/',
+  },
+];
+
+const international: Partner[] = [
   {
     id: 'upmc',
     image: '/images/partnership/upmc.png',
@@ -52,11 +70,6 @@ const academias: Partner[] = [
     href: 'https://www.mayoclinic.org/',
   },
   {
-    id: 'show-chwan',
-    image: '/images/partnership/show-chwan.png',
-    href: 'https://www.scmh.org.tw/',
-  },
-  {
     id: 'jcvi',
     image: '/images/partnership/jcvi.png',
     href: 'https://www.jcvi.org/',
@@ -66,38 +79,6 @@ const academias: Partner[] = [
     image: '/images/partnership/berkeley-skydeck.png',
     href: 'https://skydeck.berkeley.edu/',
   },
-  // TODO: Followings are not available
-  // {
-  //   id: 'aplc',
-  //   image: '/images/partnership/aplc.png',
-  // },
-  // {
-  //   id: 'dharmais',
-  //   image: '/images/partnership/dharmais.png',
-  // },
-  // {
-  //   id: 'flow-logic',
-  //   image: '/images/partnership/flow-logic.png',
-  // },
-  // {
-  //   id: 'soulcap-initiative',
-  //   image: '/images/partnership/soulcap-initiative.png',
-  // },
-  // {
-  //   id: 'tzuchi',
-  //   image: '/images/partnership/tzuchi.png',
-  // },
-  // {
-  //   id: 'university-of-rochester',
-  //   image: '/images/partnership/university-of-rochester.png',
-  // },
-  // {
-  //   id: 'vghtc',
-  //   image: '/images/partnership/vghtc.png',
-  // },
-];
-
-const societies: Partner[] = [
   {
     id: 'isac',
     image: '/images/partnership/isac.png',
@@ -108,9 +89,6 @@ const societies: Partner[] = [
     image: '/images/partnership/nist.png',
     href: 'https://www.nist.gov/',
   },
-];
-
-const industries: Partner[] = [
   {
     id: 'bd',
     image: '/images/partnership/bd.png',
@@ -143,7 +121,37 @@ export const Partnership = () => {
         </SubBlock>
         <SubBlock>
           <Typography.H3 className="text-center text-red-800">
-            Academia
+            Taiwan
+          </Typography.H3>
+          <Carousel
+            opts={{ align: 'start', loop: true }}
+            plugins={[
+              AutoScroll({
+                startDelay: 0,
+                stopOnInteraction: false,
+                speed: 1,
+              }),
+            ]}
+            className="mx-auto w-full max-w-[calc(150px*5-16px)]"
+          >
+            <CarouselContent>
+              {taiwan.map((item) => (
+                <CarouselItem
+                  key={item.id}
+                  className={cn(
+                    'flex max-w-[150px] basis-1/4 items-center',
+                    'md:basis-1/5',
+                  )}
+                >
+                  <ListItemLink item={item} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </SubBlock>
+        <SubBlock>
+          <Typography.H3 className="text-center text-red-800">
+            International
           </Typography.H3>
           <Carousel
             opts={{ align: 'start', loop: true }}
@@ -157,7 +165,7 @@ export const Partnership = () => {
             className="w-full"
           >
             <CarouselContent>
-              {academias.map((item) => (
+              {international.map((item) => (
                 <CarouselItem
                   key={item.id}
                   className={cn(
@@ -170,30 +178,6 @@ export const Partnership = () => {
               ))}
             </CarouselContent>
           </Carousel>
-        </SubBlock>
-        <SubBlock>
-          <Typography.H3 className="text-center text-red-800">
-            Society and Authorities
-          </Typography.H3>
-          <div className="flex justify-center gap-x-4">
-            {societies.map((item) => (
-              <div key={item.id} className="w-full max-w-[150px]">
-                <ListItemLink item={item} />
-              </div>
-            ))}
-          </div>
-        </SubBlock>
-        <SubBlock>
-          <Typography.H3 className="text-center text-red-800">
-            Industry
-          </Typography.H3>
-          <div className="flex justify-center gap-x-4">
-            {industries.map((item) => (
-              <div key={item.id} className="w-full max-w-[150px]">
-                <ListItemLink item={item} />
-              </div>
-            ))}
-          </div>
         </SubBlock>
       </div>
     </PinkBallsParallax>
