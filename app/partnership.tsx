@@ -11,7 +11,7 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { PinkCellsParallax } from '@/components/custom/pink-cells-parallax';
 import { cn, createLinkRel, createLinkTarget } from '@/lib/utils';
 
 type Partner = {
@@ -103,25 +103,27 @@ const international: Partner[] = [
 
 export const Partnership = () => {
   return (
-    <PinkBallsParallax className="w-screen py-20">
+    <PinkCellsParallax className="w-screen py-20">
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <SubBlock>
-          <Typography.H2 className="text-center text-zinc-500">
-            Partnership
+          <Typography.H2 className="text-center text-zinc-600">
+            <span className="inline-block backdrop-blur-lg">Partnership</span>
           </Typography.H2>
           <Typography.P
             className={cn(
-              'mx-auto max-w-[400px] text-center text-zinc-400',
+              'mx-auto max-w-[400px] text-center text-zinc-500',
               '[&:not(:first-child)]:mt-0',
             )}
           >
-            We are proud to work with the following partners, who have been
-            instrumental in our journey.
+            <span className="inline-block backdrop-blur-lg">
+              We are proud to work with the following partners, who have been
+              instrumental in our journey.
+            </span>
           </Typography.P>
         </SubBlock>
         <SubBlock>
           <Typography.H3 className="text-center text-red-800">
-            Taiwan
+            <span className="inline-block backdrop-blur-lg">Taiwan</span>
           </Typography.H3>
           <Carousel
             opts={{ align: 'start', loop: true }}
@@ -132,7 +134,7 @@ export const Partnership = () => {
                 speed: 1,
               }),
             ]}
-            className="mx-auto w-full max-w-[calc(150px*5-16px)]"
+            className="mx-auto w-full max-w-[calc(150px*5-16px)] backdrop-blur-lg"
           >
             <CarouselContent>
               {taiwan.map((item) => (
@@ -151,7 +153,7 @@ export const Partnership = () => {
         </SubBlock>
         <SubBlock>
           <Typography.H3 className="text-center text-red-800">
-            International
+            <span className="inline-block backdrop-blur-lg">International</span>
           </Typography.H3>
           <Carousel
             opts={{ align: 'start', loop: true }}
@@ -162,7 +164,7 @@ export const Partnership = () => {
                 speed: 1,
               }),
             ]}
-            className="w-full"
+            className="w-full backdrop-blur-lg"
           >
             <CarouselContent>
               {international.map((item) => (
@@ -180,7 +182,7 @@ export const Partnership = () => {
           </Carousel>
         </SubBlock>
       </div>
-    </PinkBallsParallax>
+    </PinkCellsParallax>
   );
 };
 

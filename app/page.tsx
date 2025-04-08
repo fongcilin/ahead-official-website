@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 import { Typography } from '@/components/typography';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { PinkCellsParallax } from '@/components/custom/pink-cells-parallax';
 import { cn } from '@/lib/utils';
 
 // import { SquirmingCellsBanner } from './squirming-cells-banner';
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
-      <div className={cn('relative min-h-[600px] w-full', 'md:min-h-[800px]')}>
+      <div className="relative min-h-[800px] w-full">
         <Image
           src="/images/banner/cell_bg.png"
           alt="cell bg background"
@@ -66,19 +66,14 @@ export default function HomePage() {
         <div className="mx-auto mt-8 flex max-w-[800px] flex-col gap-y-4 px-4">
           <Typography.H1
             className={cn(
-              'inline-block text-center text-5xl text-zinc-500 backdrop-blur-md',
-              'md:text-left md:backdrop-blur-0',
+              'inline-block text-center text-5xl text-zinc-500',
+              'md:text-left',
               'lg:text-7xl',
             )}
           >
             Your AI Co-pilot in Medicine
           </Typography.H1>
-          <Typography.Blockquote
-            className={cn(
-              'max-w-[400px] self-start border-red-800 font-bold backdrop-blur-md',
-              'md:backdrop-blur-0',
-            )}
-          >
+          <Typography.Blockquote className="max-w-[400px] self-start border-red-800 font-bold">
             AHEAD{`'`}s Cyto-copilot enhances the efficiency, consistency, and
             scalability of flow cytometry analysis, empowering research,
             clinical diagnostics, and cell therapy quality control.
@@ -90,7 +85,7 @@ export default function HomePage() {
       <HandleTheRest />
 
       {/* Video */}
-      <PinkBallsParallax
+      <PinkCellsParallax
         id="cyto-copilot-intro-video"
         className="w-screen py-10"
       >
@@ -105,7 +100,7 @@ export default function HomePage() {
             />
           </AspectRatio>
         </div>
-      </PinkBallsParallax>
+      </PinkCellsParallax>
 
       {/* Highlights */}
       <Highlights />

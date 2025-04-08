@@ -4,7 +4,7 @@ interface PinkBallParallaxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-export const PinkBallsParallax = ({
+export const PinkCellsParallax = ({
   children,
   className,
   ...props
@@ -13,7 +13,8 @@ export const PinkBallsParallax = ({
     <div
       {...props}
       className={cn(
-        `bg-[url('/svgs/pink_bubbles.svg')] bg-cover bg-fixed bg-center bg-no-repeat`,
+        `bg-[url('/images/parallax/cell_bg.png')] bg-cover bg-fixed bg-left bg-no-repeat`,
+        'md:bg-center',
         className,
       )}
     >

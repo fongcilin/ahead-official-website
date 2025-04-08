@@ -4,7 +4,7 @@ import { Mail } from 'lucide-react';
 
 import { Typography } from '@/components/typography';
 import { Icons } from '@/components/icons';
-import { PinkBallsParallax } from '@/components/custom/pink-balls-parallax';
+import { PinkCellsParallax } from '@/components/custom/pink-cells-parallax';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -63,14 +63,14 @@ Andrea's scientific contributions have been featured in leading journals and the
 export default function AboutPage() {
   return (
     <main>
-      <PinkBallsParallax className="flex flex-col gap-y-20 pt-40">
+      <PinkCellsParallax className="flex flex-col gap-y-20 pt-40">
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
             <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
               About Us
             </Typography.H1>
           </div>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
             AHEAD Medicine is transforming healthcare through innovative AI
             technology. Our flagship Cyto-copilot platform employ AI to
             streamline the flow cytometry data analysis workflow. Cyto-copilot
@@ -85,7 +85,7 @@ export default function AboutPage() {
               Mission Statement
             </Typography.H1>
           </div>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify">
+          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
             At AHEAD, our mission is to enhance healthcare equity and address
             the shortage of healthcare professionals through groundbreaking data
             analysis solutions. We are committed to delivering fast, accurate,
@@ -104,7 +104,10 @@ export default function AboutPage() {
 
           <div className="mx-auto mt-6 max-w-[960px] px-4 pb-20 pt-10">
             {leaderships.map((item, i, arr) => (
-              <div key={item.id} className="flex flex-col gap-y-6">
+              <div
+                key={item.id}
+                className="flex flex-col gap-y-6 backdrop-blur-lg"
+              >
                 <div
                   className={cn(
                     'flex flex-col gap-y-3 border-b border-red-200 pb-10',
@@ -150,7 +153,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </PinkBallsParallax>
+      </PinkCellsParallax>
     </main>
   );
 }
