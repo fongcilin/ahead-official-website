@@ -37,9 +37,10 @@ export const metadata: Metadata = {
     { name: 'Kevin Ko' },
     { name: 'Jeremy Lee' },
   ],
-  // TODO: Update this to the actual base URL when we deploy
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_NGROK_BASE_URL || 'https://yourwebsite.com',
+    process.env.NEXT_PUBLIC_DEV_VERCEL_URL ||
+      process.env.NEXT_PUBLIC_PROD_URL ||
+      '',
   ),
   // For social media
   openGraph: {
