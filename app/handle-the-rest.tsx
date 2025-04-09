@@ -8,7 +8,7 @@ const advantages = [
     title: 'Fast',
     Icon: <Icons.FastClock className="h-16 w-16 text-zinc-700" />,
     descriptions: [
-      `Up to 100X Faster than current manual analysis`,
+      `Up to 100X Faster than manual analysis`,
       `Enable batch analysis and triage before report sign off`,
     ],
   },
