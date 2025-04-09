@@ -85,11 +85,11 @@ export default function HomePage() {
       {/* Focus on your proficiency */}
       <HandleTheRest />
 
+      {/* Video anchor */}
+      <div id="cyto-copilot-intro-video" />
+
       {/* Video */}
-      <PinkCellsParallax
-        id="cyto-copilot-intro-video"
-        className="w-screen py-10"
-      >
+      <PinkCellsParallax className="w-screen py-10">
         <div className="mx-auto max-w-[800px]">
           <AspectRatio ratio={16 / 9}>
             <iframe
