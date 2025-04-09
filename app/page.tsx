@@ -45,6 +45,7 @@ export default function HomePage() {
           alt="cell right background"
           fill
           priority
+          className={cn('hidden', 'md:block')}
           style={{
             objectFit: 'contain',
             objectPosition: 'right top',
