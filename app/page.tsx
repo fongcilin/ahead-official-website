@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center gap-y-20 pt-[56px]">
-      <div className="relative min-h-[800px] w-full">
+      <div className="relative min-h-[760px] w-full">
         <Image
           src="/images/banner/cell_bg.png"
           alt="cell bg background"
