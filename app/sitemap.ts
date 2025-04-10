@@ -1,10 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_DEV_VERCEL_URL ||
-    process.env.NEXT_PUBLIC_PROD_URL ||
-    '';
+  const baseUrl = 'https://www.aheadmedicine.com/';
 
   return [
     {

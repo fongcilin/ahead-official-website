@@ -37,11 +37,7 @@ export const metadata: Metadata = {
     { name: 'Kevin Ko' },
     { name: 'Jeremy Lee' },
   ],
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_DEV_VERCEL_URL ||
-      process.env.NEXT_PUBLIC_PROD_URL ||
-      '',
-  ),
+  metadataBase: new URL('https://www.aheadmedicine.com/'),
   // For social media
   openGraph: {
     // The title displayed on social media
