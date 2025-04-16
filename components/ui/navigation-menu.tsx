@@ -55,22 +55,33 @@ const navigationMenuTriggerStyle = cva(
 const NavigationMenuTrigger = forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Trigger
-    ref={ref}
-    className={cn(navigationMenuTriggerStyle(), 'group', className)}
-    {...props}
-  >
-    {children}{' '}
-    <ChevronDown
-      className={cn(
-        'relative top-[1px] ml-1 h-3 w-3 transition duration-200',
-        'group-data-[state=open]:rotate-180',
-      )}
-      aria-hidden="true"
-    />
-  </NavigationMenuPrimitive.Trigger>
-));
+>(({ className, children, ...props }, ref) => {
+  // Prevent default click action when the menu is open
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const isOpened = (e.target as HTMLButtonElement).dataset.state === 'open';
+    if (isOpened) {
+      e.preventDefault();
+    }
+  };
+
+  return (
+    <NavigationMenuPrimitive.Trigger
+      ref={ref}
+      onClick={handleClick}
+      className={cn(navigationMenuTriggerStyle(), 'group', className)}
+      {...props}
+    >
+      {children}{' '}
+      <ChevronDown
+        className={cn(
+          'relative top-[1px] ml-1 h-3 w-3 transition duration-200',
+          'group-data-[state=open]:rotate-180',
+        )}
+        aria-hidden="true"
+      />
+    </NavigationMenuPrimitive.Trigger>
+  );
+});
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
 const NavigationMenuContent = forwardRef<
