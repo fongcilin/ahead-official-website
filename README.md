@@ -69,3 +69,25 @@ If see this warning, check the `Rendered size:` from `Elements` tab in browser's
 3. `vercel login`
 4. `cd /path/to/your/nextjs-project`
 5. Every time modifying the codebase, run `vercel` again. But this will make a new domain, so use `vercel --prod` for overlapping the previous one.
+
+## Deploy to Nangang Server (For Production)
+```
+# Start the services
+docker-compose up -d
+# Check if containers are running
+docker-compose ps
+
+# View logs if needed
+docker-compose logs -f
+```
+
+Updating the Application
+# Pull latest code changes
+git pull
+
+# Rebuild and restart containers
+```
+docker-compose down
+docker-compose build
+docker-compose up -d
+```
