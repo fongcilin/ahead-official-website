@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center gap-y-20 pt-[56px]">
+    <main className="flex flex-col items-center gap-y-10 pt-[56px]">
       <div className="relative min-h-[760px] w-full">
         <Image
           src="/images/banner/cell_bg.png"
@@ -86,10 +86,22 @@ export default function HomePage() {
       <HandleTheRest />
 
       {/* Video anchor */}
-      <div id="cyto-copilot-intro-video" />
-
+      {/* <div id="cyto-copilot-intro-video" /> */}
+        <div id="cyto-copilot-intro-video">
+          <Typography.H2
+            className={cn(
+              'inline-block text-center text-zinc-500',
+              'md:text-left',
+              'text-3xl',
+              'lg:text-3xl', 
+              'mb-1', 
+            )}
+          >
+            Cyto-copilot: AI powered flow cytometry analysis.
+          </Typography.H2>
+        </div>
       {/* Video */}
-      <PinkCellsParallax className="w-screen py-10">
+      <PinkCellsParallax className="w-screen pb-10 mb-10">
         <div className="mx-auto max-w-[800px]">
           <AspectRatio ratio={16 / 9}>
             <iframe

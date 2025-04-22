@@ -27,7 +27,7 @@ export const fetchHasMoreNewsData = async (tag: NewsTag, cursor: number) => {
 
 export const fetchAllHighlightNewsData = async () => {
   const filteredNews = newsList.filter(
-    (item) => item.tag === 'conference' || item.tag === 'publication',
-  ) as HighlightNews[];
+    (item): item is HighlightNews => (item as HighlightNews).is_highlight === true,
+  );
   return filteredNews;
 };

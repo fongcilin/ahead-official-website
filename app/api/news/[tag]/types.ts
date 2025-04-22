@@ -30,8 +30,9 @@ export type HighlightNews = {
   id: string;
   url: string;
   image: string;
-  tag: Extract<NewsTag, 'publication' | 'conference'>;
+  tag: string;
   title: string;
+  is_highlight: boolean;
   footer: (
     | { variant: 'normal'; text: string }
     | { variant: 'border'; text: NewsTitle }

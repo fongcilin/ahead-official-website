@@ -62,14 +62,14 @@ const technologies: ListItem[] = [
     href: '/#cyto-copilot-intro-video',
     description: 'AI powered flow cytometry analysis.',
   },
-];
-
-const resources: ListItem[] = [
   {
     title: 'Publications',
     href: '/publications',
     description: 'Explore Our Scientific Publications & Research.',
-  },
+  }
+];
+
+const resources: ListItem[] = [
   {
     title: 'News',
     href: '/news',
@@ -119,7 +119,7 @@ const PCList = () => {
           <NavigationMenuContent>
             <div className="flex min-h-[301px] w-[600px] items-stretch">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
-                Make medical operations easier
+                AI Assisted HEmatological Analytics and Decision Support
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {company.map((item) => (
@@ -141,7 +141,7 @@ const PCList = () => {
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
-                Resolve the complexity of medical data
+                Improve access and efficieny for biomedical professionals
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {technologies.map((item) => (
@@ -158,12 +158,12 @@ const PCList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuTrigger>News</NavigationMenuTrigger>
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
-                Read news and publications from media
+                  Learn about AHEAD&apos;s latest news
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {resources.map((item) => (

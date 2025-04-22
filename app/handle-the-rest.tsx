@@ -25,8 +25,7 @@ const advantages = [
     title: 'Adaptable & Scalable',
     Icon: <Icons.DataConnection className="h-16 w-16 text-zinc-700" />,
     descriptions: [
-      `Instrument & Reagent Agnostics`,
-      `Adaptable Across Different Research & Clinical Applications`,
+      `Adaptable Across Different Platform in Single Analysis`,
     ],
   },
 ];
@@ -34,8 +33,8 @@ const advantages = [
 export const HandleTheRest = () => {
   return (
     <div className="mx-auto flex max-w-[1280px] flex-col gap-y-10 px-4">
-      <Typography.H2 className="my-10 text-center text-zinc-500">
-        Focus on your proficiency, let us handle the rest
+      <Typography.H2 className="mt-10 mb-4 text-center text-zinc-500">
+        Your Expertise, Amplified. We Handle the Heavy Lifting
       </Typography.H2>
       <div className={cn('grid gap-y-8', 'lg:grid-cols-3 lg:gap-x-12')}>
         {advantages.map((item) => (

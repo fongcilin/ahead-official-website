@@ -11,7 +11,7 @@ export const Highlights = async () => {
   return (
     <div
       className={cn(
-        'mx-auto flex w-screen flex-col gap-y-10 px-4',
+        'mx-auto flex w-screen flex-col gap-y-2 px-4',
         'lg:max-w-[960px]',
       )}
     >

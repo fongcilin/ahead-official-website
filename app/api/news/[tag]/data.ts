@@ -2,14 +2,51 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: 'https://www.nist.gov/news-events/events/2025/06/ai-and-flow-cytometry-workshop',
+    url: 'https://www.nist.gov/news-events/events/2025/06/ai-and-flow-cytometry-workshop',
+    image: '/images/news/nist.jpg',
+    tag: 'conference',
+    title: 'NIST-FDA-NIAID Co-Organized "AI and Flow Cytometry Workshop"',
+    is_highlight: true,
+    footer: [
+      { variant: 'border', text: 'Conference' },
+      { variant: 'normal', text: '2025-06-10' },
+    ],
+  },
+  {
     id: 'https://learning.isac-net.org/products/introduction-to-ml-and-ai#tab-product_tab_contents__3',
     url: 'https://learning.isac-net.org/products/introduction-to-ml-and-ai#tab-product_tab_contents__3',
     image: '/images/news/cyto_university.png',
     tag: 'conference',
     title: 'Introduction to ML and AI (Webinars)',
+    is_highlight: true,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2025-05-14' },
+    ],
+  },
+  {
+    id: 'https://www.nist.gov/programs-projects/nist-flow-cytometry-standards-consortium',
+    url: 'https://www.nist.gov/programs-projects/nist-flow-cytometry-standards-consortium',
+    image: '/images/news/nist-flow-cytometry-standards-consortium.png',
+    tag: 'press_english',
+    title: 'AHEAD Joins NIST Flow Cytometry Standards Consortium for Cell and Gene Therapy',
+    is_highlight: true,
+    footer: [
+      { variant: 'border', text: 'Press (English)' },
+      { variant: 'normal', text: '2025-03-26' },
+    ],
+  },
+  {
+    id: 'https://ynews.page.link/ikmMq',
+    url: 'https://ynews.page.link/ikmMq',
+    image: '/images/news/yahoo.jpg',
+    tag: 'press_chinese',
+    is_highlight: true,
+    title: 'Show-Chwan Cancer Hospital Partners with AHEAD for AI-Powered Leukemia Diagnosis',
+    footer: [
+      { variant: 'border', text: 'Press (Chinese)' },
+      { variant: 'normal', text: '2025-03-22' },
     ],
   },
   {
@@ -58,6 +95,18 @@ export const newsList: (News | HighlightNews)[] = [
     ],
   },
   {
+    id: 'https://isac-net.org/page/Innovators',
+    url: 'https://isac-net.org/page/Innovators',
+    image: '/images/news/isac-logo.png',
+    tag: 'press_english',
+    is_highlight: true,
+    title: 'AHEAD CEO Joins ISAC Leadership Development Program as International Innovator',
+    footer: [
+      { variant: 'border', text: 'Press (English)' },
+      { variant: 'normal', text: '2024-12-05' },
+    ],
+  },
+  {
     id: 'https://www.storm.mg/article/5281954',
     url: 'https://www.storm.mg/article/5281954',
     image: '/images/news/ahead_x_thestormmedia_2.jpg',
@@ -95,6 +144,7 @@ export const newsList: (News | HighlightNews)[] = [
     url: 'https://www.bnext.com.tw/article/79724/ahead-medicine--taiwan-impact-ai-award-2024?fbclid=IwZXh0bgNhZW0CMTEAAR2FMKGfuNp44PijwiNORHP7YxyM2kUyLLuDPcIXXdxdpovs_gAh6UKws7M_aem_JVtBF8MwYFFhTdbMUCPEgQ',
     image: '/images/news/bnext_interview.png',
     tag: 'press_chinese',
+    is_highlight: true,
     title:
       '2024台灣AI大賞｜7秒鐘找出異常細胞！先勁智能用AI加持判讀，成果登入聖經教科書',
     footer: [
@@ -108,6 +158,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/gbimonthly_logo.jpg',
     tag: 'press_chinese',
     title: '30分鐘變7秒!先勁智能AI血癌檢驗平台寫下經典教科書',
+    is_highlight: true,
     footer: [
       { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2024-05-27' },
@@ -131,6 +182,7 @@ export const newsList: (News | HighlightNews)[] = [
     title:
       'Using Artificial Intelligence to Interpret Clinical Flow Cytometry Datasets for Automated Disease Diagnosis and/or Monitoring',
     tag: 'publication',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Publication' },
       { variant: 'normal', text: '2024-03-26' },
@@ -163,6 +215,7 @@ export const newsList: (News | HighlightNews)[] = [
     title:
       'Exciting News! AHEAD and BD Bioscience Join Forces to Present at CYTO 2023 Conference',
     tag: 'conference',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2023-05' },
@@ -173,11 +226,24 @@ export const newsList: (News | HighlightNews)[] = [
     },
   },
   {
+    id: 'https://www.youtube.com/watch?v=Ze4CBZaRCAY&ab_channel=AndreaWang',
+    url: 'https://www.youtube.com/watch?v=Ze4CBZaRCAY&ab_channel=AndreaWang',
+    image: '/images/news/iccs2023_poster.png',
+    tag: 'conference',
+    title: 'AHEAD and BD Biosciences Present Automated Lymphoma Screening Analysis at CYTO, ESCCA and ICCS',
+    is_highlight: true,
+    footer: [
+      { variant: 'border', text: 'Conference' },
+      { variant: 'normal', text: '2023-03-11' },
+    ],
+  },
+  {
     id: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
     url: 'https://www.sciencedirect.com/science/article/abs/pii/S000649712311620X',
     image: '/images/news/ahead_x_ash_2023.jpg',
     tag: 'conference',
     title: 'AHEAD will be giving poster presentation at ASH 2023',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2022-11-02' },
@@ -200,6 +266,7 @@ export const newsList: (News | HighlightNews)[] = [
     url: 'https://escca.eu/programme/programme',
     image: '/images/news/escca_2022.jpg',
     title: 'AHEAD will be giving an oral presentation at ESCCA 2022.',
+    is_highlight: false,
     tag: 'conference',
     footer: [
       { variant: 'border', text: 'Conference' },
@@ -212,6 +279,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/nist.jpg',
     title:
       'AHEAD is honored to be part of NIST flow cytometry standards consortium.',
+    is_highlight: false,
     tag: 'conference',
     footer: [
       { variant: 'border', text: 'Conference' },
@@ -224,6 +292,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/aacr_2022.jpg',
     tag: 'conference',
     title: 'AHEAD Medicine has poster presentation at AACR 2022.',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2022-04-11' },
@@ -246,6 +315,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/paul_wallace.jpg',
     tag: 'conference',
     title: 'Dr. Paul Wallace becomes Scientific Advisor to AHEAD Medicine.',
+    is_highlight: false,
     footer: [{ variant: 'border', text: 'Conference' }],
     content: {
       text: `We are thrilled to announce that Dr. Paul Wallace, the former Director of Flow and Image Cytometry and Professor of Oncology at Roswell Park Cancer Institute and a Past President of the International Society for Advancement of Cytometry (ISAC), is joining AHEAD Medicine as Scientific Advisor. With Dr. Wallace’s expertise and leadership in clinical cytometry, we will bring AHEAD’s innovation in cytometry to the next level. See more on LinkedIn.`,
@@ -275,6 +345,18 @@ export const newsList: (News | HighlightNews)[] = [
     ],
   },
   {
+    id: 'https://www.eettaiwan.com/20211116nt11-first-ee-awards-asia-disclosed-all-the-winners/',
+    url: 'https://www.eettaiwan.com/20211116nt11-first-ee-awards-asia-disclosed-all-the-winners/',
+    image: '/images/news/20211116nt11-first-ee-awards-asia-disclosed-all-the-winners.jpg',
+    tag: 'press_chinese',
+    title: 'AHEAD Awarded EE Asia Start-Up Award for Innovation in Medical Technology',
+    is_highlight: true,
+    footer: [
+      { variant: 'border', text: 'Press (Chinese)' },
+      { variant: 'normal', text: '2021-11-16' },
+    ],
+  },
+  {
     id: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
     url: 'https://publichealth.berkeley.edu/posts/berkeley-taiwan-accelerator-connection/',
     image: '/images/news/berkeley_public_health.png',
@@ -292,6 +374,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/iccs.jpeg',
     tag: 'conference',
     title: 'AHEAD Medicine has poster presentation at ICCS 2021.',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2021-10-11' },
@@ -389,6 +472,7 @@ export const newsList: (News | HighlightNews)[] = [
     tag: 'conference',
     title:
       'AHEAD Medicine is presenting at BIO Investor Forum and will be joining the diagnostics and digital health nextwork serious on Oct 14th 1pm EST',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-10-15' },
@@ -411,6 +495,7 @@ export const newsList: (News | HighlightNews)[] = [
     image: '/images/news/ahead_x_cyto.jpg',
     tag: 'conference',
     title: 'AHEAD Medicine has made her way to the ISAC CYTO Showcase Finalist',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-08' },
@@ -432,12 +517,25 @@ export const newsList: (News | HighlightNews)[] = [
     ],
   },
   {
+    id: 'https://isac-net.org/events/eventdetails.aspx?id=1387525#',
+    url: 'https://isac-net.org/events/eventdetails.aspx?id=1387525#',
+    image: '/images/news/cyto_2020.png',
+    tag: 'conference',
+    title: 'AHEAD Selected as CYTO 2020 Technology Showcase Finalist',
+    is_highlight: true,
+    footer: [
+      { variant: 'border', text: 'Conference' },
+      { variant: 'normal', text: '2020-07-20' },
+    ],
+  },
+  {
     id: 'ahead-bms',
     url: '',
     image: '/images/news/ahead_x_bms.jpg',
     title:
       'AHEAD Medicine collaborates with BMS to develop response prediction model for Multiple Myeloma treatment',
-    tag: 'conference',
+    is_highlight: false,
+     tag: 'conference',
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-06' },
@@ -453,6 +551,7 @@ export const newsList: (News | HighlightNews)[] = [
     tag: 'conference',
     title:
       'AHEAD Medicine partners with University of Pittsburgh to present at the 2020 ISLH',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-06' },
@@ -468,6 +567,7 @@ export const newsList: (News | HighlightNews)[] = [
     tag: 'conference',
     title:
       'AHEAD Medicine is officially one of the Berkeley SkyDeck 2020 Spring cohorts',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-04' },
@@ -483,6 +583,7 @@ export const newsList: (News | HighlightNews)[] = [
     tag: 'conference',
     title:
       'AHEAD Medicine partners with University of Pittsburgh to develop AI-enabled blood cancer triage platform',
+    is_highlight: false,
     footer: [
       { variant: 'border', text: 'Conference' },
       { variant: 'normal', text: '2020-03' },

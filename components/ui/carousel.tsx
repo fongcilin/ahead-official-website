@@ -7,6 +7,7 @@ import {
   useState,
   useCallback,
   useEffect,
+  useRef,
 } from 'react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -26,6 +27,8 @@ type CarouselProps = {
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
   setApi?: (api: CarouselApi) => void;
+  autoplay?: boolean;
+  autoplayDelay?: number;
 };
 
 type CarouselContextProps = {
@@ -35,6 +38,10 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  pauseAutoplay: () => void;
+  resumeAutoplay: () => void;
 } & CarouselProps;
 
 const CarouselContext = createContext<CarouselContextProps | null>(null);
@@ -61,6 +68,8 @@ const Carousel = forwardRef<
       plugins,
       className,
       children,
+      autoplay = false,
+      autoplayDelay = 3000,
       ...props
     },
     ref,
@@ -74,6 +83,8 @@ const Carousel = forwardRef<
     );
     const [canScrollPrev, setCanScrollPrev] = useState(false);
     const [canScrollNext, setCanScrollNext] = useState(false);
+    const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
+    const autoplayIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
     const onSelect = useCallback((api: CarouselApi) => {
       if (!api) {
@@ -91,6 +102,61 @@ const Carousel = forwardRef<
     const scrollNext = useCallback(() => {
       api?.scrollNext();
     }, [api]);
+
+    // Function to clear the autoplay interval
+    const clearAutoplayInterval = useCallback(() => {
+      if (autoplayIntervalRef.current !== null) {
+        clearInterval(autoplayIntervalRef.current);
+        autoplayIntervalRef.current = null;
+      }
+    }, []);
+
+    // Function to pause autoplay
+    const pauseAutoplay = useCallback(() => {
+      setIsAutoplayPaused(true);
+      clearAutoplayInterval();
+    }, [clearAutoplayInterval]);
+
+    // Function to resume autoplay
+    const resumeAutoplay = useCallback(() => {
+      setIsAutoplayPaused(false);
+    }, []);
+
+    // Set up and manage autoplay
+    useEffect(() => {
+      // If autoplay is disabled or paused, don't do anything
+      if (!autoplay || isAutoplayPaused || !api) {
+        return;
+      }
+
+      // Clear any existing interval first
+      clearAutoplayInterval();
+
+      // Create a new interval
+      const autoplayFunction = () => {
+        if (api.canScrollNext()) {
+          api.scrollNext();
+        } else {
+          api.scrollTo(0);
+        }
+      };
+
+      autoplayIntervalRef.current = setInterval(autoplayFunction, autoplayDelay);
+
+      // Clean up when component unmounts or dependencies change
+      return () => {
+        clearAutoplayInterval();
+      };
+    }, [api, autoplay, autoplayDelay, isAutoplayPaused, clearAutoplayInterval]);
+
+    // Mouse event handlers for carousel root
+    const handleMouseEnter = () => {
+      pauseAutoplay();
+    };
+
+    const handleMouseLeave = () => {
+      resumeAutoplay();
+    };
 
     const handleKeyDown = useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -139,6 +205,10 @@ const Carousel = forwardRef<
           scrollNext,
           canScrollPrev,
           canScrollNext,
+          autoplay,
+          autoplayDelay,
+          pauseAutoplay,
+          resumeAutoplay,
         }}
       >
         <div
@@ -149,7 +219,12 @@ const Carousel = forwardRef<
           aria-roledescription="carousel"
           {...props}
         >
-          {children}
+          <div 
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {children}
+          </div>
         </div>
       </CarouselContext.Provider>
     );

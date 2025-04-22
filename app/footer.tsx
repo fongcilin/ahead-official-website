@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, ListTodo } from 'lucide-react';
+import { Mail, BellPlus  } from 'lucide-react';
 
 import { Icons } from '@/components/icons';
 import { Typography } from '@/components/typography';
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { cn, createLinkRel, createLinkTarget } from '../lib/utils';
 
 const mediaLinks = {
-  mail: 'mailto:team@aheadmedicine.com',
+  mail: 'https://test.aheadmedicine.com/contact',
   facebook: 'https://www.facebook.com/AHEADIntelligence#',
   linkedin:
     'https://www.linkedin.com/company/aheadmedicine/posts/?feedView=all',
-  hsforms: 'https://share.hsforms.com/1IR8OTPZGTmecZGcsWwjIAwcbh0e',
+  bell: 'https://share.hsforms.com/1IR8OTPZGTmecZGcsWwjIAwcbh0e',
 };
 
 export const Footer = () => {
@@ -68,12 +68,12 @@ export const Footer = () => {
             </Button>
           </Link>
           <Link
-            href={mediaLinks.hsforms}
-            rel={createLinkRel(mediaLinks.hsforms)}
-            target={createLinkTarget(mediaLinks.hsforms)}
+            href={mediaLinks.bell}
+            rel={createLinkRel(mediaLinks.bell)}
+            target={createLinkTarget(mediaLinks.bell)}
           >
             <Button variant="gray-outline" size="icon">
-              <ListTodo className="h-7 w-7" />
+              <BellPlus className="h-7 w-7" />
             </Button>
           </Link>
         </div>

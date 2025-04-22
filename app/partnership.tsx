@@ -42,10 +42,16 @@ const taiwan: Partner[] = [
     href: 'https://appworks.tw/',
   },
   {
+    id: 'garage',
+    image: '/images/partnership/garage.png',
+    href: 'https://garageplus.asia/',
+  },
+  {
     id: 'nthu',
     image: '/images/partnership/nthu.png',
     href: 'https://www.nthu.edu.tw/',
   },
+
 ];
 
 const international: Partner[] = [
@@ -131,10 +137,10 @@ export const Partnership = () => {
               AutoScroll({
                 startDelay: 0,
                 stopOnInteraction: false,
-                speed: 1,
+                speed: 0,
               }),
             ]}
-            className="mx-auto w-full max-w-[calc(150px*5-16px)] backdrop-blur-lg"
+            className="mx-auto w-full max-w-[calc(150px*6-16px)] backdrop-blur-lg"
           >
             <CarouselContent>
               {taiwan.map((item) => (

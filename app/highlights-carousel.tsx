@@ -35,14 +35,14 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
             key={item.id}
             className={cn(
               'flex max-w-[300px] basis-[100%] items-center',
-              'md:basis-1/3',
+              'md:basis-1/3',E
             )}
           >
             <HighlightNewsItem item={item} className="h-full" />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="flex justify-center gap-x-2">
+      <div className="flex justify-center gap-x-2 mt-4">
         <CarouselCustomPrevious />
         <CarouselCustomNext />
       </div>
