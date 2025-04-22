@@ -35,7 +35,7 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
             key={item.id}
             className={cn(
               'flex max-w-[300px] basis-[100%] items-center',
-              'md:basis-1/3',E
+              'md:basis-1/3',
             )}
           >
             <HighlightNewsItem item={item} className="h-full" />
