@@ -211,7 +211,7 @@ export const newsList: (News | HighlightNews)[] = [
   {
     id: 'ahead-x-cyto-2023',
     url: '',
-    image: '/images/news/ahead_x_cyto_2023.jpg',
+    image: '/images/news/iccs2023_poster.png',
     title:
       'Exciting News! AHEAD and BD Bioscience Join Forces to Present at CYTO 2023 Conference',
     tag: 'conference',
