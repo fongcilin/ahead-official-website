@@ -1,42 +1,42 @@
-# 构建阶段
-FROM node:22-alpine AS builder
+# Build stage
+FROM node:23-slim AS builder
 
 WORKDIR /app
 
-# 复制package.json和package-lock.json
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# 安装依赖
+# Install dependencies
 RUN npm ci
 
-# 复制源代码
+# Copy source code
 COPY . .
 
-# 如果使用 next.config.ts，需要先编译它
+# If using next.config.ts, compile it first
 RUN if [ -f next.config.ts ]; then \
     npx tsc next.config.ts --allowJs --esModuleInterop --outDir ./dist; \
     cp ./dist/next.config.js ./next.config.js; \
     fi
 
-# 构建应用
+# Build the application
 RUN npm run build
 
-# 生产阶段
-FROM node:22-alpine AS runner
+# Production stage
+FROM node:23-slim AS runner
 
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-# 复制必要的文件
+# Copy necessary files
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 
-# 暴露端口
+# Expose port
 EXPOSE 3000
 
-# 启动应用
+# Start the application
 CMD ["npm", "start"]
