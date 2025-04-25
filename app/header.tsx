@@ -84,11 +84,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-10 border-b border-ahead-red-800 bg-white',
+        'fixed inset-x-0 top-0 z-10 border-b border-gray-300 bg-white',
         width === 0 && 'h-[57px]',
       )}
     >
-      <div className="flex items-center justify-between px-4">
+      <div className="container max-w-6xl flex items-center justify-start gap-8 ml-20 mr-32 px-4">
         <Link href="/" className="flex h-14 items-center">
           <Image src="/logo.svg" width={112} height={23} alt="logo text" />
         </Link>
@@ -163,7 +163,7 @@ const PCList = () => {
             {/* Make the height same as `Company` */}
             <div className="flex min-h-[301px] w-[600px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
-                  Learn about AHEAD&apos;s latest news
+                Learn about AHEAD&apos;s latest news
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {resources.map((item) => (

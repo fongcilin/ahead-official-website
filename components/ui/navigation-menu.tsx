@@ -91,7 +91,7 @@ const NavigationMenuContent = forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      'left-0 top-0 w-full',
+      'left-0 top-0 w-ful',
       'data-[motion^=from-]:animate-in data-[motion^=from-]:fade-in',
       'data-[motion^=to-]:animate-out data-[motion^=to-]:fade-out',
       'data-[motion=from-end]:slide-in-from-right-52',

@@ -1,4 +1,7 @@
-.PHONY: help setup build up down restart logs clean prune ssl-check backup restore network-create network-check deploy
+.PHONY: help setup build up down restart logs clean prune ssl-check backup restore network-create network-check deploy scan
+
+# Default image name if not specified
+IMAGE_NAME ?= ahead-official-website-nextjs
 
 # Default target
 help:
@@ -19,6 +22,9 @@ help:
 	@echo "  make ssl-check     - Check SSL certificate status"
 	@echo "  make backup        - Backup Caddy volumes"
 	@echo "  make restore       - Restore Caddy volumes from backup"
+	@echo "  make scan          - Scan the default images for vulnerabilities using Trivy"
+	@echo "  make scan IMAGE=<image-name> - Scan a specific image"
+	@echo "  make IMAGE_NAME=<name> build scan - Build and scan a specific image"
 
 # Setup the environment
 setup: network-create
@@ -120,3 +126,23 @@ restore:
 	@echo "docker run --rm -v caddy_config:/config -v $(CURDIR)/backups:/backup alpine sh -c 'rm -rf /config/* && tar -xzf /backup/BACKUP_FILENAME -C /config'"
 	@echo ""
 	@echo "Replace BACKUP_FILENAME with the actual backup file name"
+
+# Scan Docker images for vulnerabilities using Trivy
+scan:
+	@if [ -z "$(IMAGE)" ]; then \
+		echo "Scanning NextJS image ($(IMAGE_NAME))..."; \
+		trivy image $(IMAGE_NAME); \
+		echo ""; \
+		echo "Scanning Caddy image..."; \
+		CADDY_CONTAINER=$$(docker-compose ps -q caddy 2>/dev/null); \
+		if [ -n "$$CADDY_CONTAINER" ] && docker inspect "$$CADDY_CONTAINER" >/dev/null 2>&1; then \
+			CADDY_IMAGE=$$(docker inspect --format='{{.Image}}' "$$CADDY_CONTAINER" 2>/dev/null); \
+			trivy image "$$CADDY_IMAGE"; \
+		else \
+			echo "Caddy container not running. Scanning official image instead..."; \
+			trivy image caddy:2.10.0-alpine; \
+		fi; \
+	else \
+		echo "Scanning $(IMAGE)..."; \
+		trivy image $(IMAGE); \
+	fi
