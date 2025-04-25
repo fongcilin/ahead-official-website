@@ -2,6 +2,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+For Dev:
+Install NVM
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+```
+
+Install the Required Node.js Version
+For Next.js projects, it's recommended to use Node.js version 20 or higher:
+```bash
+nvm install 20
+```
+
 First, run the development server:
 
 ```bash
@@ -90,4 +102,11 @@ git pull
 docker-compose down
 docker-compose build
 docker-compose up -d
+```
+## Security Scan with trivy
+
+To run a security scan on docker image, use the following command:
+
+```bash
+make scan
 ```
