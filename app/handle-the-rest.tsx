@@ -39,7 +39,7 @@ export const HandleTheRest = () => {
         {advantages.map((item) => (
           <div
             key={item.id}
-            className="group relative flex flex-col items-center gap-y-5 overflow-hidden rounded-2xl bg-gradient-to-br from-white to-indigo-50 p-10 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            className="group relative flex flex-col items-center gap-y-5 overflow-hidden rounded-2xl bg-gradient-to-br from-white to-indigo-50 p-10 text-center shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-lg"
           >
             {/* Gradient top border */}
             <div 

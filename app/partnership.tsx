@@ -112,8 +112,11 @@ export const Partnership = () => {
     <PinkCellsParallax className="w-screen py-20">
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <SubBlock>
-          <Typography.H2 className="text-center text-zinc-600">
-            <span className="inline-block backdrop-blur-lg">Partnership</span>
+          <Typography.H2
+            className="inline-block font-bold text-6xl relative pb-8 text-center bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text text-transparent"
+          >
+            Partnership
+            {/* <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></span> */}
           </Typography.H2>
           <Typography.P
             className={cn(
@@ -128,8 +131,9 @@ export const Partnership = () => {
           </Typography.P>
         </SubBlock>
         <SubBlock>
-          <Typography.H3 className="text-center text-red-800">
-            <span className="inline-block backdrop-blur-lg">Taiwan</span>
+          <Typography.H3 className="text-3xl text-red-700 inline-block relative pb-3 text-center">
+            Taiwan
+            <span className="absolute left-1/2 bottom-0 w-36 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent transform -translate-x-1/2"></span>
           </Typography.H3>
           <Carousel
             opts={{ align: 'start', loop: true }}
@@ -158,8 +162,9 @@ export const Partnership = () => {
           </Carousel>
         </SubBlock>
         <SubBlock>
-          <Typography.H3 className="text-center text-red-800">
-            <span className="inline-block backdrop-blur-lg">International</span>
+          <Typography.H3 className="text-3xl text-red-700 inline-block relative pb-3 text-center">
+            International
+            <span className="absolute left-1/2 bottom-0 w-48 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent transform -translate-x-1/2"></span>
           </Typography.H3>
           <Carousel
             opts={{ align: 'start', loop: true }}

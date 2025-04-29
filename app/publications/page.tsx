@@ -42,9 +42,12 @@ export default async function PublicationsPage({ params }: { params: Params }) {
     <main className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 self-start px-4 pt-[120px]">
       {/* title */}
       <div className="mx-auto max-w-[600px] px-4">
-        <Typography.H1 className="flex text-center text-zinc-500">
-          <span className="bg-ahead-red-700 px-1 text-white">P</span>ublications
+        <Typography.H1 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent text-center">
+          Publications
         </Typography.H1>
+        <div className="relative h-2 w-full">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
+        </div>
       </div>
 
       {/* badges */}

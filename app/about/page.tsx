@@ -66,9 +66,12 @@ export default function AboutPage() {
       <PinkCellsParallax className="flex flex-col gap-y-20 pt-40">
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
               About Us
-            </Typography.H1>
+            </Typography.H2>
+            <div className="relative h-2 w-full mt-2">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
+            </div>
           </div>
           <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
             AHEAD Medicine is transforming healthcare through innovative AI
@@ -81,9 +84,12 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
               Mission Statement
-            </Typography.H1>
+            </Typography.H2>
+            <div className="relative h-2 w-full mt-2">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
+            </div>
           </div>
           <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
             At AHEAD, our mission is to enhance healthcare equity and address
@@ -97,9 +103,12 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col gap-y-6">
           <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H1 className="bg-ahead-red-500 px-8 py-6 text-white">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
               Core Leadership
-            </Typography.H1>
+            </Typography.H2>
+            <div className="relative h-2 w-full mt-2">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
+            </div>
           </div>
 
           <div className="mx-auto mt-6 max-w-[960px] px-4 pb-20 pt-10">
