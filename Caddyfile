@@ -37,7 +37,7 @@ test.aheadmedicine.com {
     }
 }
 
-www.aheadmedicine.com {
+aheadmedicine.com, www.aheadmedicine.com {
     reverse_proxy nextjs:3000
     # Enable HTTPS with automatic certificates
     tls {
@@ -71,7 +71,7 @@ www.aheadmedicine.com {
     }
 }
 
-www.aheadintelligence.com {
+aheadintelligence.com, www.aheadintelligence.com {
     reverse_proxy nextjs:3000
     # Enable HTTPS with automatic certificates
     tls {
