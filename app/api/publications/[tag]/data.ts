@@ -1,6 +1,18 @@
 import type { Publication } from './types';
 
 export const publicationList: Publication[] = [
+   {
+    id: 'cbm-2025',
+    url: 'https://www.sciencedirect.com/science/article/pii/S0010482525007450',
+    image: '/images/publications/cbm-2025.png',
+    tag: 'journal',
+    tagName: 'JOURNAL',
+    title:
+      'A machine learning framework for cross-institute standardized analysis of flow cytometry in differentiating acute myeloid leukemia from non-neoplastic conditions',
+    author:
+      'Yu-Fen Wang, En-Ping Chu , Fong-Ci Lin, Huan-Yu Chen, Tsung-Chih Chen, Joseph Hanson, Joseph D. Tario, Kai Fu, Sara A. Monaghan , Paul K. Wallace, Chi-Chun Lee, Bor-Sheng Ko',
+    footer: 'Computers in Biology and Medicine, 2025',
+  },
   {
     id: 'iccs-2024',
     url: '/publications/id/iccs-2024',
