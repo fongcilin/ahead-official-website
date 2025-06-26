@@ -1,5 +1,101 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project Structure
+
+```
+ahead-official-website/
+├── Caddyfile                    # Caddy web server configuration for reverse proxy
+├── components.json              # shadcn/ui components configuration
+├── docker-compose.yml           # Docker services orchestration configuration
+├── dockerfile                   # Docker container build instructions
+├── eslint.config.ts            # ESLint configuration for code linting
+├── Makefile                    # Build automation and common commands
+├── next.config.ts              # Next.js application configuration
+├── package.json                # Node.js dependencies and scripts
+├── postcss.config.mjs          # PostCSS configuration for CSS processing
+├── README.md                   # Project documentation and setup guide
+├── tailwind.config.ts          # Tailwind CSS configuration
+├── tsconfig.json               # TypeScript compiler configuration
+├── app/                        # Next.js App Router directory structure
+│   ├── favicon.ico            # Website favicon
+│   ├── footer.tsx             # Global footer component
+│   ├── globals.css            # Global CSS styles and Tailwind imports
+│   ├── google-analytics.tsx   # Google Analytics integration component
+│   ├── handle-the-rest.tsx    # Catch-all route handler component
+│   ├── header.tsx             # Global header component
+│   ├── highlights-carousel.tsx # Homepage highlights carousel component
+│   ├── highlights.tsx         # Homepage highlights section component
+│   ├── layout.tsx             # Root layout component with metadata
+│   ├── not-found.tsx          # Custom 404 error page
+│   ├── page.tsx               # Homepage component
+│   ├── partnership.tsx        # Partnership section component
+│   ├── robots.ts              # Robots.txt generation
+│   ├── sitemap.ts             # XML sitemap generation
+│   ├── about/                 # About page route
+│   │   └── page.tsx          # About page component
+│   ├── api/                   # API routes directory
+│   │   ├── news/             # News API endpoints
+│   │   │   └── [tag]/        # Dynamic news tag filtering
+│   │   └── publications/     # Publications API endpoints
+│   │       └── [tag]/        # Dynamic publications tag filtering
+│   ├── contact/              # Contact page route
+│   │   └── page.tsx         # Contact page component
+│   ├── news/                # News section routes
+│   │   ├── news-area.tsx    # News listing area component
+│   │   ├── news-link-badges.tsx # News category badges component
+│   │   ├── page.tsx         # Main news page component
+│   │   └── [tag]/           # Dynamic news tag pages
+│   │       └── page.tsx     # Tagged news page component
+│   ├── publications/         # Publications section routes
+│   │   ├── page.tsx         # Main publications page component
+│   │   ├── publications-area.tsx # Publications listing area component
+│   │   ├── publications-link-badges.tsx # Publications category badges
+│   │   ├── [tag]/           # Dynamic publications tag pages
+│   │   │   └── page.tsx     # Tagged publications page component
+│   │   └── id/              # Individual publication routes
+│   │       └── [id]/        # Dynamic publication detail pages
+│   ├── security-policy/      # Security policy page route
+│   │   └── page.tsx         # Security policy page component
+│   └── trial/               # Trial page route
+│       └── page.tsx         # Trial page component
+├── components/              # Reusable React components directory
+│   ├── icons.tsx           # Custom icon components
+│   ├── typography.tsx      # Typography utility components
+│   ├── custom/             # Project-specific custom components
+│   │   ├── contact-form.tsx # Contact form component
+│   │   ├── link-badges.tsx # Category link badges component
+│   │   ├── news-item.tsx   # Individual news item component
+│   │   └── pink-cells-parallax.tsx # Parallax background component
+│   └── ui/                 # shadcn/ui components directory
+│       ├── accordion.tsx   # Collapsible content component
+│       ├── aspect-ratio.tsx # Aspect ratio utility component
+│       ├── badge.tsx       # Badge/tag component
+│       ├── button.tsx      # Button component variants
+│       ├── carousel.tsx    # Image/content carousel component
+│       ├── dialog.tsx      # Modal dialog component
+│       ├── form.tsx        # Form handling components
+│       ├── input.tsx       # Input field component
+│       ├── label.tsx       # Form label component
+│       ├── navigation-menu.tsx # Navigation menu component
+│       ├── sheet.tsx       # Side drawer/sheet component
+│       ├── sonner.tsx      # Toast notification component
+│       └── textarea.tsx    # Textarea input component
+├── lib/                    # Utility libraries and helpers
+│   └── utils.ts           # Common utility functions and class name helpers
+└── public/                # Static assets directory
+    ├── images/            # Image assets directory
+    │   ├── ahead_logo.png # Company logo PNG format
+    │   ├── erythrocytes.png # Scientific cell imagery
+    │   ├── banner/        # Homepage banner images
+    │   ├── news/          # News article images
+    │   ├── parallax/      # Parallax background images
+    │   ├── partnership/   # Partnership related images
+    │   ├── publications/  # Publication related images
+    │   └── team/          # Team member photos
+    └── pdfs/              # PDF document assets
+        └── pdf.worker.min.js # PDF.js worker for client-side PDF rendering
+```
+
 ## Getting Started
 
 For Dev:

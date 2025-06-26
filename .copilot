@@ -1,0 +1,153 @@
+---
+tools: ['codebase']
+---
+# .copilot
+project_title: AHEAD Official Website Deployment
+project_type: Next.js + Caddy + Docker Compose
+primary_language: TypeScript
+secondary_languages: JavaScript, Shell, Makefile
+frameworks: Next.js, TailwindCSS, Radix UI
+infrastructure: Docker, Docker Compose, Caddy, Trivy
+ci_cd: Makefile-based automation, Git pull deploy, vulnerability scan
+
+## Coding Style
+- Use TypeScript for all new code and prefer type safety.
+- Use functional React components and hooks.
+- Use TailwindCSS for styling, avoid inline styles.
+- Use Prettier and ESLint for code formatting and linting.
+- Use async/await for asynchronous code.
+- Use environment variables for configuration.
+- Use descriptive variable and function names in English.
+
+## Project Structure
+```
+ahead-official-website/
+├── app/                          # Next.js 13+ App Router directory
+│   ├── about/                   # About company page route
+│   │   └── page.tsx             # About page main content
+│   ├── api/                     # API routes for server-side functionality
+│   │   ├── news/                # News API endpoints
+│   │   │   └── [tag]/           # Dynamic news filtering by tag
+│   │   └── publications/        # Publications API endpoints
+│   │       └── [tag]/           # Dynamic publications filtering by tag
+│   ├── contact/                 # Contact page route
+│   │   └── page.tsx             # Contact form and information
+│   ├── favicon.ico              # App favicon
+│   ├── footer.tsx               # Global footer component
+│   ├── globals.css              # Global styles and Tailwind CSS imports
+│   ├── google-analytics.tsx     # Google Analytics integration component
+│   ├── handle-the-rest.tsx      # Catch-all component for unhandled routes
+│   ├── header.tsx               # Global header component with navigation
+│   ├── highlights-carousel.tsx  # Homepage highlights carousel component
+│   ├── highlights.tsx           # Homepage highlights section component
+│   ├── layout.tsx               # Root layout component with common UI structure
+│   ├── news/                    # News section routes
+│   │   ├── news-area.tsx        # News content area component
+│   │   ├── news-link-badges.tsx # News category/tag badges component
+│   │   ├── page.tsx             # News listing page
+│   │   └── [tag]/               # Dynamic news category pages
+│   │       └── page.tsx         # News filtered by specific tag
+│   ├── not-found.tsx            # 404 error page component
+│   ├── page.tsx                 # Home page component (/)
+│   ├── partnership.tsx          # Partnership/collaboration section component
+│   ├── publications/            # Publications/research section routes
+│   │   ├── id/                  # Publication ID-based routing
+│   │   │   └── [id]/            # Individual publication detail pages
+│   │   ├── page.tsx             # Publications listing page
+│   │   ├── publications-area.tsx # Publications content area component
+│   │   ├── publications-link-badges.tsx # Publications category badges
+│   │   └── [tag]/               # Dynamic publications category pages
+│   │       └── page.tsx         # Publications filtered by specific tag
+│   ├── robots.ts                # SEO robots.txt generation
+│   ├── security-policy/         # Security policy page route
+│   │   └── page.tsx             # Security policy content component
+│   ├── sitemap.ts               # SEO sitemap generation
+│   └── trial/                   # Trial/demo page route
+│       └── page.tsx             # Product trial or demo page
+├── Caddyfile                    # Caddy reverse proxy configuration
+├── components/                  # Reusable UI components library
+│   ├── custom/                  # Business-specific custom components
+│   │   ├── contact-form.tsx     # Contact form with validation
+│   │   ├── link-badges.tsx      # Reusable link badges component
+│   │   ├── news-item.tsx        # Individual news item card component
+│   │   └── pink-cells-parallax.tsx # Parallax background effect component
+│   ├── icons.tsx                # Icon components collection
+│   ├── typography.tsx           # Typography components (H1, H2, P, etc.)
+│   └── ui/                      # Base UI components (shadcn/ui Design System)
+│       ├── accordion.tsx        # Collapsible accordion component
+│       ├── aspect-ratio.tsx     # Aspect ratio container component
+│       ├── badge.tsx            # Badge/tag component
+│       ├── button.tsx           # Button component with variants
+│       ├── carousel.tsx         # Image/content carousel component
+│       ├── dialog.tsx           # Modal/dialog component
+│       ├── form.tsx             # Form wrapper and field components
+│       ├── input.tsx            # Form input components
+│       ├── label.tsx            # Form label component
+│       ├── navigation-menu.tsx  # Navigation menu component
+│       ├── sheet.tsx            # Slide-out panel component
+│       ├── sonner.tsx           # Toast notification component
+│       └── textarea.tsx         # Textarea form component
+├── components.json              # shadcn/ui components configuration
+├── docker-compose.yml           # Docker orchestration for development/production
+├── dockerfile                   # Docker container definition
+├── eslint.config.ts             # ESLint linting rules configuration
+├── lib/                         # Utility functions and configurations
+│   └── utils.ts                 # General utility functions and class name utilities
+├── Makefile                     # Build and deployment automation scripts
+├── next.config.ts               # Next.js configuration
+├── package.json                 # Dependencies and npm scripts
+├── package-lock.json            # Dependency lock file for reproducible builds
+├── postcss.config.mjs           # PostCSS configuration for CSS processing
+├── public/                      # Static assets served directly
+│   ├── images/                  # Image assets organized by category
+│   │   ├── banner/              # Banner and hero images
+│   │   ├── news/                # News article images
+│   │   ├── parallax/            # Parallax background images
+│   │   ├── partnership/         # Partnership/client logos and images
+│   │   ├── publications/        # Publication cover images and graphics
+│   │   └── team/                # Team member photos
+│   └── pdfs/                    # PDF document assets
+│       └── pdf.worker.min.js    # PDF.js worker for in-browser PDF rendering
+├── README.md                    # Project documentation and setup instructions
+├── tailwind.config.ts           # Tailwind CSS configuration
+└── tsconfig.json                # TypeScript configuration
+```
+
+## Automation & Deployment
+- Use Makefile targets for all build, deploy, and maintenance tasks.
+- Use Docker Compose for local and production orchestration.
+- Use Caddy as the reverse proxy and SSL provider.
+- Use Trivy for vulnerability scanning of Docker images.
+- Use `make deploy` for CI/CD: git pull, build, restart.
+- Use non-root users in Docker for security.
+
+## Best Practices
+- Write reusable, modular components.
+- Keep all secrets and credentials out of source code.
+- Document all public functions and exported types.
+- Prefer composition over inheritance.
+- Write clear commit messages in English.
+
+## Example Tasks for Copilot
+- Scaffold new Next.js API routes or pages.
+- Generate Docker Compose service definitions.
+- Write Makefile targets for new automation needs.
+- Suggest Trivy scan scripts for new images.
+- Refactor React components to use hooks.
+- Add TailwindCSS utility classes for design.
+- Write unit tests for API handlers or utilities.
+- Suggest secure Dockerfile improvements.
+
+## Output Format
+- Use TypeScript for all code unless otherwise specified.
+- Use Markdown code blocks with language tags.
+- For Makefile or shell scripts, use `makefile` or `bash` tags.
+- Add file path comments when modifying or creating files.
+
+## Language
+- All code and comments in English.
+- User-facing UI text may be in English or Traditional Chinese as appropriate.
+
+# End of .copilot
+````
+
