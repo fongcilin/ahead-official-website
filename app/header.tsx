@@ -50,10 +50,16 @@ const company: ListItem[] = [
     description: 'Want to join our team?',
   },
   {
+    title: 'Security Policy',
+    href: '/security-policy',
+    description: 'Learn about our security policy.',
+  },
+  {
     title: 'Contact',
     href: '/contact',
     description: 'Have a question or need help?',
   },
+
 ];
 
 const technologies: ListItem[] = [
