@@ -123,6 +123,15 @@ const ListItem = ({ item }: ListItemProps) => {
             sizes="(max-width: 768px) 600px, 320px"
             priority
             className="object-cover"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+            onError={(e) => {
+              console.error('Publication image failed to load:', item.image);
+              e.currentTarget.style.display = 'none';
+            }}
           />
         </AspectRatio>
         <div className="absolute -right-2 bottom-2 text-nowrap bg-red-800 px-2 py-1 text-xs text-white">

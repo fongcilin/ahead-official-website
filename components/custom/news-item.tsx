@@ -39,6 +39,15 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
             sizes="(max-width: 768px) 600px, 320px"
             priority
             className="object-cover"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+            onError={(e) => {
+              console.error('Image failed to load:', item.image);
+              e.currentTarget.style.display = 'none';
+            }}
           />
         </AspectRatio>
       </div>
@@ -102,6 +111,15 @@ export const HighlightNewsItem = ({
               sizes="(max-width: 768px) 600px, 320px"
               priority
               className="object-cover"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              onError={(e) => {
+                console.error('Image failed to load in dialog:', item.image);
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </AspectRatio>
           <DialogTitle className={cn(typographyVariants({ variant: 'h2' }))}>

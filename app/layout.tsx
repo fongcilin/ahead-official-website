@@ -8,6 +8,7 @@ import './globals.css';
 import { Header } from './header';
 import { Footer } from './footer';
 import { GoogleAnalytics } from './google-analytics';
+import { IOSImageFixes } from '@/components/ios-image-fixes';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -38,6 +39,14 @@ export const metadata: Metadata = {
     { name: 'Jeremy Lee' },
   ],
   metadataBase: new URL('https://www.aheadmedicine.com/'),
+  // iOS and mobile specific viewport
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: 'cover',
+  },
   // For social media
   openGraph: {
     // The title displayed on social media
@@ -79,6 +88,7 @@ export default function RootLayout({
         {gaMeasurementId && (
           <GoogleAnalytics gaMeasurementId={gaMeasurementId} />
         )}
+        <IOSImageFixes />
         <Header />
         {children}
         <Footer />

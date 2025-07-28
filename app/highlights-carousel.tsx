@@ -27,14 +27,14 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
           stopOnInteraction: false,
         }),
       ]}
-      className="flex flex-col gap-y-6"
+      className="flex flex-col gap-y-6 ios-image-fix"
     >
-      <CarouselContent>
+      <CarouselContent className="embla__container">
         {newsData.map((item) => (
           <CarouselItem
             key={item.id}
             className={cn(
-              'flex max-w-[300px] basis-[100%] items-center',
+              'flex max-w-[300px] basis-[100%] items-center embla__slide',
               'md:basis-1/3',
             )}
           >
