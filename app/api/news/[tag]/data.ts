@@ -89,9 +89,9 @@ export const newsList: (News | HighlightNews)[] = [
     id: 'https://ynews.page.link/ikmMq',
     url: 'https://ynews.page.link/ikmMq',
     image: '/images/news/yahoo.jpg',
-    tag: 'press_chinese',
+    tag: 'press_english',
     is_highlight: true,
-    title: 'Show-Chwan Cancer Hospital Partners with AHEAD for AI-Powered Leukemia Diagnosis',
+    title: '彰濱秀傳醫院與先勁智能合作 用AI革新血癌與淋巴癌診斷',
     footer: [
       { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2025-03-22' },
