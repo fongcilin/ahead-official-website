@@ -89,7 +89,7 @@ export const newsList: (News | HighlightNews)[] = [
     id: 'https://ynews.page.link/ikmMq',
     url: 'https://ynews.page.link/ikmMq',
     image: '/images/news/yahoo.jpg',
-    tag: 'press_english',
+    tag: 'press_chinese',
     is_highlight: true,
     title: '彰濱秀傳醫院與先勁智能合作 用AI革新血癌與淋巴癌診斷',
     footer: [
