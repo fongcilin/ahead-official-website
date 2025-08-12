@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "https://youtu.be/sDlMvmGZUlE?si=n0ibKcBusaoZQQJB",
+    url: "https://youtu.be/sDlMvmGZUlE?si=n0ibKcBusaoZQQJB",
+    image: "/images/news/isac-innovator.png",
+    tag: "press_english",
+    title: "AHEAD's Innovator Featured by ISAC – Now on YouTube!",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Press (English)" },
+      { variant: "normal", text: "2025-08-12" }
+    ]
+  },
+  {
     id: "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b925b413-9f8c-4184-a179-2e73a4e81239",
     url: "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b925b413-9f8c-4184-a179-2e73a4e81239",
     image: "/images/news/moneydj_logo.jpg",
@@ -9,23 +21,23 @@ export const newsList: (News | HighlightNews)[] = [
     title: "先勁智能攜秀傳/吉泰 AI輔助診斷軟體醫材開啟商轉",
     is_highlight: false,
     footer: [
-    { variant: "border", text: "Press (Chinese)" },
-    { variant: "normal", text: "2025-04-30" }
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2025-04-30" }
     ]
   },
   {
-   id: "https://www.ctee.com.tw/news/20250429701410-430504",
-   url: "https://www.ctee.com.tw/news/20250429701410-430504",
-   image: "/images/news/ctee.png",
-   tag: "press_chinese",
-   title: "新創AI輔助癌症精準診斷 先勁智能與秀傳醫院、吉泰藥品合作商轉",
-   is_highlight: false,
-   footer: [
-    { variant: "border", text: "Press (Chinese)" },
-    { variant: "normal", text: "2025-04-29" }
-  ]
- },
- {
+    id: "https://www.ctee.com.tw/news/20250429701410-430504",
+    url: "https://www.ctee.com.tw/news/20250429701410-430504",
+    image: "/images/news/ctee.png",
+    tag: "press_chinese",
+    title: "新創AI輔助癌症精準診斷 先勁智能與秀傳醫院、吉泰藥品合作商轉",
+    is_highlight: false,
+    footer: [
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2025-04-29" }
+    ]
+  },
+  {
     id: 'https://tw.stock.yahoo.com/news/%E6%96%B0%E5%89%B5ai%E8%BC%94%E5%8A%A9%E7%99%8C%E7%97%87%E7%B2%BE%E6%BA%96%E8%A8%BA%E6%96%B7-%E5%85%88%E5%8B%81%E6%99%BA%E8%83%BD%E8%88%87%E7%A7%80%E5%82%B3%E9%86%AB%E9%99%A2-%E5%90%89%E6%B3%B0%E8%97%A5%E5%93%81%E5%90%88%E4%BD%9C%E5%95%86%E8%BD%89-081238970.html',
     url: 'https://tw.stock.yahoo.com/news/%E6%96%B0%E5%89%B5ai%E8%BC%94%E5%8A%A9%E7%99%8C%E7%97%87%E7%B2%BE%E6%BA%96%E8%A8%BA%E6%96%B7-%E5%85%88%E5%8B%81%E6%99%BA%E8%83%BD%E8%88%87%E7%A7%80%E5%82%B3%E9%86%AB%E9%99%A2-%E5%90%89%E6%B3%B0%E8%97%A5%E5%93%81%E5%90%88%E4%BD%9C%E5%95%86%E8%BD%89-081238970.html',
     image: '/images/news/yahoo.jpg',
@@ -36,18 +48,18 @@ export const newsList: (News | HighlightNews)[] = [
       { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2025-04-29' }
     ]
-  },  
-  { 
-    id: 'https://news.gbimonthly.com/tw/article/show.php?num=76500', 
-    url: 'https://news.gbimonthly.com/tw/article/show.php?num=76500', 
-    image: '/images/news/gbimonthly_logo.jpg', 
-    tag: 'press_chinese', 
-    title: '先勁結盟秀傳、吉泰啟動商轉 年底送FDA、啟動Pre-A輪募資', 
-    is_highlight: true, 
+  },
+  {
+    id: 'https://news.gbimonthly.com/tw/article/show.php?num=76500',
+    url: 'https://news.gbimonthly.com/tw/article/show.php?num=76500',
+    image: '/images/news/gbimonthly_logo.jpg',
+    tag: 'press_chinese',
+    title: '先勁結盟秀傳、吉泰啟動商轉 年底送FDA、啟動Pre-A輪募資',
+    is_highlight: true,
     footer: [
-      { variant: 'border', text: 'Press (Chinese)' }, 
+      { variant: 'border', text: 'Press (Chinese)' },
       { variant: 'normal', text: '2025-04-29' }
-    ] 
+    ]
   },
   {
     id: 'https://www.nist.gov/news-events/events/2025/06/ai-and-flow-cytometry-workshop',
