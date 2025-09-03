@@ -1,73 +1,81 @@
 {
-    email noreply@aheadmedicine.com
-    http_port 80
-    https_port 443
+        email noreply@aheadmedicine.com
+        http_port 80
+        https_port 443
 }
-    
+
 aheadmedicine.com, www.aheadmedicine.com {
-    reverse_proxy nextjs:3000
-    # Enable HTTPS with automatic certificates
-    tls {
-        issuer acme
-    }
-    # Logging
-    log {
-        output file /var/log/caddy/www.aheadmedicine.com.log {
-            roll_size 10MB
-            roll_keep 5
-            roll_keep_for 720h
+        reverse_proxy nextjs:3000
+        # Enable HTTPS with automatic certificates
+        tls {
+                issuer acme
         }
-        format json
-    }
-    # Compression
-    encode gzip zstd
-    # Security headers
-    header {
-        # Enable HTTP Strict Transport Security (HSTS)
-        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        # Disable FLoC tracking
-        Permissions-Policy "interest-cohort=()"
-        # Enable cross-site filter protection
-        X-XSS-Protection "1; mode=block"
-        # Prevent MIME type sniffing
-        X-Content-Type-Options "nosniff"
-        # Referrer policy
-        Referrer-Policy "strict-origin-when-cross-origin"
-        # Frame options
-        X-Frame-Options "SAMEORIGIN"
-    }
+        # Logging
+        log {
+                output file /var/log/caddy/www.aheadmedicine.com.log {
+                        roll_size 10MB
+                        roll_keep 5
+                        roll_keep_for 720h
+                }
+                format json
+        }
+        # Compression
+        encode gzip zstd
+        # add lifetime for Cache
+        header /public/* {
+                Cache-Control "public, max-age=3600"
+        }
+        # Security headers
+        header {
+                # Enable HTTP Strict Transport Security (HSTS)
+                Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+                # Disable FLoC tracking
+                Permissions-Policy "interest-cohort=()"
+                # Enable cross-site filter protection
+                X-XSS-Protection "1; mode=block"
+                # Prevent MIME type sniffing
+                X-Content-Type-Options "nosniff"
+                # Referrer policy
+                Referrer-Policy "strict-origin-when-cross-origin"
+                # Frame options
+                X-Frame-Options "SAMEORIGIN"
+        }
 }
 
 aheadintelligence.com, www.aheadintelligence.com {
-    reverse_proxy nextjs:3000
-    # Enable HTTPS with automatic certificates
-    tls {
-        issuer acme
-    }
-    # Logging
-    log {
-        output file /var/log/caddy/www.aheadintelligence.com.log {
-            roll_size 10MB
-            roll_keep 5
-            roll_keep_for 720h
+        reverse_proxy nextjs:3000
+        # Enable HTTPS with automatic certificates
+        tls {
+                issuer acme
         }
-        format json
-    }
-    # Compression
-    encode gzip zstd
-    # Security headers
-    header {
-        # Enable HTTP Strict Transport Security (HSTS)
-        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        # Disable FLoC tracking
-        Permissions-Policy "interest-cohort=()"
-        # Enable cross-site filter protection
-        X-XSS-Protection "1; mode=block"
-        # Prevent MIME type sniffing
-        X-Content-Type-Options "nosniff"
-        # Referrer policy
-        Referrer-Policy "strict-origin-when-cross-origin"
-        # Frame options
-        X-Frame-Options "SAMEORIGIN"
-    }
+        # Logging
+        log {
+                output file /var/log/caddy/www.aheadintelligence.com.log {
+                        roll_size 10MB
+                        roll_keep 5
+                        roll_keep_for 720h
+                }
+                format json
+        }
+        # Compression
+        encode gzip zstd
+        # add lifetime for Cache
+        header /public/* {
+                Cache-Control "public, max-age=3600"
+        }
+        # Security headers
+        header {
+                # Enable HTTP Strict Transport Security (HSTS)
+                Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+                # Disable FLoC tracking
+                Permissions-Policy "interest-cohort=()"
+                # Enable cross-site filter protection
+                X-XSS-Protection "1; mode=block"
+                # Prevent MIME type sniffing
+                X-Content-Type-Options "nosniff"
+                # Referrer policy
+                Referrer-Policy "strict-origin-when-cross-origin"
+                # Frame options
+                X-Frame-Options "SAMEORIGIN"
+        }
 }

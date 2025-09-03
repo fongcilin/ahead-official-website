@@ -20,7 +20,7 @@ interface HighlightsCarouselProps {
 export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
   return (
     <Carousel
-      opts={{ align: 'start', loop: true }}
+      opts={{ align: 'center', loop: true }}
       plugins={[
         AutoPlay({
           delay: 6000,
@@ -29,7 +29,7 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
       ]}
       className="flex flex-col gap-y-6 ios-image-fix"
     >
-      <CarouselContent className="embla__container">
+      <CarouselContent className="embla__container px-4 md:px-8">
         {newsData.map((item) => (
           <CarouselItem
             key={item.id}
