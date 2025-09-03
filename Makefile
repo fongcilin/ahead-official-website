@@ -50,7 +50,7 @@ up: network-check
 	@echo "Starting services..."
 	docker-compose up -d
 	@echo "Services started"
-	@echo "Your application should be accessible at https://test.aheadmedicine.com"
+	@echo "Your application should be accessible at https://aheadmedicine.com"
 
 # Stop services
 down:
