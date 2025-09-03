@@ -43,6 +43,23 @@ export const Footer = () => {
             District, Taipei City, Taiwan, 115
           </Typography.Muted>
         </div>
+        <Link
+          href="https://www.aheadmedicine.com/security-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center md:items-start px-8 cursor-pointer"
+        >
+          <Image
+            src="/images/mark-of-trust-certified-ISOIEC-27001-information-security-management-black-logo-En-GB-1019.png"
+            alt="ISO 27001 certified by BSI under certificate number IS825167"
+            width={192}
+            height={97}
+            priority={false}
+          />
+          <Typography.Muted className="text-xs mt-1 pt-2 text-center max-w-[180px] break-words">
+            ISO 27001 certified by BSI under certificate number IS825167
+          </Typography.Muted>
+        </Link>
         <div className="flex gap-x-3">
           <Link href={mediaLinks.mail}>
             <Button variant="gray-outline" size="icon">
