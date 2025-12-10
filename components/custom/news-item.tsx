@@ -19,9 +19,10 @@ import { cn, createLinkTarget, createLinkRel } from '@/lib/utils';
 
 interface NewsItemProps extends React.HTMLAttributes<HTMLDivElement> {
   item: News | HighlightNews;
+  priority?: boolean;
 }
 
-export const NewsItem = ({ item, className }: NewsItemProps) => {
+export const NewsItem = ({ item, className, priority = false }: NewsItemProps) => {
   return (
     <div
       className={cn(
@@ -37,7 +38,8 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
             alt={item.title}
             fill
             sizes="(max-width: 768px) 600px, 320px"
-            priority
+            priority={priority}
+            loading={priority ? 'eager' : 'lazy'}
             className="object-cover"
             style={{
               width: '100%',
@@ -77,11 +79,13 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
 interface HighlightNewsItemProps
   extends React.ComponentPropsWithRef<typeof DialogTrigger> {
   item: HighlightNews;
+  priority?: boolean;
 }
 
 export const HighlightNewsItem = ({
   item,
   className,
+  priority = false,
 }: HighlightNewsItemProps) => {
   if (item.content === undefined) {
     return (
@@ -91,7 +95,7 @@ export const HighlightNewsItem = ({
         target="_blank"
         className="block w-full"
       >
-        <NewsItem item={item} className={className} />
+        <NewsItem item={item} className={className} priority={priority} />
       </Link>
     );
   }
@@ -99,7 +103,7 @@ export const HighlightNewsItem = ({
   return (
     <Dialog>
       <DialogTrigger className={cn('block w-full text-left', className)}>
-        <NewsItem item={item} />
+        <NewsItem item={item} priority={priority} />
       </DialogTrigger>
       <DialogContent className="max-h-[calc(100vh*2/3)] max-w-xl overflow-auto sm:rounded-none">
         <DialogHeader className="space-y-6">
@@ -109,7 +113,7 @@ export const HighlightNewsItem = ({
               alt={item.title}
               fill
               sizes="(max-width: 768px) 600px, 320px"
-              priority
+              loading="lazy"
               className="object-cover"
               style={{
                 width: '100%',

@@ -6,6 +6,19 @@ services:
     ports:
       - '3000:3000'
     restart: always
+    # Memory limits to prevent OOM issues
+    mem_limit: 2g
+    memswap_limit: 2g
+    # Health check for monitoring
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      # Persist Next.js image optimization cache
+      - nextjs_cache:/app/.next/cache
     networks:
       - external_network
       
@@ -29,3 +42,4 @@ networks:
 volumes:
   caddy_data:
   caddy_config:
+  nextjs_cache:

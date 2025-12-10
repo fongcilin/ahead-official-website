@@ -21,10 +21,21 @@ aheadmedicine.com, www.aheadmedicine.com {
         }
         # Compression
         encode gzip zstd
-        # add lifetime for Cache
-        header /public/* {
-                Cache-Control "public, max-age=3600"
+        
+        # Cache headers for static assets
+        # Images served from /images/* (Next.js serves public folder from root)
+        header /images/* {
+                Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
         }
+        # Next.js optimized images
+        header /_next/image* {
+                Cache-Control "public, max-age=31536000, immutable"
+        }
+        # Next.js static assets
+        header /_next/static/* {
+                Cache-Control "public, max-age=31536000, immutable"
+        }
+        
         # Security headers
         header {
                 # Enable HTTP Strict Transport Security (HSTS)
@@ -59,10 +70,21 @@ aheadintelligence.com, www.aheadintelligence.com {
         }
         # Compression
         encode gzip zstd
-        # add lifetime for Cache
-        header /public/* {
-                Cache-Control "public, max-age=3600"
+        
+        # Cache headers for static assets
+        # Images served from /images/* (Next.js serves public folder from root)
+        header /images/* {
+                Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
         }
+        # Next.js optimized images
+        header /_next/image* {
+                Cache-Control "public, max-age=31536000, immutable"
+        }
+        # Next.js static assets
+        header /_next/static/* {
+                Cache-Control "public, max-age=31536000, immutable"
+        }
+        
         # Security headers
         header {
                 # Enable HTTP Strict Transport Security (HSTS)

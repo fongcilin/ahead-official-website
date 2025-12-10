@@ -108,9 +108,10 @@ export const PublicationsArea = ({
 
 interface ListItemProps {
   item: Publication;
+  priority?: boolean;
 }
 
-const ListItem = ({ item }: ListItemProps) => {
+const ListItem = ({ item, priority = false }: ListItemProps) => {
   return (
     <div className="flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200">
       <div className="relative border-b-[1.5px] border-zinc-200">
@@ -121,7 +122,8 @@ const ListItem = ({ item }: ListItemProps) => {
             alt={item.title}
             fill
             sizes="(max-width: 768px) 600px, 320px"
-            priority
+            priority={priority}
+            loading={priority ? 'eager' : 'lazy'}
             className="object-cover"
             style={{
               width: '100%',
