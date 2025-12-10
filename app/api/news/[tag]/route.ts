@@ -6,10 +6,10 @@ import { fetchHasMoreNewsData } from './server-fetches';
 
 export const GET = async (
   request: NextRequest,
-  { params }: { params: Promise<{ tag?: NewsTag }> },
+  { params }: { params: Promise<{ tag: string }> },
 ) => {
   const { tag } = await params;
-  const validTag = tag || 'all';
+  const validTag = (tag || 'all') as NewsTag;
   const { searchParams } = new URL(request.url);
   const cursor = Number(searchParams.get('cursor')) || 0;
   const count = Number(searchParams.get('count')) || 9;

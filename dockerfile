@@ -23,17 +23,18 @@ COPY --from=deps /app/node_modules ./node_modules
 # Copy everything except what's in .dockerignore
 COPY . .
 
-# If using next.config.ts, compile it first
-RUN if [ -f next.config.ts ]; then \
-    npx tsc next.config.ts --allowJs --esModuleInterop --outDir ./dist; \
-    cp ./dist/next.config.js ./next.config.js; \
-    fi
+# Next.js 16 natively supports next.config.ts, no need to compile
+# RUN if [ -f next.config.ts ]; then \
+#     npx tsc next.config.ts --module esnext --moduleResolution bundler --allowJs --esModuleInterop --outDir ./dist; \
+#     echo "export { default } from './dist/next.config.js';" > ./next.config.js; \
+#     fi
 
 # Build the application
 RUN npm run build
 
-# Install production dependencies
+# Install production dependencies and keep TypeScript for next.config.ts
 RUN npm prune --production
+RUN npm install typescript --save
 
 # Production stage - 使用較小的基礎映像
 FROM node:23-alpine AS runner
@@ -48,14 +49,15 @@ RUN apk update && \
 
 # Copy necessary files from builder stage
 COPY --from=builder /app/package.json ./
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
 # 降低容器權限 - 創建非root用戶運行應用
 RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001 -G nodejs
+    adduser -S nextjs -u 1001 -G nodejs && \
+    chown -R nextjs:nodejs /app
     
 USER nextjs
 
