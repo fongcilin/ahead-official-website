@@ -101,7 +101,7 @@ export default function HomePage() {
           </Typography.H2>
         </div>
       {/* Video */}
-      <PinkCellsParallax className="w-screen pb-10 mb-10">
+      <PinkCellsParallax className="w-full pb-10 mb-10">
         <div className="mx-auto max-w-[800px]">
           <AspectRatio ratio={16 / 9}>
             <iframe

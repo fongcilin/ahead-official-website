@@ -8,8 +8,9 @@ export const Highlights = async () => {
   return (
     <div
       className={cn(
-        'mx-auto flex w-screen flex-col gap-y-2 px-4',
-        'lg:max-w-[960px]',
+        'mx-auto flex w-full flex-col gap-y-2 px-4',
+        'lg:max-w-[1220px]',
+        'xl:max-w-[1220px]',
       )}
     >
       {/* Vibrant style header with gradient text and properly spaced underline */}

@@ -109,7 +109,7 @@ const international: Partner[] = [
 
 export const Partnership = () => {
   return (
-    <PinkCellsParallax className="w-screen py-20">
+    <PinkCellsParallax className="w-full py-20">
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <SubBlock>
           <Typography.H2

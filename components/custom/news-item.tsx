@@ -25,7 +25,7 @@ export const NewsItem = ({ item, className }: NewsItemProps) => {
   return (
     <div
       className={cn(
-        'flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200',
+        'flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow',
         className,
       )}
     >
@@ -89,7 +89,7 @@ export const HighlightNewsItem = ({
         key={item.id}
         href={item.url}
         target="_blank"
-        className="inline-block"
+        className="block w-full"
       >
         <NewsItem item={item} className={className} />
       </Link>
@@ -98,7 +98,7 @@ export const HighlightNewsItem = ({
 
   return (
     <Dialog>
-      <DialogTrigger className={cn('inline-block text-left', className)}>
+      <DialogTrigger className={cn('block w-full text-left', className)}>
         <NewsItem item={item} />
       </DialogTrigger>
       <DialogContent className="max-h-[calc(100vh*2/3)] max-w-xl overflow-auto sm:rounded-none">

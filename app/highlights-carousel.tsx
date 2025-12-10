@@ -20,7 +20,11 @@ interface HighlightsCarouselProps {
 export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
   return (
     <Carousel
-      opts={{ align: 'center', loop: true }}
+      opts={{
+        align: 'start',
+        loop: true,
+        slidesToScroll: 3,
+      }}
       plugins={[
         AutoPlay({
           delay: 6000,
@@ -29,16 +33,19 @@ export const HighlightsCarousel = ({ newsData }: HighlightsCarouselProps) => {
       ]}
       className="flex flex-col gap-y-6 ios-image-fix"
     >
-      <CarouselContent className="embla__container px-4 md:px-8">
+      <CarouselContent className="embla__container !ml-0 items-stretch">
         {newsData.map((item) => (
           <CarouselItem
             key={item.id}
             className={cn(
-              'flex max-w-[300px] basis-[100%] items-center embla__slide',
-              'md:basis-1/3',
+              'flex embla__slide !pl-0',
+              'basis-full',
+              // 每個卡片 1/3 寬度，減去間距分攤 (2個gap × 16px ÷ 3 = 10.67px)
+              // 加上 margin-right 16px 作為間距
+              'md:basis-[calc(33.333%-10.67px)] md:mr-4 md:last:mr-0',
             )}
           >
-            <HighlightNewsItem item={item} className="h-full" />
+            <HighlightNewsItem item={item} className="h-full w-full" />
           </CarouselItem>
         ))}
       </CarouselContent>
