@@ -1,4 +1,4 @@
-.PHONY: help setup build up down restart logs clean prune ssl-check backup restore network-create network-check deploy scan
+.PHONY: help setup build up down restart logs clean prune ssl-check backup restore network-create network-check deploy scan test test-ui test-report
 
 # Default image name if not specified
 IMAGE_NAME ?= ahead-official-website-nextjs
@@ -17,6 +17,9 @@ help:
 	@echo "  make logs          - View logs from all containers"
 	@echo "  make logs-nextjs   - View logs from NextJS container only"
 	@echo "  make logs-caddy    - View logs from Caddy container only"
+	@echo "  make test          - Run Playwright e2e tests in Docker"
+	@echo "  make test-ui       - Run Playwright tests with UI (local)"
+	@echo "  make test-report   - Show Playwright test report"
 	@echo "  make clean         - Stop and remove containers and networks"
 	@echo "  make prune         - Clean and additionally remove volumes and images"
 	@echo "  make ssl-check     - Check SSL certificate status"
@@ -82,6 +85,30 @@ logs-nextjs:
 # View Caddy logs
 logs-caddy:
 	docker-compose logs -f caddy
+
+# Run Playwright e2e tests in Docker
+test:
+	@echo "Running Playwright e2e tests in Docker..."
+	@echo "Building test services..."
+	docker-compose --profile test build playwright
+	@echo "Starting application and running tests..."
+	docker-compose up -d nextjs
+	@echo "Waiting for application to be ready..."
+	@sleep 10
+	docker-compose --profile test run --rm playwright
+	@echo "Tests complete. Stopping services..."
+	docker-compose down
+	@echo "Test report saved to ./playwright-report"
+
+# Run Playwright tests with UI (requires local installation)
+test-ui:
+	@echo "Running Playwright tests with UI..."
+	@npm run test:e2e:ui
+
+# Show Playwright test report
+test-report:
+	@echo "Opening Playwright test report..."
+	@npm run test:e2e:report
 
 # Clean up
 clean: down

@@ -39,10 +39,10 @@ export default async function PublicationsPage({ params }: { params: Params }) {
   );
 
   return (
-    <main className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 self-start px-4 pt-[120px]">
+    <main className="mx-auto flex w-full max-w-7xl flex-col gap-y-8 self-start px-4 pt-24 pb-16 safe-area-inset-bottom sm:gap-y-10 sm:px-6 sm:pt-28 md:px-8 md:pt-32">
       {/* title */}
-      <div className="mx-auto max-w-[600px] px-4">
-        <Typography.H1 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent text-center">
+      <div className="mx-auto w-full max-w-[600px] px-4 sm:px-6">
+        <Typography.H1 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-6 text-4xl sm:text-5xl md:text-6xl text-transparent text-center">
           Publications
         </Typography.H1>
         <div className="relative h-2 w-full">

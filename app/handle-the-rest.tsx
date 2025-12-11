@@ -31,15 +31,24 @@ const advantages = [
 
 export const HandleTheRest = () => {
   return (
-    <div className="mx-auto flex max-w-[1080px] flex-col gap-y-10 px-4">
-      <Typography.H2 className="mb-4 mt-10 text-center text-zinc-500">
+    <div className={cn(
+      "mx-auto flex max-w-[1080px] flex-col gap-y-10",
+      "px-4",
+      "md:px-6",
+      "lg:px-4"
+    )}>
+      <Typography.H2 className={cn(
+        "mb-4 mt-10 text-center text-zinc-500",
+        "text-2xl",
+        "md:text-3xl"
+      )}>
         Your Expertise, Amplified. We Handle the Heavy Lifting
       </Typography.H2>
-      <div className={cn('grid gap-y-8', 'lg:grid-cols-3 lg:gap-x-12')}>
+      <div className={cn('grid gap-y-6 sm:gap-y-8', 'md:grid-cols-2 md:gap-x-8', 'lg:grid-cols-3 lg:gap-x-12')}>
         {advantages.map((item) => (
           <div
             key={item.id}
-            className="group relative flex flex-col items-center gap-y-5 overflow-hidden rounded-2xl bg-gradient-to-br from-white to-indigo-50 p-10 text-center shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-lg"
+            className="group relative flex flex-col items-center gap-y-5 overflow-hidden rounded-2xl bg-gradient-to-br from-white to-indigo-50 p-8 sm:p-10 text-center shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-lg active:translate-y-0 active:shadow-md"
           >
             {/* Gradient top border */}
             <div 

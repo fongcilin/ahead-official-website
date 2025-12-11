@@ -17,7 +17,12 @@ export const Highlights = async () => {
       <div className="mb-10 text-center">
         {/* Title with extra bottom margin to account for descenders in letters like "g" */}
         <h2 
-          className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent"
+          className={cn(
+            "inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-transparent",
+            "text-4xl",
+            "md:text-5xl",
+            "lg:text-6xl"
+          )}
         >
           Highlights
         </h2>

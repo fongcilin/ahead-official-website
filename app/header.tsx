@@ -24,6 +24,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/icons';
 import {
   Accordion,
   AccordionContent,
@@ -91,12 +92,19 @@ export function Header() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-10 border-b border-gray-300 bg-white',
+        'safe-area-inset',
         width === 0 && 'h-[57px]',
       )}
     >
-      <div className="container max-w-6xl flex items-center justify-start gap-8 ml-20 mr-32 px-4">
-        <Link href="/" className="flex h-14 items-center">
-          <Image src="/logo.svg" width={112} height={23} alt="logo text" />
+      <div className={cn(
+        "container mx-auto max-w-6xl flex items-center justify-start",
+        "gap-4 px-4",
+        "sm:gap-6 sm:px-6",
+        "md:gap-8 md:px-8",
+        "lg:px-12"
+      )}>
+        <Link href="/" className="flex h-14 items-center min-w-[112px]">
+          <Image src="/logo.svg" width={112} height={23} alt="logo text" priority />
         </Link>
         {width !== 0 && (
           <>
@@ -123,8 +131,8 @@ const PCList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex min-h-[301px] w-[600px] items-stretch">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
+            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] items-stretch">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
                 AI Assisted HEmatological Analytics and Decision Support
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -145,8 +153,8 @@ const PCList = () => {
           <NavigationMenuTrigger>Technologies</NavigationMenuTrigger>
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
-            <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
+            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] justify-end">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
                 Improve access and efficieny for biomedical professionals
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -167,8 +175,8 @@ const PCList = () => {
           <NavigationMenuTrigger>News</NavigationMenuTrigger>
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
-            <div className="flex min-h-[301px] w-[600px] justify-end">
-              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-3xl font-bold text-white">
+            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] justify-end">
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
                 Learn about AHEAD&apos;s latest news
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
@@ -223,8 +231,8 @@ const MobileList = ({ isMinWidthMd }: MobileListProps) => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" className="h-14 rounded-none border-none">
-          Open
+        <Button variant="outline" className="h-14 rounded-none border-none" aria-label="Open menu">
+          <Icons.Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
       <SheetContent

@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "prettier-scan-all": "prettier --check .",
-    "prettier-fix-all": "prettier --write ."
+    "prettier-fix-all": "prettier --write .",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:docker": "docker compose --profile test run --rm playwright",
+    "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
@@ -39,6 +43,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.57.0",
     "@types/gtag.js": "^0.0.20",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -62,18 +62,18 @@ Andrea's scientific contributions have been featured in leading journals and the
 
 export default function AboutPage() {
   return (
-    <main>
-      <PinkCellsParallax className="flex flex-col gap-y-20 pt-40">
+    <main className="safe-area-inset-bottom">
+      <PinkCellsParallax className="flex flex-col gap-y-16 pt-28 sm:gap-y-20 sm:pt-32 md:pt-40">
         <div className="flex flex-col gap-y-6">
-          <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
+          <div className="mx-auto w-full max-w-[600px] px-4 text-center sm:px-6">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-6 text-4xl sm:text-5xl md:text-6xl text-transparent">
               About Us
             </Typography.H2>
             <div className="relative h-2 w-full mt-2">
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
             </div>
           </div>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
+          <Typography.P className="mx-auto w-full max-w-[600px] px-4 pb-16 pt-8 text-justify backdrop-blur-lg sm:px-6 sm:pb-20 sm:pt-10">
             AHEAD Medicine is transforming healthcare through innovative AI
             technology. Our flagship Cyto-copilot platform employ AI to
             streamline the flow cytometry data analysis workflow. Cyto-copilot
@@ -83,15 +83,15 @@ export default function AboutPage() {
           </Typography.P>
         </div>
         <div className="flex flex-col gap-y-6">
-          <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
+          <div className="mx-auto w-full max-w-[600px] px-4 text-center sm:px-6">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-6 text-4xl sm:text-5xl md:text-6xl text-transparent">
               Mission Statement
             </Typography.H2>
             <div className="relative h-2 w-full mt-2">
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></div>
             </div>
           </div>
-          <Typography.P className="mx-auto max-w-[600px] px-4 pb-20 pt-10 text-justify backdrop-blur-lg">
+          <Typography.P className="mx-auto w-full max-w-[600px] px-4 pb-16 pt-8 text-justify backdrop-blur-lg sm:px-6 sm:pb-20 sm:pt-10">
             At AHEAD, our mission is to enhance healthcare equity and address
             the shortage of healthcare professionals through groundbreaking data
             analysis solutions. We are committed to delivering fast, accurate,
@@ -102,8 +102,8 @@ export default function AboutPage() {
           </Typography.P>
         </div>
         <div className="flex flex-col gap-y-6">
-          <div className="mx-auto max-w-[600px] px-4 text-center">
-            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-8 text-6xl text-transparent">
+          <div className="mx-auto w-full max-w-[600px] px-4 text-center sm:px-6">
+            <Typography.H2 className="inline-block font-bold bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text pb-6 text-4xl sm:text-5xl md:text-6xl text-transparent">
               Core Leadership
             </Typography.H2>
             <div className="relative h-2 w-full mt-2">
@@ -111,7 +111,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mx-auto mt-6 max-w-[960px] px-4 pb-20 pt-10">
+          <div className="mx-auto mt-6 w-full max-w-[960px] px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">
             {leaderships.map((item, i, arr) => (
               <div
                 key={item.id}
@@ -119,41 +119,44 @@ export default function AboutPage() {
               >
                 <div
                   className={cn(
-                    'flex flex-col gap-y-3 border-b border-red-200 pb-10',
+                    'flex flex-col gap-y-4 border-b border-red-200 pb-8',
+                    'sm:gap-y-6 sm:pb-10',
                     'md:flex-row md:justify-center md:gap-x-6 md:gap-y-0',
-                    i !== 0 && 'pt-10',
+                    i !== 0 && 'pt-8 sm:pt-10',
                     i === arr.length - 1 && 'border-b-0 pb-0',
                   )}
                 >
-                  <div className="flex flex-col gap-y-2 self-center">
+                  <div className="flex flex-col gap-y-3 self-center">
                     <Image
                       src={item.image}
                       alt={`${item.name}'s photo`}
                       width={item.imageSize.width}
                       height={item.imageSize.height}
-                      priority
-                      className="rounded-xl"
+                      priority={i === 0}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 256px"
+                      className="rounded-xl w-full max-w-[200px] h-auto sm:max-w-[220px] md:max-w-[256px] mx-auto"
                     />
-                    <div className="flex flex-col">
-                      <Typography.Muted>{item.name}</Typography.Muted>
-                      <Typography.Muted>{item.title}</Typography.Muted>
-                      <Typography.Muted>{item.education}</Typography.Muted>
+                    <div className="flex flex-col text-center md:text-left">
+                      <Typography.Muted className="text-sm sm:text-base">{item.name}</Typography.Muted>
+                      <Typography.Muted className="text-xs sm:text-sm">{item.title}</Typography.Muted>
+                      <Typography.Muted className="text-xs sm:text-sm">{item.education}</Typography.Muted>
                     </div>
-                    <div className="flex gap-x-2">
+                    <div className="flex gap-x-2 justify-center md:justify-start">
                       <a href={`mailto:${item.mail}`}>
-                        <Button variant="outline" size="icon">
-                          <Mail className="h-7 w-7" />
+                        <Button variant="outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+                          <Mail className="h-6 w-6 sm:h-7 sm:w-7" />
                         </Button>
                       </a>
                       <a href={item.linkedin} target="_blank" rel="noreferrer">
-                        <Button variant="outline" size="icon">
-                          <Icons.Linkedin className="h-7 w-7" />
+                        <Button variant="outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+                          <Icons.Linkedin className="h-6 w-6 sm:h-7 sm:w-7" />
                         </Button>
                       </a>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <Typography.P className="flex-1 text-justify">
+                    <Typography.P className="flex-1 text-justify text-sm sm:text-base leading-relaxed">
                       {item.intro}
                     </Typography.P>
                   </div>

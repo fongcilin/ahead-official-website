@@ -85,6 +85,7 @@ const Carousel = forwardRef<
     const [canScrollNext, setCanScrollNext] = useState(false);
     const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
     const autoplayIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const isMountedRef = useRef(true);
 
     const onSelect = useCallback((api: CarouselApi) => {
       if (!api) {
@@ -103,7 +104,7 @@ const Carousel = forwardRef<
       api?.scrollNext();
     }, [api]);
 
-    // Function to clear the autoplay interval
+    // Memoize clearAutoplayInterval to prevent unnecessary effect re-runs
     const clearAutoplayInterval = useCallback(() => {
       if (autoplayIntervalRef.current !== null) {
         clearInterval(autoplayIntervalRef.current);
@@ -134,6 +135,9 @@ const Carousel = forwardRef<
 
       // Create a new interval
       const autoplayFunction = () => {
+        // Check if component is still mounted
+        if (!isMountedRef.current) return;
+        
         if (api.canScrollNext()) {
           api.scrollNext();
         } else {
@@ -148,6 +152,14 @@ const Carousel = forwardRef<
         clearAutoplayInterval();
       };
     }, [api, autoplay, autoplayDelay, isAutoplayPaused, clearAutoplayInterval]);
+    
+    // Track component mount state
+    useEffect(() => {
+      isMountedRef.current = true;
+      return () => {
+        isMountedRef.current = false;
+      };
+    }, []);
 
     // Mouse event handlers for carousel root
     const handleMouseEnter = () => {

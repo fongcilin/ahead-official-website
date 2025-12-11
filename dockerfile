@@ -41,6 +41,7 @@ FROM node:23-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV NODE_OPTIONS="--max-old-space-size=1536"
 
 # 在最終映像上執行安全更新
 RUN apk update && \
@@ -68,5 +69,5 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
   CMD curl -f http://localhost:3000/ || exit 1
 
-# Start the application
-CMD ["npm", "start"]
+# Start the application - NODE_OPTIONS 環境變數已經設定,不需要重複
+CMD ["node", "node_modules/.bin/next", "start"]

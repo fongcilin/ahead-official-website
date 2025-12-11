@@ -81,13 +81,18 @@ export const PublicationsArea = ({
 
       {/* load more */}
       {hasMorePublications && !isLoading && (
-        <div className="mt-20 flex justify-center">
+        <div className="mt-12 sm:mt-16 md:mt-20 flex justify-center">
           <Button
             variant="outline"
             className={cn(
-              'border-ahead-red-500 text-ahead-red-500 w-60',
-              'sm:w-80',
+              'border-ahead-red-500 text-ahead-red-500',
+              'w-full max-w-xs',
+              'sm:max-w-sm',
+              'md:max-w-md',
+              'touch-target',
               'hover:bg-ahead-red-700 hover:border-ahead-red-700 hover:text-white',
+              'active:bg-ahead-red-800 active:border-ahead-red-800',
+              'transition-colors',
             )}
             onClick={handleLoadMore}
           >
@@ -113,15 +118,14 @@ interface ListItemProps {
 
 const ListItem = ({ item, priority = false }: ListItemProps) => {
   return (
-    <div className="flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200">
+    <div className="flex h-full flex-col gap-y-4 border-[1.5px] border-zinc-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
       <div className="relative border-b-[1.5px] border-zinc-200">
-        {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
         <AspectRatio ratio={16 / 9}>
           <Image
             src={item.image}
             alt={item.title}
             fill
-            sizes="(max-width: 768px) 600px, 320px"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             priority={priority}
             loading={priority ? 'eager' : 'lazy'}
             className="object-cover"

@@ -31,13 +31,12 @@ export const NewsItem = ({ item, className, priority = false }: NewsItemProps) =
       )}
     >
       <div className="border-b-[1.5px] border-zinc-200">
-        {/* The value of sizes="(max-width: 768px) 600px, 320px" is just an around number observing from browser */}
         <AspectRatio ratio={16 / 9}>
           <Image
             src={item.image}
             alt={item.title}
             fill
-            sizes="(max-width: 768px) 600px, 320px"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             priority={priority}
             loading={priority ? 'eager' : 'lazy'}
             className="object-cover"

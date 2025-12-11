@@ -113,7 +113,12 @@ export const Partnership = () => {
       <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-y-10 px-4">
         <SubBlock>
           <Typography.H2
-            className="inline-block font-bold text-6xl relative pb-8 text-center bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text text-transparent"
+            className={cn(
+              "inline-block font-bold relative pb-8 text-center bg-gradient-to-r from-orange-400 via-red-500 to-red-600 bg-clip-text text-transparent",
+              "text-4xl",
+              "md:text-5xl",
+              "lg:text-6xl"
+            )}
           >
             Partnership
             {/* <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-sm"></span> */}
@@ -141,7 +146,7 @@ export const Partnership = () => {
               AutoScroll({
                 startDelay: 0,
                 stopOnInteraction: false,
-                speed: 0,
+                speed: 1,
               }),
             ]}
             className="mx-auto w-full max-w-[calc(150px*6-16px)] backdrop-blur-lg"
@@ -151,7 +156,10 @@ export const Partnership = () => {
                 <CarouselItem
                   key={item.id}
                   className={cn(
-                    'flex max-w-[150px] basis-1/4 items-center',
+                    'flex max-w-[150px] items-center',
+                    'basis-1/2',
+                    'xs:basis-1/3',
+                    'sm:basis-1/4',
                     'md:basis-1/5',
                   )}
                 >
@@ -182,7 +190,10 @@ export const Partnership = () => {
                 <CarouselItem
                   key={item.id}
                   className={cn(
-                    'flex max-w-[150px] basis-1/4 items-center',
+                    'flex max-w-[150px] items-center',
+                    'basis-1/2',
+                    'xs:basis-1/3',
+                    'sm:basis-1/4',
                     'md:basis-1/6',
                   )}
                 >
@@ -226,8 +237,8 @@ const ListItemLink = ({ item }: ListItemLinkProps) => {
           src={item.image}
           alt={`${item.id} image`}
           fill
-          sizes="150px"
-          priority
+          sizes="(max-width: 390px) 50vw, (max-width: 640px) 33vw, 150px"
+          loading="lazy"
           className="rounded-md object-contain"
         />
       </AspectRatio>

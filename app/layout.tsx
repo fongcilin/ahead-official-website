@@ -78,11 +78,12 @@ export default function RootLayout({
   const gaMeasurementId = 'G-6P1YY9WDWQ';
 
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden max-w-full">
       <body
         className={cn(
           `${manrope.variable} ${geistSans.variable} ${geistMono.variable} antialiased`,
           'grid min-h-screen grid-rows-[1fr,auto]',
+          'overflow-x-hidden max-w-full',
         )}
       >
         {gaMeasurementId && (

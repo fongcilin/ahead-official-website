@@ -21,6 +21,26 @@ services:
       - nextjs_cache:/app/.next/cache
     networks:
       - external_network
+      - test_network
+
+  playwright:
+    build:
+      context: .
+      dockerfile: dockerfile.playwright
+    depends_on:
+      nextjs:
+        condition: service_healthy
+    environment:
+      - PLAYWRIGHT_BASE_URL=http://nextjs:3000
+      - CI=true
+    volumes:
+      - ./tests:/app/tests
+      - ./playwright-report:/app/playwright-report
+      - ./playwright.config.ts:/app/playwright.config.ts
+    networks:
+      - test_network
+    profiles:
+      - test
       
   caddy:
     image: caddy:2.10.0-alpine
@@ -38,6 +58,8 @@ services:
 networks:
   external_network:
     external: true
+  test_network:
+    driver: bridge
 
 volumes:
   caddy_data:

@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '390px',
+      },
       colors: {
         ahead: {
           // Only 700 and 500 come from logo's color,

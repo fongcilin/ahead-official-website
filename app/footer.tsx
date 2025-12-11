@@ -17,28 +17,31 @@ const mediaLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="mt-20 bg-gradient-to-t from-gray-300 to-white">
+    <footer className="mt-20 bg-gradient-to-t from-gray-300 to-white safe-area-inset-bottom">
       <div
         className={cn(
-          'flex flex-col items-center justify-center gap-x-6 gap-y-3 px-4 py-10',
-          'md:flex-row md:gap-y-0',
+          'flex flex-col items-center justify-center gap-y-6 px-4 py-10',
+          'sm:gap-y-4 sm:px-6',
+          'md:flex-row md:gap-x-6 md:gap-y-0 md:px-8',
         )}
       >
-        <div className="md:self-start">
+        <div className="flex justify-center md:self-start">
           <Image
             src="/images/ahead_logo.png"
             alt="Ahead logo"
             width={128}
             height={105}
-            priority
+            priority={false}
+            loading="lazy"
+            className="w-24 h-auto sm:w-28 md:w-32"
           />
         </div>
-        <div className="max-w-[240px]">
-          <Typography.Muted>AHEAD Medicine</Typography.Muted>
-          <Typography.Muted>
+        <div className="max-w-full text-center sm:max-w-[280px] md:max-w-[240px] md:text-left">
+          <Typography.Muted className="text-sm">AHEAD Medicine</Typography.Muted>
+          <Typography.Muted className="text-xs sm:text-sm">
             2880 Zanker Rd, Suite 103, San Jose, CA, 95134
           </Typography.Muted>
-          <Typography.Muted>
+          <Typography.Muted className="text-xs sm:text-sm">
             Taipei office: Room 437, 4F, No. 19-13, Sanchong Rd, Nangang
             District, Taipei City, Taiwan, 115
           </Typography.Muted>
@@ -47,7 +50,7 @@ export const Footer = () => {
           href="https://www.aheadmedicine.com/security-policy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center md:items-start px-8 cursor-pointer"
+          className="flex flex-col items-center md:items-start px-4 sm:px-6 md:px-8 cursor-pointer hover:opacity-80 active:opacity-60 transition-opacity"
         >
           <Image
             src="/images/mark-of-trust-certified-ISOIEC-27001-information-security-management-black-logo-En-GB-1019.png"
@@ -55,15 +58,17 @@ export const Footer = () => {
             width={192}
             height={97}
             priority={false}
+            loading="lazy"
+            className="w-40 h-auto sm:w-44 md:w-48"
           />
           <Typography.Muted className="text-xs mt-1 pt-2 text-center max-w-[180px] break-words">
             ISO 27001 certified by BSI under certificate number IS825167
           </Typography.Muted>
         </Link>
-        <div className="flex gap-x-3">
+        <div className="flex gap-x-3 sm:gap-x-4">
           <Link href={mediaLinks.mail}>
-            <Button variant="gray-outline" size="icon">
-              <Mail className="h-7 w-7" />
+            <Button variant="gray-outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+              <Mail className="h-6 w-6 sm:h-7 sm:w-7" />
             </Button>
           </Link>
           <Link
@@ -71,8 +76,8 @@ export const Footer = () => {
             rel={createLinkRel(mediaLinks.facebook)}
             target={createLinkTarget(mediaLinks.facebook)}
           >
-            <Button variant="gray-outline" size="icon">
-              <Icons.Facebook className="h-7 w-7" />
+            <Button variant="gray-outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+              <Icons.Facebook className="h-6 w-6 sm:h-7 sm:w-7" />
             </Button>
           </Link>
           <Link
@@ -80,8 +85,8 @@ export const Footer = () => {
             rel={createLinkRel(mediaLinks.linkedin)}
             target={createLinkTarget(mediaLinks.linkedin)}
           >
-            <Button variant="gray-outline" size="icon">
-              <Icons.Linkedin className="h-7 w-7" />
+            <Button variant="gray-outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+              <Icons.Linkedin className="h-6 w-6 sm:h-7 sm:w-7" />
             </Button>
           </Link>
           <Link
@@ -89,8 +94,8 @@ export const Footer = () => {
             rel={createLinkRel(mediaLinks.bell)}
             target={createLinkTarget(mediaLinks.bell)}
           >
-            <Button variant="gray-outline" size="icon">
-              <BellPlus className="h-7 w-7" />
+            <Button variant="gray-outline" size="icon" className="touch-target hover:bg-gray-100 active:bg-gray-200 transition-colors">
+              <BellPlus className="h-6 w-6 sm:h-7 sm:w-7" />
             </Button>
           </Link>
         </div>

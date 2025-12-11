@@ -206,3 +206,61 @@ To run a security scan on docker image, use the following command:
 ```bash
 make scan
 ```
+
+## Mobile-First Responsive Design
+
+This project follows a mobile-first responsive design approach using Tailwind CSS breakpoints:
+
+### Breakpoint Strategy
+- **Base (< 640px)**: Mobile-first styles, minimum 320px width support
+- **sm (640px)**: Small tablets and large phones
+- **md (768px)**: Tablets and small desktops
+- **lg (1024px)**: Desktops
+- **xl (1280px)**: Large desktops
+
+### Key Features
+1. **Safe Area Inset**: Supports notched devices (iPhone X and later)
+   - Use `.safe-area-inset` utility class for horizontal padding
+   - Use `.safe-area-inset-bottom` for bottom padding
+
+2. **Touch Target Compliance**: Minimum 44x44px touch targets for iOS
+   - Use `.touch-target` utility class to ensure minimum size
+
+3. **iOS Zoom Prevention**: Input font size is 16px on mobile to prevent auto-zoom
+   - Automatically applied to all text inputs, textareas, and selects
+   - Scales down to 14px on desktop (md breakpoint)
+
+4. **Image Optimization**:
+   - Progressive loading with `priority` and `loading` attributes
+   - Responsive `sizes` attribute for optimal image delivery
+   - iOS-specific rendering fixes included
+
+### Testing Responsive Layout
+
+Run Playwright e2e tests across multiple breakpoints:
+
+```bash
+# Run tests in Docker
+make test
+
+# View test report
+make test-report
+
+# Run tests with UI (requires local Playwright installation)
+make test-ui
+```
+
+Test coverage includes:
+- Mobile (375px - iPhone)
+- Tablet (768px - iPad)
+- Desktop (1280px)
+- Desktop Large (1920px - Full HD)
+
+### Development Guidelines
+
+1. **Always start with mobile styles** (no breakpoint prefix)
+2. **Use progressive enhancement** with `sm:`, `md:`, `lg:`, `xl:` prefixes
+3. **Test on actual devices** or use browser DevTools device emulation
+4. **Avoid fixed widths** - use `max-w-*` and `min-w-*` instead
+5. **Ensure no horizontal scroll** at any breakpoint
+

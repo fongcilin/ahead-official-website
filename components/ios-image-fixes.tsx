@@ -5,23 +5,27 @@ import { useEffect, useCallback, useRef } from 'react';
 /**
  * Component to apply image loading fixes for all platforms
  * Handles failed images with retry logic and provides recovery mechanisms
+ * Uses WeakMap for automatic garbage collection when images are removed from DOM
  * Should be included in the app layout
  */
 export function IOSImageFixes() {
-  const retryCountRef = useRef<Map<string, number>>(new Map());
+  // Use WeakMap to store retry count per image element
+  // When image element is removed from DOM, GC will automatically clean up the entry
+  const retryCountRef = useRef<WeakMap<HTMLImageElement, number>>(new WeakMap());
   const MAX_RETRIES = 3;
   const RETRY_DELAY = 1000; // 1 second
 
   const retryFailedImage = useCallback((img: HTMLImageElement) => {
     const src = img.dataset.originalSrc || img.src;
-    const currentRetries = retryCountRef.current.get(src) || 0;
+    const currentRetries = retryCountRef.current.get(img) || 0;
 
     if (currentRetries >= MAX_RETRIES) {
       console.warn(`Image failed after ${MAX_RETRIES} retries:`, src);
       return;
     }
 
-    retryCountRef.current.set(src, currentRetries + 1);
+    // Store retry count using the element itself as key (enables auto GC)
+    retryCountRef.current.set(img, currentRetries + 1);
     
     // Store original src before clearing
     if (!img.dataset.originalSrc) {
@@ -55,6 +59,9 @@ export function IOSImageFixes() {
         retryFailedImage(element);
       }
     });
+    
+    // Note: No manual cleanup needed! WeakMap automatically garbage collects
+    // entries when image elements are removed from DOM
   }, [retryFailedImage]);
 
   useEffect(() => {

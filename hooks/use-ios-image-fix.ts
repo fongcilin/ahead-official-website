@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 /**
  * Hook to handle iOS-specific image loading issues
@@ -11,6 +11,7 @@ export function useIOSImageFix(src: string, maxRetries: number = 3) {
   const [retryCount, setRetryCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const retryTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Check if we're on iOS
   const isIOS = useCallback(() => {
@@ -22,8 +23,13 @@ export function useIOSImageFix(src: string, maxRetries: number = 3) {
   // Handle image load error with retry
   const handleImageError = useCallback(() => {
     if (retryCount < maxRetries) {
+      // Clear any existing timeout
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+      }
+      
       // Add a small delay before retry to help with iOS
-      setTimeout(() => {
+      retryTimeoutRef.current = setTimeout(() => {
         setRetryCount(prev => prev + 1);
         // Add timestamp to force reload
         setCurrentSrc(`${src}?retry=${retryCount + 1}&t=${Date.now()}`);
@@ -47,6 +53,16 @@ export function useIOSImageFix(src: string, maxRetries: number = 3) {
     setIsLoading(true);
     setHasError(false);
   }, [src]);
+  
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+        retryTimeoutRef.current = null;
+      }
+    };
+  }, []);
 
   // iOS-specific image props
   const imageProps = {

@@ -25,7 +25,12 @@ export async function GET() {
     const memoryUsage = process.memoryUsage();
     const totalMemory = memoryUsage.heapTotal;
     const usedMemory = memoryUsage.heapUsed;
-    const memoryPercentage = Math.round((usedMemory / totalMemory) * 100);
+    const rss = memoryUsage.rss; // Resident Set Size - actual memory in RAM
+    
+    // Use RSS instead of heap percentage for health check
+    // Container has 2GB limit, so we'll use that as baseline
+    const containerMemoryLimit = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+    const memoryPercentage = Math.round((rss / containerMemoryLimit) * 100);
 
     // Check Next.js image cache directory
     const cacheDir = path.join(process.cwd(), '.next', 'cache', 'images');
