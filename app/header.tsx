@@ -131,21 +131,21 @@ const PCList = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] items-stretch">
+            <div className="flex min-h-[301px] w-[550px] items-stretch">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
-                AI Assisted HEmatological Analytics and Decision Support
+                AI Assisted Hematological  Analytics and Decision Support
               </div>
-              <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
+                <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {company.map((item) => (
                   <li key={item.title}>
-                    <NavigationMenuLink asChild>
-                      <ListLink title={item.title} href={item.href}>
-                        {item.description}
-                      </ListLink>
-                    </NavigationMenuLink>
+                  <NavigationMenuLink asChild>
+                    <ListLink title={item.title} href={item.href}>
+                    {item.description}
+                    </ListLink>
+                  </NavigationMenuLink>
                   </li>
                 ))}
-              </ul>
+                </ul>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -153,7 +153,7 @@ const PCList = () => {
           <NavigationMenuTrigger>Technologies</NavigationMenuTrigger>
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
-            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] justify-end">
+            <div className="flex min-h-[301px] w-[550px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
                 Improve access and efficieny for biomedical professionals
               </div>
@@ -175,9 +175,9 @@ const PCList = () => {
           <NavigationMenuTrigger>News</NavigationMenuTrigger>
           <NavigationMenuContent>
             {/* Make the height same as `Company` */}
-            <div className="flex min-h-[301px] w-full min-w-[320px] max-w-[600px] justify-end">
+            <div className="flex min-h-[301px] w-[550px] justify-end">
               <div className="flex flex-1 items-center justify-center bg-gradient-to-r from-ahead-red-700 to-ahead-red-500 p-4 text-2xl md:text-3xl font-bold text-white">
-                Learn about AHEAD&apos;s latest news
+                About AHEAD&apos;s latest news
               </div>
               <ul className="flex flex-1 flex-col gap-3 gap-y-2 p-4">
                 {resources.map((item) => (
