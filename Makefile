@@ -46,7 +46,7 @@ network-check:
 # Build the application
 build: network-check
 	@echo "Building application..."
-	docker-compose build
+	DOCKER_BUILDKIT=1 docker-compose build --parallel
 
 # Start services
 up: network-check

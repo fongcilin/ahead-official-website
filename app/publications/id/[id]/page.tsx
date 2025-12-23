@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const fileMap = new Map<string, string>([
+  ['ash-66', `/pdfs/ASH2025.pdf`],
   ['iccs-2024', `/pdfs/ICCS2024.pdf`],
   ['escca-2024', `/pdfs/ESCCA2024.pdf`],
   ['cyto-2024', `/pdfs/CYTO2024.pdf`],

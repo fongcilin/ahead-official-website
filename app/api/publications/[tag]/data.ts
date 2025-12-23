@@ -1,6 +1,18 @@
 import type { Publication } from './types';
 
 export const publicationList: Publication[] = [
+    {
+      id: 'ash-2025',
+      url: 'https://ashpublications.org/blood/article/146/Supplement%201/5143/556244/Integrated-machine-learning-analysis-for-automatic',
+      image: '/images/publications/66_th_ash.jpg',
+      tag: 'peer-reviewed-conference-workshop-paper',
+      tagName: 'PEER-REVIEWED CONFERENCE / WORKSHOP PAPER',
+      title:
+        'Integrated machine learning analysis for automatic recognition of b-ALL MRD level in flow cytometry list mode data',
+      author:
+        'Yu-Fen Wang, En-Ping Chu , Fong-Ci Lin, Huan-Yu Chen, Tsung-Chih Chen, Joseph Hanson, Joseph D. Tario, Kai Fu, Sara A. Monaghan , Paul K. Wallace, Chi-Chun Lee, Bor-Sheng Ko',
+      footer: 'American Society of Hematology (ASH), 2025',
+    },
    {
     id: 'cbm-2025',
     url: 'https://www.sciencedirect.com/science/article/pii/S0010482525007450',
