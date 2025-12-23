@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "https://innoaward.taiwan-healthcare.org/photo_detail.php?REFDOCID=0t7i9vt25coqeast&REFDOCID=0t7i9vt25coqeast",
+    url: "https://innoaward.taiwan-healthcare.org/photo_detail.php?REFDOCID=0t7i9vt25coqeast&REFDOCID=0t7i9vt25coqeast",
+    image: "/images/news/2025-innoaward-taiwan-healthcare.png",
+    tag: "press_chinese",
+    title: "先勁智能以創新醫材與診斷技術，獲選第22屆國家新創獎",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2025-12-23" }
+    ]
+  },
+  {
     id: "https://youtu.be/sDlMvmGZUlE?si=n0ibKcBusaoZQQJB",
     url: "https://youtu.be/sDlMvmGZUlE?si=n0ibKcBusaoZQQJB",
     image: "/images/news/isac-innovator.png",
