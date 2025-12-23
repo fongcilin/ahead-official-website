@@ -1,73 +1,61 @@
-# Dependencies stage
+# Dependencies stage - 使用 BuildKit cache mount 加速
 FROM node:23-alpine3.20 AS deps
 WORKDIR /app
 
-# 在Alpine上使用apk而非apt-get
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache curl
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable pnpm
 
-# Copy package files
-COPY package*.json ./
+# 只複製 lock file 先做 fetch（更好的快取層）
+COPY pnpm-lock.yaml ./
 
-# Install dependencies
-RUN npm ci
+# 使用 cache mount 快取 pnpm store
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+# 複製 package.json 並安裝
+COPY package.json ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --offline
 
 # Build stage
 FROM node:23-alpine3.20 AS builder
 WORKDIR /app
 
-# Copy dependencies from deps stage
-COPY --from=deps /app/node_modules ./node_modules
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable pnpm
 
-# Copy everything except what's in .dockerignore
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Next.js 16 natively supports next.config.ts, no need to compile
-# RUN if [ -f next.config.ts ]; then \
-#     npx tsc next.config.ts --module esnext --moduleResolution bundler --allowJs --esModuleInterop --outDir ./dist; \
-#     echo "export { default } from './dist/next.config.js';" > ./next.config.js; \
-#     fi
+# Build with standalone output
+RUN pnpm run build
 
-# Build the application
-RUN npm run build
-
-# Install production dependencies and keep TypeScript for next.config.ts
-RUN npm prune --production
-RUN npm install typescript --save
-
-# Production stage - 使用較小的基礎映像
+# Production stage - 極簡化，使用 standalone 輸出
 FROM node:23-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS="--max-old-space-size=1536"
+# 讓 Next.js standalone server 監聽所有網路介面
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
-# 在最終映像上執行安全更新
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache curl
+# 合併 RUN 指令減少 layer
+RUN apk add --no-cache curl && \
+    addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001 -G nodejs
 
-# Copy necessary files from builder stage
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/next.config.ts ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
+# 只複製 standalone 輸出（約 50MB vs 500MB+ 的完整 node_modules）
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# 降低容器權限 - 創建非root用戶運行應用
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001 -G nodejs && \
-    chown -R nextjs:nodejs /app
-    
 USER nextjs
 
-# Expose port
 EXPOSE 3000
 
-# 設置健康檢查
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
   CMD curl -f http://localhost:3000/ || exit 1
 
-# Start the application - NODE_OPTIONS 環境變數已經設定,不需要重複
-CMD ["node", "node_modules/.bin/next", "start"]
+# standalone server 直接用 node 執行，不需要 pnpm
+CMD ["node", "server.js"]

@@ -103,12 +103,12 @@ test:
 # Run Playwright tests with UI (requires local installation)
 test-ui:
 	@echo "Running Playwright tests with UI..."
-	@npm run test:e2e:ui
+	@pnpm run test:e2e:ui
 
 # Show Playwright test report
 test-report:
 	@echo "Opening Playwright test report..."
-	@npm run test:e2e:report
+	@pnpm run test:e2e:report
 
 # Clean up
 clean: down

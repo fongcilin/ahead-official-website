@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'standalone', // 產生獨立的 minimal server，大幅減少 Docker image 大小
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [390, 393, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],

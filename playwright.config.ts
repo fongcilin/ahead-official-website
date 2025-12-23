@@ -53,7 +53,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run dev',
+    command: 'pnpm run dev',
     url: 'http://nextjs:3000',
     reuseExistingServer: true,
     timeout: 120000,

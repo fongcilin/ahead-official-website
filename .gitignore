@@ -33,6 +33,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# npm lock file (using pnpm)
+package-lock.json
+.pnpm-store/*
+
 # env files (can opt-in for committing if needed)
 .env*
 
