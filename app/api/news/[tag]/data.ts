@@ -4,7 +4,7 @@ export const newsList: (News | HighlightNews)[] = [
   {
     id: "cnyes-ahead-biotech-2025",
     url: "https://news.cnyes.com/news/id/6362793",
-    image: "/images/news/cnyes-ahead-biotech.png",
+    image: "/images/news/cnyes-ahead-biotech.jpg",
     tag: "press_chinese",
     title: "先勁智能與宣捷幹細胞簽MOU 建AI免疫細胞檢測平台",
     is_highlight: true,
