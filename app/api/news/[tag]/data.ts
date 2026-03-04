@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "cnyes-ahead-biotech-2025",
+    url: "https://news.cnyes.com/news/id/6362793",
+    image: "/images/news/cnyes-ahead-biotech.png",
+    tag: "press_chinese",
+    title: "先勁智能與宣捷幹細胞簽MOU 建AI免疫細胞檢測平台",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2026-03-04" }
+    ]
+  },
+  {
     id: "https://innoaward.taiwan-healthcare.org/photo_detail.php?REFDOCID=0t7i9vt25coqeast&REFDOCID=0t7i9vt25coqeast",
     url: "https://innoaward.taiwan-healthcare.org/photo_detail.php?REFDOCID=0t7i9vt25coqeast&REFDOCID=0t7i9vt25coqeast",
     image: "/images/news/2025-innoaward-taiwan-healthcare.png",
