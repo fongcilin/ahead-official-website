@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'security policy',
@@ -12,9 +13,13 @@ export default function SecurityPolicyPage() {
           Information Security Policy
         </h1>
         <div className="flex flex-col items-center mb-8">
-          <img
+          <Image
             src="/images/mark-of-trust-certified-ISOIEC-27001-information-security-management-black-logo-En-GB-1019.png"
             alt="ISO 27001 Certified by BSI"
+            width={256}
+            height={130}
+            priority={false}
+            loading="lazy"
             className="w-64 mb-4"
           />
             <p className="text-center text-base font-medium">
