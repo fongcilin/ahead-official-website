@@ -37,6 +37,11 @@ const taiwan: Partner[] = [
     href: 'https://www.scmh.org.tw/',
   },
   {
+    id: 'meribank',
+    image: '/images/partnership/meribank.png',
+    href: 'https://www.meribank.com.tw/',
+  },
+  {
     id: 'appworks',
     image: '/images/partnership/appworks.svg',
     href: 'https://appworks.tw/',
