@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "bnext-startup-blossom-top30-2026",
+    url: "https://meet.bnext.com.tw/articles/view/53204",
+    image: "/images/news/bnext.jpg",
+    tag: "press_chinese",
+    title: "先勁智能入選國發會「創業綻放」前瞻科技組30強 角逐千萬獎金",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2026-04-29" }
+    ]
+  },
+  {
     id: "cnyes-ahead-biotech-2025",
     url: "https://news.cnyes.com/news/id/6362793",
     image: "/images/news/cnyes-ahead-biotech.jpg",
