@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "ey-startup-alliance-premier-award-2026",
+    url: "https://www.ey.gov.tw/Page/9277F759E41CCD91/f0cc9ee5-4cfd-4510-a7c4-7458282e07ae",
+    image: "/images/news/startup_asvda_award.jpg",
+    tag: "press_chinese",
+    title: "先勁智能榮獲「創業大聯盟」院長獎　行政院長卓榮泰親自頒獎",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Press (Chinese)" },
+      { variant: "normal", text: "2026-05-27" }
+    ]
+  },
+  {
     id: "bnext-startup-blossom-top30-2026",
     url: "https://meet.bnext.com.tw/articles/view/53204",
     image: "/images/news/bnext.jpg",
