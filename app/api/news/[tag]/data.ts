@@ -2,6 +2,18 @@ import type { News, HighlightNews } from './types';
 
 export const newsList: (News | HighlightNews)[] = [
   {
+    id: "cyto-resolve-award-2026",
+    url: "https://www.linkedin.com/posts/cyto2026-flowcytometry-lifescience-ugcPost-7470905831820222464-c5uB/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAexc3MBmpdV-c40SqHs6zWXMCX0rbLUX_E",
+    image: "/images/news/cyto-resolve-award.png",
+    tag: "social_media",
+    title: "先勁智能閃耀 CYTO 2026：創辦人接棒國際頂尖女性科學家，榮獲 Resolve Award 殊榮！",
+    is_highlight: true,
+    footer: [
+      { variant: "border", text: "Social Media" },
+      { variant: "normal", text: "2026-06-09" }
+    ]
+  },
+  {
     id: "ey-startup-alliance-premier-award-2026",
     url: "https://www.ey.gov.tw/Page/9277F759E41CCD91/f0cc9ee5-4cfd-4510-a7c4-7458282e07ae",
     image: "/images/news/startup_asvda_award.jpg",
